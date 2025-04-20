@@ -8,7 +8,7 @@ interface ProductProps {
   isPopular?: boolean;
 }
 
-const ProductCard: React.FC<ProductProps> = ({ name, image, isNew, isPopular }) => {
+const ProductCard: React.FC<ProductProps> = ({ id, name, image, isNew, isPopular }) => {
   return (
     <div className="product-card">
       <div className="product-image-container">
