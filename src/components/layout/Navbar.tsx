@@ -1,0 +1,129 @@
+import { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { Car, Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+
+  const navLinkClass = ({ isActive }: { isActive: boolean }) => 
+    `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+      isActive 
+        ? 'text-primary-900 bg-primary-50' 
+        : 'text-secondary-600 hover:text-primary-900 hover:bg-gray-100'
+    }`;
+
+  return (
+    <nav 
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'bg-white shadow-md py-2' 
+          : 'bg-white/80 backdrop-blur-md py-4'
+      }`}
+    >
+      <div className="container-custom">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link 
+            to="/" 
+            className="flex items-center space-x-2"
+            onClick={closeMenu}
+          >
+            <Car className="w-8 h-8 text-primary-800" />
+            <span className="text-xl font-display font-bold text-primary-900">
+              Bigtrading
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-4">
+            <NavLink to="/" className={navLinkClass}>Home</NavLink>
+            <NavLink to="/about" className={navLinkClass}>About</NavLink>
+            <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
+            <Link to="/" className="btn btn-accent ml-4">
+              View Inventory
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button
+              type="button"
+              className="inline-flex items-center justify-center p-2 rounded-md text-secondary-600 hover:text-primary-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+              aria-expanded="false"
+              onClick={toggleMenu}
+            >
+              <span className="sr-only">Open main menu</span>
+              {isOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <motion.div 
+          className="md:hidden"
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
+            <NavLink 
+              to="/" 
+              className={navLinkClass} 
+              onClick={closeMenu}
+            >
+              Home
+            </NavLink>
+            <NavLink 
+              to="/about" 
+              className={navLinkClass} 
+              onClick={closeMenu}
+            >
+              About
+            </NavLink>
+            <NavLink 
+              to="/contact" 
+              className={navLinkClass} 
+              onClick={closeMenu}
+            >
+              Contact
+            </NavLink>
+            <Link 
+              to="/" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-white bg-accent-400 hover:bg-accent-500"
+              onClick={closeMenu}
+            >
+              View Inventory
+            </Link>
+          </div>
+        </motion.div>
+      )}
+    </nav>
+  );
+};
+
+export default Navbar;
