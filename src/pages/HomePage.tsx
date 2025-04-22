@@ -117,9 +117,7 @@ const HomePage = () => {
               Established in 2015, we deliver high-quality vehicles and equipment worldwide from our base in Kuwana, Japan.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#vehicle-gallery" className="btn btn-accent px-6 py-3 text-base">
-                View Inventory
-              </a>
+
               <a href="tel:+81804213-9008" className="btn bg-white/10 hover:bg-white/20 text-white border-white/30 px-6 py-3 text-base">
                 Call Us: +81 80-4213-9008
               </a>

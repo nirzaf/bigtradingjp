@@ -49,7 +49,7 @@ const Navbar = () => {
             <img src="/images/logo.png" alt="Bigtrading Logo" className="h-10 w-auto" />
             <div className="flex flex-col">
               <span className="text-xl font-display font-bold text-primary-600 uppercase tracking-wider">
-                BIG TRADING 
+                BIG TRADING
               </span>
               <span className="text-xs text-secondary-800 uppercase tracking-tight">
                 EXPORTER OF MOTOR VEHICLES, SPARE PARTS AND MACHINERIES
@@ -62,9 +62,7 @@ const Navbar = () => {
             <NavLink to="/" className={navLinkClass}>Home</NavLink>
             <NavLink to="/about" className={navLinkClass}>About</NavLink>
             <NavLink to="/contact" className={navLinkClass}>Contact</NavLink>
-            <Link to="/" className="btn btn-accent ml-4">
-              View Inventory
-            </Link>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -117,13 +115,7 @@ const Navbar = () => {
             >
               Contact
             </NavLink>
-            <Link
-              to="/"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white bg-accent-500 hover:bg-accent-600"
-              onClick={closeMenu}
-            >
-              View Inventory
-            </Link>
+
           </div>
         </motion.div>
       )}
