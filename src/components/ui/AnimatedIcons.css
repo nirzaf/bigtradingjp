@@ -1,0 +1,319 @@
+/* Animated Icons CSS */
+
+.icon-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Truck Icon Animation */
+.truck-icon {
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.truck-icon::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  filter: blur(3px);
+  animation: shadow-pulse 3s ease-in-out infinite;
+}
+
+/* Excavator Icon Animation */
+.excavator-icon {
+  position: relative;
+  animation: excavator-move 4s ease-in-out infinite;
+}
+
+.excavator-icon::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  filter: blur(3px);
+  animation: shadow-pulse 4s ease-in-out infinite;
+}
+
+/* Gear Icon Animation */
+.gear-icon {
+  animation: rotate 10s linear infinite;
+}
+
+.gear-icon-reverse {
+  animation: rotate-reverse 7s linear infinite;
+}
+
+/* Globe Icon Animation */
+.globe-icon {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Sparkle Animation */
+.sparkle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: sparkle-fade 2s ease-in-out infinite;
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shadow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    width: 80%;
+  }
+  50% {
+    opacity: 0.1;
+    width: 60%;
+  }
+}
+
+@keyframes excavator-move {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(1deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes sparkle-fade {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animated background for hero section */
+.animated-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: linear-gradient(
+    135deg,
+    rgba(62, 90, 193, 0.1) 0%,
+    rgba(24, 68, 198, 0.1) 25%,
+    rgba(247, 108, 9, 0.1) 50%,
+    rgba(231, 125, 46, 0.1) 75%,
+    rgba(62, 90, 193, 0.1) 100%
+  );
+  animation: bg-shift 15s ease-in-out infinite alternate;
+}
+
+@keyframes bg-shift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(-5%, -5%) scale(1.1);
+  }
+}
+
+/* Floating particles */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.particle-1 {
+  width: 6px;
+  height: 6px;
+  animation: particle-move-1 15s linear infinite;
+}
+
+.particle-2 {
+  width: 8px;
+  height: 8px;
+  animation: particle-move-2 20s linear infinite;
+}
+
+.particle-3 {
+  width: 4px;
+  height: 4px;
+  animation: particle-move-3 25s linear infinite;
+}
+
+@keyframes particle-move-1 {
+  0% {
+    top: -5%;
+    left: 10%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    top: 105%;
+    left: 30%;
+    opacity: 0;
+  }
+}
+
+@keyframes particle-move-2 {
+  0% {
+    top: -5%;
+    left: 50%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    top: 105%;
+    left: 70%;
+    opacity: 0;
+  }
+}
+
+@keyframes particle-move-3 {
+  0% {
+    top: -5%;
+    left: 80%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    top: 105%;
+    left: 60%;
+    opacity: 0;
+  }
+}
+
+/* Animated Call Button */
+.animated-call-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.animated-call-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.5s ease;
+}
+
+.animated-call-btn:hover::before {
+  left: 100%;
+}
+
+.animated-call-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
