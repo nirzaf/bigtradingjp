@@ -20,10 +20,10 @@ const ContactPage = () => {
     subject: '',
     message: '',
   });
-  
+
   const [formStatus, setFormStatus] = useState<{ success?: string; error?: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -31,11 +31,11 @@ const ContactPage = () => {
       [name]: value
     }));
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setFormStatus({ success: "Thank you for your message. We'll be in touch shortly!" });
@@ -58,12 +58,12 @@ const ContactPage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      <PageHeader 
-        title="Contact Us" 
+      <PageHeader
+        title="Contact Us"
         subtitle="Our team is ready to assist you with any questions or inquiries"
-        backgroundImage="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg"
+        backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
       />
-      
+
       {/* Contact Information Section */}
       <section className="py-16 bg-white">
         <div className="container-custom">
@@ -76,7 +76,7 @@ const ContactPage = () => {
               className="lg:col-span-1"
             >
               <h2 className="text-2xl font-display font-bold mb-6">Get in Touch</h2>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 mr-4">
@@ -91,7 +91,7 @@ const ContactPage = () => {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 mr-4">
                     <Phone className="w-6 h-6 text-primary-800" />
@@ -110,7 +110,7 @@ const ContactPage = () => {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 mr-4">
                     <Mail className="w-6 h-6 text-primary-800" />
@@ -118,18 +118,18 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-lg font-medium text-primary-900 mb-1">Email</h3>
                     <p className="text-secondary-700">
-                      <a href="mailto:info@autoelite.com" className="hover:text-primary-800 transition-colors">
-                        info@autoelite.com
+                      <a href="mailto:info@bigtrading.com" className="hover:text-primary-800 transition-colors">
+                        info@bigtrading.com
                       </a>
                     </p>
                     <p className="text-secondary-700">
-                      <a href="mailto:sales@autoelite.com" className="hover:text-primary-800 transition-colors">
-                        sales@autoelite.com
+                      <a href="mailto:sales@bigtrading.com" className="hover:text-primary-800 transition-colors">
+                        sales@bigtrading.com
                       </a>
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-full bg-primary-100 mr-4">
                     <Clock className="w-6 h-6 text-primary-800" />
@@ -145,7 +145,7 @@ const ContactPage = () => {
                 </div>
               </div>
             </motion.div>
-            
+
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -155,7 +155,7 @@ const ContactPage = () => {
             >
               <div className="bg-gray-50 rounded-lg p-8">
                 <h2 className="text-2xl font-display font-bold mb-6">Send Us a Message</h2>
-                
+
                 {formStatus.success && (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
@@ -165,7 +165,7 @@ const ContactPage = () => {
                     <p>{formStatus.success}</p>
                   </motion.div>
                 )}
-                
+
                 {formStatus.error && (
                   <motion.div
                     initial={{ opacity: 0, height: 0 }}
@@ -175,7 +175,7 @@ const ContactPage = () => {
                     <p>{formStatus.error}</p>
                   </motion.div>
                 )}
-                
+
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
@@ -192,7 +192,7 @@ const ContactPage = () => {
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-secondary-700 mb-1">
                         Email Address *
@@ -207,7 +207,7 @@ const ContactPage = () => {
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-secondary-700 mb-1">
                         Phone Number
@@ -221,7 +221,7 @@ const ContactPage = () => {
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                       />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-secondary-700 mb-1">
                         Subject *
@@ -237,13 +237,14 @@ const ContactPage = () => {
                         <option value="">Select a subject</option>
                         <option value="General Inquiry">General Inquiry</option>
                         <option value="Vehicle Information">Vehicle Information</option>
+                        <option value="Construction Equipment">Construction Equipment</option>
                         <option value="Schedule Test Drive">Schedule Test Drive</option>
                         <option value="Financing Options">Financing Options</option>
                         <option value="Service Request">Service Request</option>
                       </select>
                     </div>
                   </div>
-                  
+
                   <div className="mb-6">
                     <label htmlFor="message" className="block text-sm font-medium text-secondary-700 mb-1">
                       Message *
@@ -258,7 +259,7 @@ const ContactPage = () => {
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                     ></textarea>
                   </div>
-                  
+
                   <div>
                     <button
                       type="submit"
@@ -289,17 +290,17 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Map Section */}
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-2xl font-display font-bold mb-4">Visit Our Showroom</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-              Experience our collection of exceptional vehicles in person at our Beverly Hills showroom.
+              Experience our collection of exceptional vehicles and construction equipment in person at our Beverly Hills showroom.
             </p>
           </div>
-          
+
           <div className="h-96 bg-gray-200 rounded-lg overflow-hidden">
             {/* Map would go here. For now, displaying a placeholder */}
             <div className="w-full h-full flex items-center justify-center bg-gray-300">

@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Logo and About */}
           <div className="md:col-span-4">
             <Link to="/" className="flex items-center space-x-2 mb-4">
-              <Car className="w-6 h-6 text-accent-400" />
+              <img src="/images/logo.png" alt="Bigtrading Logo" className="h-8 w-auto" />
               <span className="text-xl font-display font-bold text-white">
                 Bigtrading
               </span>

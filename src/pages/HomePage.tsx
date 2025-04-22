@@ -3,12 +3,53 @@ import { motion } from 'framer-motion';
 import { Search, CircleDollarSign, ThumbsUp, Award } from 'lucide-react';
 
 import VehicleCard from '../components/vehicles/VehicleCard';
+import CategoryGallery from '../components/ui/CategoryGallery';
 import { vehicles } from '../data/vehicles';
 import { Vehicle } from '../types/vehicle';
 
 const HomePage = () => {
   const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[]>(vehicles);
   const [activeFilter, setActiveFilter] = useState<string>('all');
+
+  // Category data for the gallery
+  const categories = [
+    {
+      id: '1',
+      name: 'Excavators',
+      image: '/categories/Komatsu Yellow Excavator PC210.png',
+      link: '#vehicle-gallery'
+    },
+    {
+      id: '2',
+      name: 'Vehicles',
+      image: '/categories/Various Vehicles Truck Cars Motorcycle.png',
+      link: '#vehicle-gallery'
+    },
+    {
+      id: '3',
+      name: 'Dump Trucks',
+      image: '/categories/Yellow Dump Truck Isolated.webp',
+      link: '#vehicle-gallery'
+    },
+    {
+      id: '4',
+      name: 'Road Rollers',
+      image: '/categories/Yellow Lonking CDM516B Road Roller.png',
+      link: '#vehicle-gallery'
+    },
+    {
+      id: '5',
+      name: 'Motor Graders',
+      image: '/categories/Yellow Motor Grader 4180D.png',
+      link: '#vehicle-gallery'
+    },
+    {
+      id: '6',
+      name: 'Mobile Cranes',
+      image: '/categories/Yellow Zoomlion Mobile Crane on Black Background.png',
+      link: '#vehicle-gallery'
+    }
+  ];
 
   const filterVehicles = (filterType: string) => {
     setActiveFilter(filterType);
@@ -157,6 +198,9 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Category Gallery */}
+      <CategoryGallery categories={categories} />
 
       {/* Vehicle Gallery */}
       <section id="vehicle-gallery" className="py-16 bg-gray-50">

@@ -23,30 +23,30 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
-  const navLinkClass = ({ isActive }: { isActive: boolean }) => 
+  const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-      isActive 
-        ? 'text-primary-900 bg-primary-50' 
+      isActive
+        ? 'text-primary-900 bg-primary-50'
         : 'text-secondary-600 hover:text-primary-900 hover:bg-gray-100'
     }`;
 
   return (
-    <nav 
+    <nav
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white shadow-md py-2' 
+        scrolled
+          ? 'bg-white shadow-md py-2'
           : 'bg-white/80 backdrop-blur-md py-4'
       }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="flex items-center space-x-2"
             onClick={closeMenu}
           >
-            <Car className="w-8 h-8 text-primary-800" />
+            <img src="/images/logo.png" alt="Bigtrading Logo" className="h-10 w-auto" />
             <span className="text-xl font-display font-bold text-primary-900">
               Bigtrading
             </span>
@@ -83,7 +83,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <motion.div 
+        <motion.div
           className="md:hidden"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
@@ -91,29 +91,29 @@ const Navbar = () => {
           transition={{ duration: 0.3 }}
         >
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
-            <NavLink 
-              to="/" 
-              className={navLinkClass} 
+            <NavLink
+              to="/"
+              className={navLinkClass}
               onClick={closeMenu}
             >
               Home
             </NavLink>
-            <NavLink 
-              to="/about" 
-              className={navLinkClass} 
+            <NavLink
+              to="/about"
+              className={navLinkClass}
               onClick={closeMenu}
             >
               About
             </NavLink>
-            <NavLink 
-              to="/contact" 
-              className={navLinkClass} 
+            <NavLink
+              to="/contact"
+              className={navLinkClass}
               onClick={closeMenu}
             >
               Contact
             </NavLink>
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="block px-3 py-2 rounded-md text-base font-medium text-white bg-accent-400 hover:bg-accent-500"
               onClick={closeMenu}
             >
