@@ -1,15 +1,9 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
-interface CategoryItem {
-  id: string;
-  name: string;
-  image: string;
-  link: string;
-}
+import { Category } from '../../data/categories';
 
 interface CategoryGalleryProps {
-  categories: CategoryItem[];
+  categories: Category[];
 }
 
 const CategoryGallery = ({ categories }: CategoryGalleryProps) => {
