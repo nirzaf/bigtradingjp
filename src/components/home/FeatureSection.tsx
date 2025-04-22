@@ -30,8 +30,8 @@ const FeatureSection = () => {
       description: "Enjoy concierge-level service from your first inquiry to long after your purchase."
     },
     {
-      icon: <Award className="w-10 h-10 text-primary-800" />,
-      backIcon: <Award className="w-10 h-10" />,
+      icon: <Award className="w-12 h-12 text-primary-800" />,
+      backIcon: <Award className="w-12 h-12" />,
       title: "Quality Guarantee",
       description: "All vehicles undergo rigorous inspection and come with a comprehensive warranty."
     }
@@ -71,7 +71,7 @@ const FeatureSection = () => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="feature-card text-center p-8 rounded-lg"
+              className="feature-card text-center p-8 pt-10 pb-8 rounded-lg flex flex-col items-center"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}

@@ -2,8 +2,8 @@
 
 .icon-3d-container {
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   perspective: 800px;
   margin: 0 auto 1.5rem;
   display: flex;
