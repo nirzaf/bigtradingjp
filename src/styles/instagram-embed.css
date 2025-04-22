@@ -6,6 +6,17 @@
   width: 100%;
 }
 
+/* Instagram pattern background */
+.instagram-pattern {
+  background-size: 200px;
+  animation: slide 60s linear infinite;
+}
+
+@keyframes slide {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 1000px; }
+}
+
 /* Feed wrapper for scrollable content */
 .instagram-feed-wrapper {
   position: relative;
@@ -80,12 +91,12 @@
   .instagram-feed-wrapper {
     max-height: 500px;
   }
-  
+
   /* Adjust container padding for mobile */
   .instagram-container {
     padding: 0;
   }
-  
+
   /* Make sure text is readable on mobile */
   .instagram-media {
     font-size: 14px !important;

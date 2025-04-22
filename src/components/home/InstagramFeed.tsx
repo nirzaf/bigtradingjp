@@ -36,7 +36,7 @@ const InstagramFeed = () => {
               containerRef.current.classList.add('loaded');
               setIsLoading(false);
             }
-          }, 2000); // Give it more time to fully render
+          }, 3000); // Give it more time to fully render
         } catch (error) {
           console.error('Error processing Instagram embeds:', error);
           setIsLoading(false);
@@ -70,7 +70,7 @@ const InstagramFeed = () => {
         setIsLoading(false);
         setHasError(true);
       }
-    }, 10000); // 10 second timeout
+    }, 15000); // 15 second timeout
 
     // Clean up on unmount
     return () => {
@@ -82,7 +82,7 @@ const InstagramFeed = () => {
   }, [isLoading]);
 
   return (
-    <section className="py-16 bg-gradient-to-r from-[#F7F7EA]/50 to-white">
+    <section className="py-12 bg-gradient-to-r from-[#F7F7EA]/50 to-white">
       <div className="absolute left-0 right-0 w-full h-full max-h-[500px] overflow-hidden opacity-5 pointer-events-none">
         <div className="instagram-pattern absolute inset-0 bg-repeat opacity-10" style={{ backgroundImage: 'url("/images/instagram-pattern.png")' }}></div>
       </div>
@@ -92,12 +92,12 @@ const InstagramFeed = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-6"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-[#3E5AC1] mb-3 uppercase">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#3E5AC1] mb-3 uppercase">
             Follow @bigjapan_jdm on Instagram
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
             Stay updated with our latest JDM vehicles, construction machinery, and exclusive offers through our Instagram feed.
           </p>
         </motion.div>
@@ -303,10 +303,15 @@ const InstagramFeed = () => {
 
           {/* Loading overlay */}
           {isLoading && (
-            <div className="absolute inset-0 flex items-center justify-center bg-white/80 instagram-loading">
+            <div className="absolute inset-0 flex items-center justify-center bg-white/90 instagram-loading">
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 border-4 border-[#3E5AC1] border-t-transparent rounded-full animate-spin mb-4"></div>
-                <p className="text-[#3E5AC1] font-medium">Loading Instagram feed...</p>
+                <div className="relative w-16 h-16 mb-4">
+                  <div className="w-16 h-16 border-4 border-[#3E5AC1] border-t-transparent rounded-full animate-spin"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <Instagram size={20} className="text-[#3E5AC1]" />
+                  </div>
+                </div>
+                <p className="text-[#3E5AC1] font-medium">Loading @bigjapan_jdm feed...</p>
               </div>
             </div>
           )}
@@ -336,15 +341,15 @@ const InstagramFeed = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-8"
+          className="text-center mt-6"
         >
           <a
             href="https://www.instagram.com/bigjapan_jdm/?igsh=MXJqa2x1N3c1MTV0bw%3D%3D&utm_source=qr#"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#3E5AC1] to-[#1844C6] text-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:from-[#F76C09] hover:to-[#E77D2E]"
+            className="inline-flex items-center gap-2 px-5 py-2 text-sm bg-gradient-to-r from-[#3E5AC1] to-[#1844C6] text-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:from-[#F76C09] hover:to-[#E77D2E]"
           >
-            <Instagram size={20} />
+            <Instagram size={16} />
             <span className="font-medium">Follow @bigjapan_jdm</span>
           </a>
         </motion.div>

@@ -17,10 +17,10 @@ const HomePage = () => {
       transition={{ duration: 0.3 }}
     >
       <HeroSection />
-      <InstagramFeed />
       <FeatureSection />
       <CategoryGallery categories={categories} />
       <VehicleGallery />
+      <InstagramFeed />
       <CallToAction />
     </motion.div>
   );
