@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Instagram } from 'lucide-react';
 
 // Declare the Instagram embed type
 declare global {
@@ -14,49 +15,77 @@ declare global {
 
 const InstagramFeed = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     // Create Instagram embed script
     const script = document.createElement('script');
     script.src = 'https://www.instagram.com/embed.js';
     script.async = true;
-    
+
     // Function to process embeds
     const processEmbeds = () => {
       if (typeof window !== 'undefined' && window.instgrm) {
-        window.instgrm.Embeds.process();
-        
-        // Add a class to the container when loaded
-        setTimeout(() => {
-          if (containerRef.current) {
-            containerRef.current.classList.add('loaded');
-          }
-        }, 1500); // Give it some time to fully render
+        try {
+          window.instgrm.Embeds.process();
+
+          // Add a class to the container when loaded
+          setTimeout(() => {
+            if (containerRef.current) {
+              containerRef.current.classList.add('loaded');
+              setIsLoading(false);
+            }
+          }, 2000); // Give it more time to fully render
+        } catch (error) {
+          console.error('Error processing Instagram embeds:', error);
+          setIsLoading(false);
+          setHasError(true);
+        }
       } else {
         // If not loaded yet, try again
-        setTimeout(processEmbeds, 500);
+        setTimeout(processEmbeds, 1000);
       }
     };
-    
+
+    // Handle script load error
+    script.onerror = () => {
+      console.error('Failed to load Instagram embed script');
+      setIsLoading(false);
+      setHasError(true);
+    };
+
     // Add the script to the document
     document.body.appendChild(script);
-    
+
     // Process embeds once script is loaded
     script.onload = processEmbeds;
-    
+
     // Try to process embeds in case the script is already loaded
     processEmbeds();
-    
+
+    // Set a timeout to handle cases where Instagram doesn't load
+    const timeoutId = setTimeout(() => {
+      if (isLoading) {
+        setIsLoading(false);
+        setHasError(true);
+      }
+    }, 10000); // 10 second timeout
+
     // Clean up on unmount
     return () => {
       if (document.body.contains(script)) {
         document.body.removeChild(script);
       }
+      clearTimeout(timeoutId);
     };
-  }, []);
+  }, [isLoading]);
 
   return (
-    <section className="py-12 bg-gradient-to-r from-[#F7F7EA]/50 to-white">
+    <section className="py-16 bg-gradient-to-r from-[#F7F7EA]/50 to-white">
+      <div className="absolute left-0 right-0 w-full h-full max-h-[500px] overflow-hidden opacity-5 pointer-events-none">
+        <div className="instagram-pattern absolute inset-0 bg-repeat opacity-10" style={{ backgroundImage: 'url("/images/instagram-pattern.png")' }}></div>
+      </div>
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,15 +94,15 @@ const InstagramFeed = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-[#3E5AC1] mb-3">
-            Follow Us on Instagram
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-[#3E5AC1] mb-3 uppercase">
+            Follow @bigjapan_jdm on Instagram
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Stay updated with our latest vehicles, parts, and machinery through our Instagram feed.
+            Stay updated with our latest JDM vehicles, construction machinery, and exclusive offers through our Instagram feed.
           </p>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           ref={containerRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -81,26 +110,29 @@ const InstagramFeed = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="instagram-container relative overflow-hidden rounded-xl shadow-lg bg-white"
         >
-          <div className="aspect-video md:aspect-[16/9] w-full max-w-4xl mx-auto">
-            <blockquote 
-              className="instagram-media w-full h-full" 
-              data-instgrm-permalink="https://www.instagram.com/bigjapan_jdm/?igsh=MXJqa2x1N3c1MTV0bw%3D%3D&utm_source=qr"
+          {/* Direct Instagram Post Embed */}
+          <div className="instagram-feed-wrapper w-full max-w-4xl mx-auto p-4">
+            {/* Instagram profile embed */}
+            <blockquote
+              className="instagram-media w-full"
+              data-instgrm-permalink="https://www.instagram.com/bigjapan_jdm/?igsh=MXJqa2x1N3c1MTV0bw%3D%3D&utm_source=qr&utm_source=ig_embed&amp;utm_campaign=loading"
               data-instgrm-version="14"
               style={{
                 background: '#FFF',
                 border: 0,
-                borderRadius: '3px',
+                borderRadius: '8px',
                 boxShadow: '0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15)',
                 margin: '0',
+                maxWidth: '540px',
+                minWidth: '326px',
                 padding: '0',
-                width: '100%',
-                height: '100%'
+                width: 'calc(100% - 2px)',
               }}
             >
               <div style={{ padding: '16px' }}>
-                <a 
-                  href="https://www.instagram.com/bigjapan_jdm/?igsh=MXJqa2x1N3c1MTV0bw%3D%3D&utm_source=qr" 
-                  style={{ 
+                <a
+                  href="https://www.instagram.com/bigjapan_jdm/?igsh=MXJqa2x1N3c1MTV0bw%3D%3D&utm_source=qr#"
+                  style={{
                     background: '#FFFFFF',
                     lineHeight: 0,
                     padding: '0 0',
@@ -116,7 +148,7 @@ const InstagramFeed = () => {
                   rel="noreferrer"
                 >
                   <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                    <div style={{ 
+                    <div style={{
                       backgroundColor: '#F4F4F4',
                       borderRadius: '50%',
                       flexGrow: 0,
@@ -125,7 +157,7 @@ const InstagramFeed = () => {
                       width: '40px'
                     }}></div>
                     <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'center' }}>
-                      <div style={{ 
+                      <div style={{
                         backgroundColor: '#F4F4F4',
                         borderRadius: '4px',
                         flexGrow: 0,
@@ -133,7 +165,7 @@ const InstagramFeed = () => {
                         marginBottom: '6px',
                         width: '100px'
                       }}></div>
-                      <div style={{ 
+                      <div style={{
                         backgroundColor: '#F4F4F4',
                         borderRadius: '4px',
                         flexGrow: 0,
@@ -143,7 +175,7 @@ const InstagramFeed = () => {
                     </div>
                   </div>
                   <div style={{ padding: '19% 0' }}></div>
-                  <div style={{ 
+                  <div style={{
                     display: 'block',
                     height: '50px',
                     margin: '0 auto 12px',
@@ -160,7 +192,7 @@ const InstagramFeed = () => {
                     </svg>
                   </div>
                   <div style={{ paddingTop: '8px' }}>
-                    <div style={{ 
+                    <div style={{
                       color: '#3897f0',
                       fontFamily: 'Arial,sans-serif',
                       fontSize: '14px',
@@ -170,21 +202,21 @@ const InstagramFeed = () => {
                     }}>View this profile on Instagram</div>
                   </div>
                   <div style={{ padding: '12.5% 0' }}></div>
-                  <div style={{ 
+                  <div style={{
                     display: 'flex',
                     flexDirection: 'row',
                     marginBottom: '14px',
                     alignItems: 'center'
                   }}>
                     <div>
-                      <div style={{ 
+                      <div style={{
                         backgroundColor: '#F4F4F4',
                         borderRadius: '50%',
                         height: '12.5px',
                         width: '12.5px',
                         transform: 'translateX(0px) translateY(7px)'
                       }}></div>
-                      <div style={{ 
+                      <div style={{
                         backgroundColor: '#F4F4F4',
                         height: '12.5px',
                         transform: 'rotate(-45deg) translateX(3px) translateY(1px)',
@@ -193,7 +225,7 @@ const InstagramFeed = () => {
                         marginRight: '14px',
                         marginLeft: '2px'
                       }}></div>
-                      <div style={{ 
+                      <div style={{
                         backgroundColor: '#F4F4F4',
                         borderRadius: '50%',
                         height: '12.5px',
@@ -202,14 +234,14 @@ const InstagramFeed = () => {
                       }}></div>
                     </div>
                     <div style={{ marginLeft: '8px' }}>
-                      <div style={{ 
+                      <div style={{
                         backgroundColor: '#F4F4F4',
                         borderRadius: '50%',
                         flexGrow: 0,
                         height: '20px',
                         width: '20px'
                       }}></div>
-                      <div style={{ 
+                      <div style={{
                         width: 0,
                         height: 0,
                         borderTop: '2px solid transparent',
@@ -219,20 +251,20 @@ const InstagramFeed = () => {
                       }}></div>
                     </div>
                     <div style={{ marginLeft: 'auto' }}>
-                      <div style={{ 
+                      <div style={{
                         width: '0px',
                         borderTop: '8px solid #F4F4F4',
                         borderRight: '8px solid transparent',
                         transform: 'translateY(16px)'
                       }}></div>
-                      <div style={{ 
+                      <div style={{
                         backgroundColor: '#F4F4F4',
                         flexGrow: 0,
                         height: '12px',
                         width: '16px',
                         transform: 'translateY(-4px)'
                       }}></div>
-                      <div style={{ 
+                      <div style={{
                         width: 0,
                         height: 0,
                         borderTop: '8px solid #F4F4F4',
@@ -241,14 +273,14 @@ const InstagramFeed = () => {
                       }}></div>
                     </div>
                   </div>
-                  <div style={{ 
+                  <div style={{
                     display: 'flex',
                     flexDirection: 'column',
                     flexGrow: 1,
                     justifyContent: 'center',
                     marginBottom: '24px'
                   }}>
-                    <div style={{ 
+                    <div style={{
                       backgroundColor: '#F4F4F4',
                       borderRadius: '4px',
                       flexGrow: 0,
@@ -256,7 +288,7 @@ const InstagramFeed = () => {
                       marginBottom: '6px',
                       width: '224px'
                     }}></div>
-                    <div style={{ 
+                    <div style={{
                       backgroundColor: '#F4F4F4',
                       borderRadius: '4px',
                       flexGrow: 0,
@@ -268,16 +300,37 @@ const InstagramFeed = () => {
               </div>
             </blockquote>
           </div>
-          
+
           {/* Loading overlay */}
-          <div className="absolute inset-0 flex items-center justify-center bg-white/80 instagram-loading">
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 border-4 border-[#3E5AC1] border-t-transparent rounded-full animate-spin mb-4"></div>
-              <p className="text-[#3E5AC1] font-medium">Loading Instagram feed...</p>
+          {isLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-white/80 instagram-loading">
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 border-4 border-[#3E5AC1] border-t-transparent rounded-full animate-spin mb-4"></div>
+                <p className="text-[#3E5AC1] font-medium">Loading Instagram feed...</p>
+              </div>
             </div>
-          </div>
+          )}
+
+          {/* Error state */}
+          {hasError && (
+            <div className="absolute inset-0 flex items-center justify-center bg-white/95">
+              <div className="flex flex-col items-center text-center px-4">
+                <Instagram size={48} className="text-[#3E5AC1] mb-4" />
+                <h3 className="text-xl font-semibold mb-2">Couldn't load Instagram feed</h3>
+                <p className="text-gray-600 mb-4">Please visit our Instagram page directly to see our latest posts.</p>
+                <a
+                  href="https://www.instagram.com/bigjapan_jdm/?igsh=MXJqa2x1N3c1MTV0bw%3D%3D&utm_source=qr#"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-6 py-2 bg-[#3E5AC1] text-white rounded-full hover:bg-[#1844C6] transition-colors"
+                >
+                  Visit @bigjapan_jdm
+                </a>
+              </div>
+            </div>
+          )}
         </motion.div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -285,22 +338,20 @@ const InstagramFeed = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-8"
         >
-          <a 
-            href="https://www.instagram.com/bigjapan_jdm/?igsh=MXJqa2x1N3c1MTV0bw%3D%3D&utm_source=qr" 
-            target="_blank" 
+          <a
+            href="https://www.instagram.com/bigjapan_jdm/?igsh=MXJqa2x1N3c1MTV0bw%3D%3D&utm_source=qr#"
+            target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#3E5AC1] to-[#1844C6] text-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:from-[#F76C09] hover:to-[#E77D2E]"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
+            <Instagram size={20} />
             <span className="font-medium">Follow @bigjapan_jdm</span>
           </a>
         </motion.div>
+
+
       </div>
-      
+
       {/* Styles are in instagram-embed.css */}
     </section>
   );
