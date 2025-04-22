@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, DollarSign, Gauge, Car, Info, SprayCan, Settings, Check } from 'lucide-react';
+import { Calendar, Gauge, Car, Info, SprayCan, Settings, Check } from 'lucide-react';
 
 import { getVehicleById } from '../data/vehicles';
 import { Vehicle } from '../types/vehicle';
@@ -46,12 +46,7 @@ const VehicleDetailPage = () => {
     );
   }
 
-  // Format price with commas
-  const formattedPrice = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  }).format(vehicle.price);
+  // Price display removed as requested
 
   // Format mileage with commas
   const formattedMileage = new Intl.NumberFormat('en-US').format(vehicle.mileage);
@@ -74,7 +69,7 @@ const VehicleDetailPage = () => {
                 {vehicle.make} {vehicle.model}
               </h1>
               <p className="text-accent-400 text-lg md:text-xl font-semibold">
-                {formattedPrice}
+                Contact for pricing
               </p>
             </div>
             <div className="mt-4 md:mt-0">
@@ -137,13 +132,7 @@ const VehicleDetailPage = () => {
                       <div className="font-medium">{vehicle.year}</div>
                     </div>
 
-                    <div className="flex justify-between py-2 border-b border-gray-200">
-                      <div className="flex items-center text-secondary-700">
-                        <DollarSign className="w-5 h-5 mr-2 text-primary-700" />
-                        Price
-                      </div>
-                      <div className="font-medium">{formattedPrice}</div>
-                    </div>
+
 
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <div className="flex items-center text-secondary-700">

@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import HeroSection from '../components/home/HeroSection';
+import InstagramFeed from '../components/home/InstagramFeed';
 import FeatureSection from '../components/home/FeatureSection';
 import VehicleGallery from '../components/home/VehicleGallery';
 import CallToAction from '../components/home/CallToAction';
 import CategoryGallery from '../components/ui/CategoryGallery';
 import { categories } from '../data/categories';
+import '../styles/instagram-embed.css';
 
 const HomePage = () => {
   return (
@@ -15,6 +17,7 @@ const HomePage = () => {
       transition={{ duration: 0.3 }}
     >
       <HeroSection />
+      <InstagramFeed />
       <FeatureSection />
       <CategoryGallery categories={categories} />
       <VehicleGallery />

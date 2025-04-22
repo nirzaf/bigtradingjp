@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Circle, DollarSign, CalendarClock, Gauge } from 'lucide-react';
+import { Circle, CalendarClock, Gauge } from 'lucide-react';
 import { Vehicle } from '../../types/vehicle';
 
 interface VehicleCardProps {
@@ -9,12 +9,7 @@ interface VehicleCardProps {
 }
 
 const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
-  // Format price with commas
-  const formattedPrice = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  }).format(vehicle.price);
+  // Price removed as requested
 
   // Format mileage with commas
   const formattedMileage = new Intl.NumberFormat('en-US').format(vehicle.mileage);
@@ -49,11 +44,7 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
           </p>
 
           <div className="mt-auto">
-            <div className="grid grid-cols-2 gap-2 mb-4">
-              <div className="flex items-center text-sm text-secondary-700">
-                <DollarSign className="w-4 h-4 mr-1 text-accent-500" />
-                {formattedPrice}
-              </div>
+            <div className="grid grid-cols-3 gap-2 mb-4">
               <div className="flex items-center text-sm text-secondary-700">
                 <CalendarClock className="w-4 h-4 mr-1 text-accent-500" />
                 {vehicle.year}

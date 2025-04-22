@@ -1,0 +1,54 @@
+/* Instagram Embed Styles */
+
+.instagram-embed-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Fix Instagram embed responsiveness */
+.instagram-media {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+/* Loading state */
+.instagram-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 10;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Hide loading indicator when Instagram is loaded */
+.instagram-container.loaded .instagram-loading {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .instagram-embed-container {
+    min-height: 450px;
+  }
+}
+
+/* Add custom styling to make it match the site theme */
+.instagram-container {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(62, 90, 193, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.instagram-container:hover {
+  box-shadow: 0 8px 30px rgba(62, 90, 193, 0.15);
+}
