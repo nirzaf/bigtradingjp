@@ -31,7 +31,7 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
         <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden">
           <img
             src={vehicle.images.main}
-            alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
+            alt={`${vehicle.make} ${vehicle.model}`}
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
           />
           {vehicle.sold && (
@@ -42,12 +42,12 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
         </div>
         <div className="p-4 flex-grow flex flex-col">
           <h3 className="text-lg font-display font-semibold text-primary-900 mb-1">
-            {vehicle.year} {vehicle.make} {vehicle.model}
+            {vehicle.make} {vehicle.model}
           </h3>
           <p className="text-sm text-secondary-600 mb-4 line-clamp-2">
             {vehicle.description.substring(0, 100)}...
           </p>
-          
+
           <div className="mt-auto">
             <div className="grid grid-cols-2 gap-2 mb-4">
               <div className="flex items-center text-sm text-secondary-700">
@@ -67,7 +67,7 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
                 {vehicle.fuelType}
               </div>
             </div>
-            
+
             <div className="text-center">
               <span className="inline-block bg-primary-50 text-primary-800 hover:bg-primary-100 rounded-full px-4 py-1 text-sm font-medium transition-colors duration-200">
                 View Details

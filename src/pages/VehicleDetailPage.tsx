@@ -36,7 +36,7 @@ const VehicleDetailPage = () => {
       <div className="container-custom py-16 text-center">
         <h2 className="text-2xl font-display font-bold mb-4">Vehicle Not Found</h2>
         <p className="mb-6">Sorry, we couldn't find the vehicle you're looking for.</p>
-        <button 
+        <button
           onClick={() => navigate('/')}
           className="btn btn-primary"
         >
@@ -71,7 +71,7 @@ const VehicleDetailPage = () => {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <div>
               <h1 className="text-3xl md:text-4xl font-display font-bold mb-2 text-white">
-                {vehicle.year} {vehicle.make} {vehicle.model}
+                {vehicle.make} {vehicle.model}
               </h1>
               <p className="text-accent-400 text-lg md:text-xl font-semibold">
                 {formattedPrice}
@@ -92,11 +92,11 @@ const VehicleDetailPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Image Gallery - Takes up 2/3 on large screens */}
             <div className="lg:col-span-2">
-              <ImageGallery 
+              <ImageGallery
                 images={allImages}
-                alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
+                alt={`${vehicle.make} ${vehicle.model}`}
               />
-              
+
               {/* Description Section */}
               <div className="mt-8">
                 <h2 className="text-2xl font-display font-semibold mb-4">
@@ -105,7 +105,7 @@ const VehicleDetailPage = () => {
                 <p className="text-secondary-700 mb-6">
                   {vehicle.description}
                 </p>
-                
+
                 {/* Features List */}
                 <h3 className="text-xl font-display font-semibold mb-3">Key Features</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-8">
@@ -118,7 +118,7 @@ const VehicleDetailPage = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Specifications and Details - Takes up 1/3 on large screens */}
             <div className="lg:col-span-1">
               <div className="sticky top-24">
@@ -127,7 +127,7 @@ const VehicleDetailPage = () => {
                     <Info className="w-5 h-5 mr-2 text-primary-800" />
                     Vehicle Information
                   </h3>
-                  
+
                   <div className="space-y-4">
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <div className="flex items-center text-secondary-700">
@@ -136,7 +136,7 @@ const VehicleDetailPage = () => {
                       </div>
                       <div className="font-medium">{vehicle.year}</div>
                     </div>
-                    
+
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <div className="flex items-center text-secondary-700">
                         <DollarSign className="w-5 h-5 mr-2 text-primary-700" />
@@ -144,7 +144,7 @@ const VehicleDetailPage = () => {
                       </div>
                       <div className="font-medium">{formattedPrice}</div>
                     </div>
-                    
+
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <div className="flex items-center text-secondary-700">
                         <Gauge className="w-5 h-5 mr-2 text-primary-700" />
@@ -152,7 +152,7 @@ const VehicleDetailPage = () => {
                       </div>
                       <div className="font-medium">{formattedMileage} mi</div>
                     </div>
-                    
+
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <div className="flex items-center text-secondary-700">
                         <Settings className="w-5 h-5 mr-2 text-primary-700" />
@@ -160,7 +160,7 @@ const VehicleDetailPage = () => {
                       </div>
                       <div className="font-medium">{vehicle.transmission}</div>
                     </div>
-                    
+
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <div className="flex items-center text-secondary-700">
                         <Car className="w-5 h-5 mr-2 text-primary-700" />
@@ -168,7 +168,7 @@ const VehicleDetailPage = () => {
                       </div>
                       <div className="font-medium">{vehicle.bodyType}</div>
                     </div>
-                    
+
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <div className="flex items-center text-secondary-700">
                         <SprayCan className="w-5 h-5 mr-2 text-primary-700" />
@@ -178,37 +178,37 @@ const VehicleDetailPage = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Performance Specs */}
                 <div className="bg-gray-50 rounded-lg p-6">
                   <h3 className="text-xl font-display font-semibold mb-4 flex items-center">
                     <Settings className="w-5 h-5 mr-2 text-primary-800" />
                     Performance Specs
                   </h3>
-                  
+
                   <div className="space-y-4">
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <div className="text-secondary-700">Engine</div>
                       <div className="font-medium text-right">{vehicle.specs.engine}</div>
                     </div>
-                    
+
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <div className="text-secondary-700">Power</div>
                       <div className="font-medium">{vehicle.specs.power}</div>
                     </div>
-                    
+
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <div className="text-secondary-700">Acceleration</div>
                       <div className="font-medium">{vehicle.specs.acceleration}</div>
                     </div>
-                    
+
                     <div className="flex justify-between py-2 border-b border-gray-200">
                       <div className="text-secondary-700">Top Speed</div>
                       <div className="font-medium">{vehicle.specs.topSpeed}</div>
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Contact CTA */}
                 <div className="mt-6">
                   <button className="w-full btn btn-primary py-3">
