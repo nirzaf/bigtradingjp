@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Users, Star, Award, Clock, Sparkles } from 'lucide-react';
+import { Shield, Users, Star, Award, Clock, Sparkles, Car, CircleDollarSign, ShoppingBag, Briefcase } from 'lucide-react';
 
 import PageHeader from '../components/ui/PageHeader';
 
@@ -12,8 +12,8 @@ const AboutPage = () => {
       transition={{ duration: 0.3 }}
     >
       <PageHeader
-        title="About Bigtrading"
-        subtitle="Redefining vehicle and equipment trading since 2008"
+        title="About Big Trading Company"
+        subtitle="Home/About"
         backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
       />
 
@@ -27,15 +27,18 @@ const AboutPage = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-display font-bold mb-4">Our Story</h2>
+              <h2 className="text-3xl font-display font-bold mb-4">About Big Trading Company</h2>
               <p className="text-secondary-700 mb-4">
-                Founded in 2008 by automotive and construction equipment enthusiasts Michael Harrington and Sophia Chen, Bigtrading began with a simple mission: to provide discerning clients with exceptional vehicles and equipment with an unparalleled ownership experience.
+                Big Trading Company Ltd. began its journey in 2015, rooted in the vibrant industrial region of Kuwana, Mie Ken, Japan. Strategically located in Kisosaki-cho, Karoto 553, the company has grown steadily over the past decade, establishing a solid presence in Trucking & Equipment, Exports, Retailing, and Consultancy.
               </p>
               <p className="text-secondary-700 mb-4">
-                What started as a boutique dealership with just five handpicked vehicles and equipment has grown into one of the most respected names in vehicle and construction equipment sales and services. Our founders' passion for excellence and customer satisfaction remains at the heart of everything we do.
+                With 10 years of experience in both local and international trading, Big Trading has built a reputation for reliability, industry expertise, and a forward-thinking approach. Operating under the Big Trading banner, the company is committed to delivering excellence and forging lasting relationships with clients across the globe.
+              </p>
+              <p className="text-secondary-700 mb-4">
+                Driven by a vision to transcend borders, Big Trading leverages its deep industry knowledge to serve a diverse and ever-growing clientele. The company remains focused on sustainable growth, innovation, and customer satisfaction, positioning itself as a leader in the world of global trade.
               </p>
               <p className="text-secondary-700">
-                Today, Bigtrading continues to set the standard for vehicle and equipment retailers, combining industry expertise with personalized service that treats each client as part of our extended family.
+                For inquiries or collaborations, please reach out at <a href="mailto:bigtradingjp@gmail.com" className="text-primary-700 hover:text-primary-900 transition-colors">bigtradingjp@gmail.com</a>.
               </p>
             </motion.div>
 
@@ -48,9 +51,9 @@ const AboutPage = () => {
             >
               <div className="bg-primary-900 absolute top-6 -left-6 w-72 h-72 rounded-lg"></div>
               <img
-                src="https://images.pexels.com/photos/97075/pexels-photo-97075.jpeg"
-                alt="Luxury car showroom"
-                className="w-full h-auto rounded-lg shadow-xl relative z-10"
+                src="/images/logo.png"
+                alt="Big Trading Company Logo"
+                className="w-full h-auto rounded-lg shadow-xl relative z-10 bg-white p-4"
               />
               <div className="bg-accent-400 absolute -bottom-6 -right-6 w-72 h-72 rounded-lg"></div>
             </motion.div>
@@ -62,9 +65,9 @@ const AboutPage = () => {
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">Our Mission & Values</h2>
+            <h2 className="text-3xl font-display font-bold mb-4">Our Core Values</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-              We're guided by our commitment to excellence, integrity, and customer satisfaction in everything we do.
+              At Big Trading Company, we're guided by our commitment to excellence, integrity, and customer satisfaction in everything we do.
             </p>
           </div>
 
@@ -80,9 +83,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Shield className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">Integrity</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">Global Expertise</h3>
               <p className="text-secondary-700 text-center">
-                We believe in complete transparency and honesty in every interaction, providing accurate information and fair pricing without hidden surprises.
+                With deep knowledge of international markets and trade regulations, we facilitate seamless transactions across borders and cultures.
               </p>
             </motion.div>
 
@@ -97,9 +100,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Star className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">Excellence</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">Quality Assurance</h3>
               <p className="text-secondary-700 text-center">
-                We maintain the highest standards in vehicle selection, preparation, and customer service, constantly striving to exceed expectations.
+                We maintain rigorous quality control standards for all vehicles and equipment, ensuring our clients receive only the best products that meet their specific needs.
               </p>
             </motion.div>
 
@@ -114,9 +117,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Users className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">Relationships</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">Customer Partnership</h3>
               <p className="text-secondary-700 text-center">
-                We focus on building long-term relationships with our clients, understanding their needs and preferences to provide personalized experiences.
+                We view our clients as partners, building lasting relationships based on trust, reliability, and a deep understanding of their business needs and goals.
               </p>
             </motion.div>
           </div>
@@ -127,98 +130,78 @@ const AboutPage = () => {
       <section className="py-16">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">Meet Our Team</h2>
+            <h2 className="text-3xl font-display font-bold mb-4">Our Business Areas</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-              Our team of automotive experts brings decades of industry experience and a passion for exceptional client service.
+              Big Trading Company specializes in four key business areas, delivering expertise and excellence across multiple sectors.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Team Member 1 */}
+            {/* Business Area 1 */}
             <motion.div
-              className="text-center"
+              className="text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              <div className="relative mb-4 mx-auto w-48 h-48 rounded-full overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
-                  alt="Michael Harrington"
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative mb-4 mx-auto w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center">
+                <Car className="w-10 h-10 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-1">Michael Harrington</h3>
-              <p className="text-accent-500 font-medium mb-2">Founder & CEO</p>
-              <p className="text-secondary-600 text-sm">
-                With 25+ years in the luxury automotive industry, Michael leads our company vision and growth strategy.
+              <h3 className="text-xl font-display font-semibold mb-3">Trucking & Equipment</h3>
+              <p className="text-secondary-600">
+                Specializing in high-quality trucks, construction equipment, and heavy machinery for various industrial applications.
               </p>
             </motion.div>
 
-            {/* Team Member 2 */}
+            {/* Business Area 2 */}
             <motion.div
-              className="text-center"
+              className="text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              <div className="relative mb-4 mx-auto w-48 h-48 rounded-full overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg"
-                  alt="Sophia Chen"
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative mb-4 mx-auto w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center">
+                <CircleDollarSign className="w-10 h-10 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-1">Sophia Chen</h3>
-              <p className="text-accent-500 font-medium mb-2">Co-Founder & COO</p>
-              <p className="text-secondary-600 text-sm">
-                Sophia oversees our day-to-day operations and ensures every client receives exceptional service.
+              <h3 className="text-xl font-display font-semibold mb-3">Exports</h3>
+              <p className="text-secondary-600">
+                Facilitating international trade with expertise in export regulations, logistics, and cross-border transactions.
               </p>
             </motion.div>
 
-            {/* Team Member 3 */}
+            {/* Business Area 3 */}
             <motion.div
-              className="text-center"
+              className="text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              <div className="relative mb-4 mx-auto w-48 h-48 rounded-full overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
-                  alt="James Wilson"
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative mb-4 mx-auto w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center">
+                <ShoppingBag className="w-10 h-10 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-1">James Wilson</h3>
-              <p className="text-accent-500 font-medium mb-2">Head of Acquisitions</p>
-              <p className="text-secondary-600 text-sm">
-                James leads our vehicle sourcing team, finding the finest automobiles from around the world.
+              <h3 className="text-xl font-display font-semibold mb-3">Retailing</h3>
+              <p className="text-secondary-600">
+                Providing premium vehicles and equipment to local markets with personalized service and competitive pricing.
               </p>
             </motion.div>
 
-            {/* Team Member 4 */}
+            {/* Business Area 4 */}
             <motion.div
-              className="text-center"
+              className="text-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.3 }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              <div className="relative mb-4 mx-auto w-48 h-48 rounded-full overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/2641886/pexels-photo-2641886.jpeg"
-                  alt="Olivia Martinez"
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative mb-4 mx-auto w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center">
+                <Briefcase className="w-10 h-10 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-1">Olivia Martinez</h3>
-              <p className="text-accent-500 font-medium mb-2">Client Relations Director</p>
-              <p className="text-secondary-600 text-sm">
-                Olivia ensures our clients receive personalized attention throughout their entire journey with us.
+              <h3 className="text-xl font-display font-semibold mb-3">Consultancy</h3>
+              <p className="text-secondary-600">
+                Offering expert advice on market trends, investment opportunities, and strategic business development in the automotive and equipment sectors.
               </p>
             </motion.div>
           </div>
@@ -231,7 +214,7 @@ const AboutPage = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold mb-4 text-white">Why Clients Choose Us</h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              For over 15 years, discerning clients have trusted Bigtrading for their vehicle and equipment needs. Here's why.
+              Since 2015, clients across the globe have trusted Big Trading Company for their vehicle and equipment needs. Here's why.
             </p>
           </div>
 
@@ -246,9 +229,9 @@ const AboutPage = () => {
             >
               <Award className="w-10 h-10 text-accent-400 mr-4 flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-display font-semibold mb-2 text-white">Award-Winning Selection</h3>
+                <h3 className="text-xl font-display font-semibold mb-2 text-white">Global Network</h3>
                 <p className="text-gray-300">
-                  Our inventory includes only the finest vehicles that meet our strict quality standards.
+                  Our extensive international network allows us to source and deliver equipment and vehicles worldwide with efficiency and reliability.
                 </p>
               </div>
             </motion.div>
@@ -263,9 +246,9 @@ const AboutPage = () => {
             >
               <Sparkles className="w-10 h-10 text-accent-400 mr-4 flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-display font-semibold mb-2 text-white">White Glove Experience</h3>
+                <h3 className="text-xl font-display font-semibold mb-2 text-white">Industry Expertise</h3>
                 <p className="text-gray-300">
-                  From first contact to delivery and beyond, we provide exceptional concierge-level service.
+                  Our team brings deep knowledge of both local and international markets, regulations, and industry best practices to every transaction.
                 </p>
               </div>
             </motion.div>
@@ -280,9 +263,9 @@ const AboutPage = () => {
             >
               <Clock className="w-10 h-10 text-accent-400 mr-4 flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-display font-semibold mb-2 text-white">Lifetime Support</h3>
+                <h3 className="text-xl font-display font-semibold mb-2 text-white">Customized Solutions</h3>
                 <p className="text-gray-300">
-                  Our relationship doesn't end with purchase - we provide ongoing support for the life of your vehicle.
+                  We tailor our services to meet the specific needs of each client, providing personalized solutions rather than one-size-fits-all approaches.
                 </p>
               </div>
             </motion.div>
@@ -293,14 +276,11 @@ const AboutPage = () => {
       {/* CTA Section */}
       <section className="py-16 bg-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-display font-bold mb-4">Ready to Experience the Difference?</h2>
+          <h2 className="text-3xl font-display font-bold mb-4">Ready to Partner with Big Trading?</h2>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto mb-8">
-            Join our family of satisfied clients and discover why Bigtrading is the premier destination for vehicles and construction equipment.
+            Join our global network of satisfied clients and discover how Big Trading Company can meet your vehicle and equipment needs.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="/" className="btn btn-primary px-6 py-3 text-base">
-              Browse Our Inventory
-            </a>
+          <div className="flex justify-center">
             <a href="/contact" className="btn btn-accent px-6 py-3 text-base">
               Contact Us
             </a>
