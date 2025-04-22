@@ -90,7 +90,7 @@ const Navbar = () => {
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-[#FEFEFE] shadow-lg rounded-b-lg">
             <NavLink
               to="/"
               className={navLinkClass}
@@ -114,7 +114,7 @@ const Navbar = () => {
             </NavLink>
             <Link
               to="/"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white bg-accent-400 hover:bg-accent-500"
+              className="block px-3 py-2 rounded-md text-base font-medium text-white bg-accent-500 hover:bg-accent-600"
               onClick={closeMenu}
             >
               View Inventory
