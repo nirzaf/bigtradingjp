@@ -6,9 +6,9 @@ export interface Vehicle {
   price: number;
   mileage: number;
   description: string;
-  transmission: 'Automatic' | 'Manual' | 'Semi-Automatic';
+  transmission: 'Automatic' | 'Manual' | 'Semi-Automatic' | 'Hydraulic' | 'Hydrostatic';
   fuelType: 'Petrol' | 'Diesel' | 'Electric' | 'Hybrid';
-  bodyType: 'Sedan' | 'SUV' | 'Coupe' | 'Hatchback' | 'Convertible' | 'Truck' | 'Van';
+  bodyType: 'Sedan' | 'SUV' | 'Coupe' | 'Hatchback' | 'Convertible' | 'Truck' | 'Van' | 'Construction' | 'Excavator' | 'Bulldozer';
   color: string;
   features: string[];
   images: {

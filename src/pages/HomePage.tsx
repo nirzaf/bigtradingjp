@@ -19,7 +19,7 @@ const HomePage = () => {
     }
 
     // Filter by body type
-    if (['Sedan', 'SUV', 'Coupe', 'Convertible'].includes(filterType)) {
+    if (['Sedan', 'SUV', 'Coupe', 'Convertible', 'Construction', 'Excavator', 'Bulldozer'].includes(filterType)) {
       setFilteredVehicles(vehicles.filter(v => v.bodyType === filterType));
       return;
     }
@@ -67,10 +67,10 @@ const HomePage = () => {
             className="max-w-3xl text-white"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
-              Exceptional Vehicles for <span className="text-accent-400">Exceptional</span> Individuals
+              Premium Vehicles & <span className="text-accent-400">Construction</span> Equipment
             </h1>
             <p className="text-lg md:text-xl text-gray-200 mb-8">
-              Discover our curated collection of premium vehicles, each one selected for its exceptional quality, performance, and luxury.
+              Discover our curated collection of performance vehicles and heavy machinery, each one selected for its exceptional quality, reliability, and performance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#vehicle-gallery" className="btn btn-accent px-6 py-3 text-base">
@@ -88,9 +88,9 @@ const HomePage = () => {
       <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">Why Choose AutoElite</h2>
+            <h2 className="text-3xl font-display font-bold mb-4">Why Choose Big Trading Co</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-              We offer an unmatched luxury vehicle experience with curated selection, transparent pricing, and exceptional service.
+              We offer an unmatched selection of performance vehicles and construction equipment with transparent pricing and exceptional service.
             </p>
           </div>
 
@@ -162,9 +162,9 @@ const HomePage = () => {
       <section id="vehicle-gallery" className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">Featured Vehicles</h2>
+            <h2 className="text-3xl font-display font-bold mb-4">Featured Inventory</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-              Browse our handpicked selection of premium vehicles, each one representing the pinnacle of automotive excellence.
+              Browse our handpicked selection of performance vehicles and construction equipment, each one representing the pinnacle of engineering excellence.
             </p>
           </div>
 
@@ -191,34 +191,44 @@ const HomePage = () => {
               Sedans
             </button>
             <button
-              onClick={() => filterVehicles('SUV')}
+              onClick={() => filterVehicles('Construction')}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeFilter === 'SUV'
+                activeFilter === 'Construction'
                   ? 'bg-primary-800 text-white'
                   : 'bg-white text-secondary-700 hover:bg-gray-100'
               }`}
             >
-              SUVs
+              Construction
             </button>
             <button
-              onClick={() => filterVehicles('Coupe')}
+              onClick={() => filterVehicles('Excavator')}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeFilter === 'Coupe'
+                activeFilter === 'Excavator'
                   ? 'bg-primary-800 text-white'
                   : 'bg-white text-secondary-700 hover:bg-gray-100'
               }`}
             >
-              Coupes
+              Excavators
             </button>
             <button
-              onClick={() => filterVehicles('Electric')}
+              onClick={() => filterVehicles('Bulldozer')}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeFilter === 'Electric'
+                activeFilter === 'Bulldozer'
                   ? 'bg-primary-800 text-white'
                   : 'bg-white text-secondary-700 hover:bg-gray-100'
               }`}
             >
-              Electric
+              Bulldozers
+            </button>
+            <button
+              onClick={() => filterVehicles('Diesel')}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeFilter === 'Diesel'
+                  ? 'bg-primary-800 text-white'
+                  : 'bg-white text-secondary-700 hover:bg-gray-100'
+              }`}
+            >
+              Diesel
             </button>
           </div>
 
@@ -240,9 +250,9 @@ const HomePage = () => {
       {/* Call to Action */}
       <section className="py-16 bg-primary-900 text-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-display font-bold mb-4">Ready to Find Your Dream Car?</h2>
+          <h2 className="text-3xl font-display font-bold mb-4">Ready to Find Your Perfect Vehicle?</h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-            Our team of automotive experts is ready to help you find the perfect vehicle that matches your lifestyle and preferences.
+            Our team of experts is ready to help you find the perfect vehicle or equipment that matches your needs and requirements.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="#vehicle-gallery" className="btn btn-accent px-6 py-3 text-base">

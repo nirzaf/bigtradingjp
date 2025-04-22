@@ -3,17 +3,17 @@ import { Vehicle } from '../types/vehicle';
 export const vehicles: Vehicle[] = [
   {
     id: '1',
-    make: 'BMW',
-    model: 'M4 Competition',
+    make: 'Mitsubishi',
+    model: 'Lancer Evolution',
     year: 2023,
-    price: 84700,
-    mileage: 1250,
-    description: 'The BMW M4 Competition combines track-capable performance with everyday usability. Featuring a twin-turbocharged inline-six engine, this M4 delivers breathtaking acceleration and precision handling.',
-    transmission: 'Automatic',
+    price: 42500,
+    mileage: 3250,
+    description: 'The Mitsubishi Lancer Evolution delivers exhilarating performance with its rally-bred heritage. This tuned blue model features enhanced aerodynamics, precision handling, and aggressive styling that turns heads wherever it goes.',
+    transmission: 'Manual',
     fuelType: 'Petrol',
-    bodyType: 'Coupe',
-    color: 'Frozen Dark Grey',
-    features: ['Premium Sound System', 'Carbon Fiber Interior Trim', 'Heated Seats', 'Apple CarPlay', 'Head-Up Display', 'Adaptive Suspension', 'Carbon Ceramic Brakes'],
+    bodyType: 'Sedan',
+    color: 'Tuned Blue',
+    features: ['Recaro Sport Seats', 'Performance Exhaust System', 'Upgraded Suspension', 'Aftermarket Wheels', 'Carbon Fiber Accents', 'Turbo Boost Controller', 'Limited Slip Differential'],
     images: {
       main: '/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg',
       gallery: [
@@ -24,26 +24,26 @@ export const vehicles: Vehicle[] = [
       ]
     },
     specs: {
-      engine: '3.0L Twin-Turbocharged Inline-6',
-      power: '503 hp',
-      acceleration: '0-60 mph in 3.8 seconds',
-      topSpeed: '155 mph (limited)'
+      engine: '2.0L Turbocharged Inline-4',
+      power: '350 hp',
+      acceleration: '0-60 mph in 4.1 seconds',
+      topSpeed: '165 mph'
     },
     sold: false
   },
   {
     id: '2',
-    make: 'Porsche',
-    model: '911 Carrera S',
+    make: 'Mitsubishi',
+    model: 'Lancer Evolution Modified',
     year: 2023,
-    price: 135600,
-    mileage: 450,
-    description: 'The iconic Porsche 911 Carrera S represents the perfect balance of luxury and performance. With its distinctive silhouette and rear-mounted flat-six engine, this 911 delivers an exhilarating driving experience.',
-    transmission: 'Automatic',
+    price: 48900,
+    mileage: 1850,
+    description: 'This modified Mitsubishi Lancer Evolution represents the pinnacle of Japanese performance engineering. With extensive aftermarket modifications, this rally-inspired sports sedan delivers exceptional handling and power.',
+    transmission: 'Manual',
     fuelType: 'Petrol',
-    bodyType: 'Coupe',
-    color: 'Racing Yellow',
-    features: ['Sport Chrono Package', 'BOSE® Surround Sound System', 'Adaptive Sport Seats', 'Porsche Dynamic Chassis Control', 'LED Matrix Headlights', 'Sport Exhaust System'],
+    bodyType: 'Sedan',
+    color: 'Electric Blue',
+    features: ['Recaro Racing Seats', 'Coilover Suspension', 'Performance Intercooler', 'Custom Exhaust System', 'Carbon Fiber Hood', 'Wide Body Kit', 'Upgraded Turbocharger'],
     images: {
       main: '/images/Modified Blue Mitsubishi Lancer Evolution.jpeg',
       gallery: [
@@ -54,26 +54,26 @@ export const vehicles: Vehicle[] = [
       ]
     },
     specs: {
-      engine: '3.0L Twin-Turbocharged Flat-6',
-      power: '443 hp',
-      acceleration: '0-60 mph in 3.5 seconds',
-      topSpeed: '191 mph'
+      engine: '2.0L Turbocharged Inline-4 (Modified)',
+      power: '420 hp',
+      acceleration: '0-60 mph in 3.7 seconds',
+      topSpeed: '175 mph'
     },
     sold: false
   },
   {
     id: '3',
-    make: 'Mercedes-Benz',
-    model: 'S-Class S580',
+    make: 'Toyota',
+    model: 'Allion',
     year: 2023,
-    price: 148500,
-    mileage: 875,
-    description: 'The Mercedes-Benz S-Class represents the pinnacle of luxury motoring. This flagship sedan combines opulent comfort with cutting-edge technology and effortless performance.',
+    price: 28500,
+    mileage: 12750,
+    description: 'The Toyota Allion combines elegant styling with practical functionality. This silver sedan offers a comfortable ride, excellent fuel efficiency, and Toyota\'s legendary reliability for everyday driving.',
     transmission: 'Automatic',
     fuelType: 'Petrol',
     bodyType: 'Sedan',
-    color: 'Obsidian Black Metallic',
-    features: ['Burmester® 4D Surround Sound', 'Executive Rear Seat Package', 'MBUX Augmented Reality Navigation', 'Active Ambient Lighting', 'Heated & Ventilated Massage Seats', 'Air Balance Package'],
+    color: 'Silver Metallic',
+    features: ['Smart Entry System', 'Dual-Zone Climate Control', 'LED Headlights', 'Rearview Camera', 'Touchscreen Infotainment', 'Cruise Control', 'Alloy Wheels'],
     images: {
       main: '/images/Silver Toyota Allion side view.jpeg',
       gallery: [
@@ -84,26 +84,26 @@ export const vehicles: Vehicle[] = [
       ]
     },
     specs: {
-      engine: '4.0L Biturbo V8 with EQ Boost',
-      power: '496 hp',
-      acceleration: '0-60 mph in 4.4 seconds',
-      topSpeed: '130 mph (limited)'
+      engine: '1.8L Inline-4',
+      power: '140 hp',
+      acceleration: '0-60 mph in 9.8 seconds',
+      topSpeed: '118 mph'
     },
     sold: false
   },
   {
     id: '4',
-    make: 'Tesla',
-    model: 'Model S Plaid',
+    make: 'Komatsu',
+    model: 'WA70 Wheel Loader',
     year: 2023,
-    price: 129990,
-    mileage: 320,
-    description: 'The Tesla Model S Plaid delivers unrivaled performance in the electric vehicle segment. With a tri-motor setup and breathtaking acceleration, this luxury sedan redefines what an EV can be.',
+    price: 89500,
+    mileage: 450,
+    description: 'The Komatsu WA70 Wheel Loader is a versatile and powerful construction vehicle designed for efficiency and reliability. This compact loader offers excellent maneuverability and impressive lifting capacity for various construction applications.',
     transmission: 'Automatic',
-    fuelType: 'Electric',
-    bodyType: 'Sedan',
-    color: 'Midnight Silver Metallic',
-    features: ['Tri-Motor AWD', '17" Touchscreen Display', 'Glass Roof', 'Premium Audio System', 'Autopilot', 'Yoke Steering', 'Full Self-Driving Capability'],
+    fuelType: 'Diesel',
+    bodyType: 'Construction',
+    color: 'Komatsu Yellow',
+    features: ['Hydrostatic Transmission', 'Articulated Steering', 'Enclosed Cab with AC', 'Adjustable Bucket', 'Rear View Camera', 'LED Work Lights', 'Quick Coupler System'],
     images: {
       main: '/images/Yellow Wheel Loader Construction Vehicle.jpeg',
       gallery: [
@@ -114,26 +114,26 @@ export const vehicles: Vehicle[] = [
       ]
     },
     specs: {
-      engine: 'Tri-Motor Electric',
-      power: '1,020 hp',
-      acceleration: '0-60 mph in 1.99 seconds',
-      topSpeed: '200 mph'
+      engine: '4.4L Turbo Diesel',
+      power: '95 hp',
+      acceleration: 'N/A',
+      topSpeed: '22 mph'
     },
     sold: false
   },
   {
     id: '5',
-    make: 'Audi',
-    model: 'RS e-tron GT',
+    make: 'Caterpillar',
+    model: '320GC Excavator',
     year: 2023,
-    price: 164100,
-    mileage: 580,
-    description: 'The Audi RS e-tron GT combines stunning design with electric performance. This grand tourer represents Audi\'s vision for the future of luxury mobility.',
-    transmission: 'Automatic',
-    fuelType: 'Electric',
-    bodyType: 'Sedan',
-    color: 'Daytona Gray Pearl',
-    features: ['Bang & Olufsen 3D Sound System', 'Carbon Fiber Roof', 'Matrix LED Headlights', 'Air Suspension', 'All-Wheel Steering', 'Head-Up Display'],
+    price: 215000,
+    mileage: 320,
+    description: 'The Caterpillar 320GC Excavator delivers exceptional performance and efficiency for demanding construction projects. This powerful machine combines advanced hydraulics with operator comfort to maximize productivity in any environment.',
+    transmission: 'Hydraulic',
+    fuelType: 'Diesel',
+    bodyType: 'Excavator',
+    color: 'CAT Yellow',
+    features: ['Smart Mode Operation', 'Premium Cab with Air Suspension Seat', 'Rear View Camera', 'Boom Float Function', 'Auxiliary Hydraulic Lines', 'LED Work Lights', 'Grade Control Ready'],
     images: {
       main: '/images/Caterpillar_320GC_Excavator_Side_View.jpeg',
       gallery: [
@@ -144,26 +144,26 @@ export const vehicles: Vehicle[] = [
       ]
     },
     specs: {
-      engine: 'Dual-Motor Electric',
-      power: '637 hp',
-      acceleration: '0-60 mph in 3.1 seconds',
-      topSpeed: '155 mph (limited)'
+      engine: '6.7L CAT C7.1 Diesel',
+      power: '174 hp',
+      acceleration: 'N/A',
+      topSpeed: '3.4 mph'
     },
     sold: false
   },
   {
     id: '6',
-    make: 'Land Rover',
-    model: 'Range Rover Autobiography',
+    make: 'Komatsu',
+    model: 'D51PX Bulldozer',
     year: 2023,
-    price: 158000,
-    mileage: 950,
-    description: 'The Range Rover Autobiography represents the ultimate expression of luxury SUV motoring. Combining go-anywhere capability with first-class comfort and refinement.',
-    transmission: 'Automatic',
-    fuelType: 'Petrol',
-    bodyType: 'SUV',
-    color: 'Santorini Black',
-    features: ['Meridian™ Signature Sound System', 'Semi-Aniline Leather Seats', 'Executive Class Comfort-Plus Rear Seats', 'Cabin Air Purification Pro', 'Active Noise Cancellation', '24-way Heated and Cooled Massage Front Seats'],
+    price: 178000,
+    mileage: 650,
+    description: 'The Komatsu D51PX Bulldozer is a powerful and versatile earthmoving machine designed for maximum productivity and operator comfort. With its hydrostatic transmission and precision control, this bulldozer excels in a variety of grading and land clearing applications.',
+    transmission: 'Hydrostatic',
+    fuelType: 'Diesel',
+    bodyType: 'Bulldozer',
+    color: 'Komatsu Yellow',
+    features: ['Palm Command Control System', 'Air Suspension Operator Seat', 'Rear View Monitoring System', 'Auto Shift Transmission', 'Parallel Link Undercarriage System', 'Integrated ROPS Cab', 'Komtrax Monitoring System'],
     images: {
       main: '/images/Komatsu D51PX Bulldozer Image.jpeg',
       gallery: [
@@ -174,10 +174,10 @@ export const vehicles: Vehicle[] = [
       ]
     },
     specs: {
-      engine: '4.4L Twin-Turbocharged V8',
-      power: '523 hp',
-      acceleration: '0-60 mph in 4.4 seconds',
-      topSpeed: '155 mph (limited)'
+      engine: '5.1L Komatsu SAA6D107E-1 Diesel',
+      power: '130 hp',
+      acceleration: 'N/A',
+      topSpeed: '5.3 mph'
     },
     sold: false
   }
