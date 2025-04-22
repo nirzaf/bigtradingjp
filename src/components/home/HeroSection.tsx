@@ -175,9 +175,12 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <p className="text-sm md:text-base text-gray-300 uppercase tracking-wider font-medium text-center px-4 py-2 bg-primary-800/30 rounded-md inline-block">
-              <span className="text-accent-400">EXPORTER OF</span> MOTOR VEHICLES, SPARE PARTS AND MACHINERIES
-            </p>
+            <div className="flex flex-col items-center">
+              <p className="text-sm md:text-base text-gray-300 uppercase tracking-wider font-medium text-center px-5 py-2 bg-primary-800/30 rounded-md inline-block border-l-2 border-r-2 border-accent-500/30">
+                <span className="text-accent-400 font-semibold">EXPORTER OF</span> <span className="tracking-widest">MOTOR VEHICLES</span> <span className="inline-block mx-1 text-accent-400">•</span> <span className="tracking-widest">SPARE PARTS</span> <span className="inline-block mx-1 text-accent-400">•</span> <span className="tracking-widest">MACHINERIES</span>
+              </p>
+              <div className="w-24 h-1 mt-1 bg-gradient-to-r from-transparent via-accent-500/50 to-transparent rounded-full"></div>
+            </div>
           </motion.div>
 
           <motion.div
@@ -190,8 +193,11 @@ const HeroSection = () => {
               <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 bg-primary-800 p-2 rounded-full border border-white/10 shadow-lg">
                 <Settings className="w-5 h-5 text-accent-500 gear-icon" />
               </div>
-              <p className="text-base text-gray-200 text-center px-4">
-                <span className="font-semibold"></span>We deliver high-quality vehicles and equipment worldwide from our base in Kuwana, Japan. Our commitment to excellence and customer satisfaction drives everything we do.
+              <p className="text-base text-gray-200 text-center px-4 leading-relaxed">
+                <span className="font-semibold text-white">Global Exporters Since 2015</span>
+                <span className="block mt-1 mb-2 h-px w-16 mx-auto bg-gradient-to-r from-transparent via-accent-500 to-transparent"></span>
+                <span className="text-sm">Premium vehicles & machinery from Japan to the world.</span>
+                <span className="block mt-2"><span className="text-accent-400">Excellence</span> • <span className="text-white">Quality</span> • <span className="text-accent-400">Reliability</span></span>
               </p>
               <div className="absolute -right-3 top-1/2 transform -translate-y-1/2 bg-primary-800 p-2 rounded-full border border-white/10 shadow-lg">
                 <Wrench className="w-5 h-5 text-accent-500 gear-icon-reverse" />
