@@ -31,38 +31,9 @@ export const vehicles: Vehicle[] = [
     },
     sold: false
   },
+
   {
     id: '2',
-    make: 'Mitsubishi',
-    model: 'Lancer Evolution Modified',
-    year: 2023,
-    price: 48900,
-    mileage: 1850,
-    description: 'This modified Mitsubishi Lancer Evolution represents the pinnacle of Japanese performance engineering. With extensive aftermarket modifications, this rally-inspired sports sedan delivers exceptional handling and power.',
-    transmission: 'Manual',
-    fuelType: 'Petrol',
-    bodyType: 'Sedan',
-    color: 'Electric Blue',
-    features: ['Recaro Racing Seats', 'Coilover Suspension', 'Performance Intercooler', 'Custom Exhaust System', 'Carbon Fiber Hood', 'Wide Body Kit', 'Upgraded Turbocharger'],
-    images: {
-      main: '/images/Modified Blue Mitsubishi Lancer Evolution.jpeg',
-      gallery: [
-        '/images/Modified Blue Mitsubishi Lancer Evolution.jpeg',
-        '/images/Blue Mitsubishi Lancer Evolution Front View.jpeg',
-        '/images/Blue Modified Mitsubishi Lancer Evolution Rear View.jpeg',
-        '/images/Recaro Car Seats Interior View.jpeg'
-      ]
-    },
-    specs: {
-      engine: '2.0L Turbocharged Inline-4 (Modified)',
-      power: '420 hp',
-      acceleration: '0-60 mph in 3.7 seconds',
-      topSpeed: '175 mph'
-    },
-    sold: false
-  },
-  {
-    id: '3',
     make: 'Toyota',
     model: 'Allion',
     year: 2023,
@@ -92,7 +63,7 @@ export const vehicles: Vehicle[] = [
     sold: false
   },
   {
-    id: '4',
+    id: '3',
     make: 'Komatsu',
     model: 'WA70 Wheel Loader',
     year: 2023,
@@ -122,7 +93,7 @@ export const vehicles: Vehicle[] = [
     sold: false
   },
   {
-    id: '5',
+    id: '4',
     make: 'Caterpillar',
     model: '320GC Excavator',
     year: 2023,
@@ -152,7 +123,7 @@ export const vehicles: Vehicle[] = [
     sold: false
   },
   {
-    id: '6',
+    id: '5',
     make: 'Komatsu',
     model: 'D51PX Bulldozer',
     year: 2023,
