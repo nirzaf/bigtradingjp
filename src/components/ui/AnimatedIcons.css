@@ -5,46 +5,170 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  padding: 12px;
+  z-index: 1;
 }
 
-/* Truck Icon Animation */
-.truck-icon {
+/* 3D Icon Wrapper */
+.icon-3d-wrapper {
   position: relative;
-  animation: float 3s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.4));
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
-.truck-icon::after {
-  content: '';
+/* Icon Shadow */
+.icon-shadow {
   position: absolute;
-  bottom: -10px;
+  bottom: -8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.2);
+  width: 70%;
+  height: 5px;
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 50%;
-  filter: blur(3px);
-  animation: shadow-pulse 3s ease-in-out infinite;
+  filter: blur(4px);
+  z-index: -1;
+  opacity: 0.7;
+}
+
+/* Icon Glow Effect */
+.icon-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: blur(15px);
+  z-index: -1;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.icon-container:hover .icon-glow {
+  opacity: 0.8;
+  animation: pulse-glow 2s infinite;
+}
+
+/* Sedan Icon Animation - Mitsubishi Lancer */
+.sedan-icon {
+  position: relative;
+  animation: sedan-move 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 2px rgba(24, 68, 198, 0.5));
+  transform: translateZ(5px);
+  stroke-width: 1.5;
+}
+
+.sedan-icon::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(circle at 30% 30%, rgba(24, 68, 198, 0.8), rgba(24, 68, 198, 0.1));
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.2;
+  filter: blur(4px);
+}
+
+/* Sedan Icon Animation - Toyota Allion */
+.sedan-icon-alt {
+  position: relative;
+  animation: sedan-move-alt 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 2px rgba(247, 247, 234, 0.5));
+  transform: translateZ(5px);
+  stroke-width: 1.5;
+}
+
+.sedan-icon-alt::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(circle at 30% 30%, rgba(247, 247, 234, 0.8), rgba(247, 247, 234, 0.1));
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.2;
+  filter: blur(4px);
+}
+
+/* Wheel Loader Icon Animation */
+.loader-icon {
+  position: relative;
+  animation: loader-move 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 2px rgba(247, 108, 9, 0.5));
+  transform: translateZ(5px);
+  stroke-width: 1.5;
+}
+
+.loader-icon::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(circle at 30% 30%, rgba(247, 108, 9, 0.8), rgba(247, 108, 9, 0.1));
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.2;
+  filter: blur(4px);
 }
 
 /* Excavator Icon Animation */
 .excavator-icon {
   position: relative;
   animation: excavator-move 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 2px rgba(231, 125, 46, 0.5));
+  transform: translateZ(5px);
+  stroke-width: 1.5;
 }
 
-.excavator-icon::after {
+.excavator-icon::before {
   content: '';
   position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.2);
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(circle at 30% 30%, rgba(231, 125, 46, 0.8), rgba(231, 125, 46, 0.1));
   border-radius: 50%;
-  filter: blur(3px);
-  animation: shadow-pulse 4s ease-in-out infinite;
+  z-index: -1;
+  opacity: 0.2;
+  filter: blur(4px);
+}
+
+/* Bulldozer Icon Animation */
+.bulldozer-icon {
+  position: relative;
+  animation: bulldozer-move 5s ease-in-out infinite;
+  filter: drop-shadow(0 0 2px rgba(62, 90, 193, 0.5));
+  transform: translateZ(5px);
+  stroke-width: 1.5;
+}
+
+.bulldozer-icon::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: radial-gradient(circle at 30% 30%, rgba(62, 90, 193, 0.8), rgba(62, 90, 193, 0.1));
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.2;
+  filter: blur(4px);
 }
 
 /* Gear Icon Animation */
@@ -102,16 +226,70 @@
 
 @keyframes excavator-move {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(0deg) perspective(500px) rotateX(0deg);
   }
   25% {
-    transform: translateY(-5px) rotate(2deg);
+    transform: translateY(-5px) rotate(2deg) perspective(500px) rotateX(-5deg);
   }
   50% {
-    transform: translateY(-8px) rotate(-2deg);
+    transform: translateY(-8px) rotate(-2deg) perspective(500px) rotateX(5deg);
   }
   75% {
-    transform: translateY(-3px) rotate(1deg);
+    transform: translateY(-3px) rotate(1deg) perspective(500px) rotateX(-2deg);
+  }
+}
+
+@keyframes bulldozer-move {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) perspective(500px) rotateZ(0deg);
+  }
+  25% {
+    transform: translateY(-3px) rotate(-1deg) perspective(500px) rotateZ(2deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1deg) perspective(500px) rotateZ(-2deg);
+  }
+  75% {
+    transform: translateY(-2px) rotate(-1deg) perspective(500px) rotateZ(1deg);
+  }
+}
+
+@keyframes sedan-move {
+  0%, 100% {
+    transform: translateX(0) translateY(0) rotateY(0deg);
+  }
+  25% {
+    transform: translateX(-3px) translateY(-1px) rotateY(-5deg);
+  }
+  75% {
+    transform: translateX(3px) translateY(1px) rotateY(5deg);
+  }
+}
+
+@keyframes sedan-move-alt {
+  0%, 100% {
+    transform: translateX(0) translateY(0) rotateY(0deg);
+  }
+  25% {
+    transform: translateX(3px) translateY(-1px) rotateY(5deg);
+  }
+  75% {
+    transform: translateX(-3px) translateY(1px) rotateY(-5deg);
+  }
+}
+
+@keyframes loader-move {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-4px) rotate(1deg) scale(1.02);
+  }
+  50% {
+    transform: translateY(-7px) rotate(-1deg) scale(1.05);
+  }
+  75% {
+    transform: translateY(-3px) rotate(0deg) scale(1.02);
   }
 }
 
@@ -141,6 +319,17 @@
   50% {
     transform: scale(1.1);
     opacity: 0.8;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.2);
   }
 }
 

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Truck, Globe, Settings, Wrench, Construction, Sparkles } from 'lucide-react';
+import { Truck, Car, Settings, Wrench, Construction, Sparkles, Tractor } from 'lucide-react';
 import '../../components/ui/AnimatedIcons.css';
 
 const HeroSection = () => {
@@ -50,32 +50,100 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
           className="max-w-3xl text-white"
         >
-          <div className="flex items-center justify-center mb-6 space-x-8">
+          <div className="flex flex-wrap items-center justify-center mb-6 gap-4 md:gap-8">
+            {/* Mitsubishi Lancer Evolution (Sedan, Petrol) */}
             <motion.div
-              className="icon-container"
+              className="icon-container relative group"
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 200 }}
+              title="Mitsubishi Lancer Evolution"
+              whileHover={{ scale: 1.1 }}
             >
-              <Truck className="w-12 h-12 text-accent-500 truck-icon" />
+              <div className="icon-3d-wrapper">
+                <Car className="w-10 h-10 md:w-14 md:h-14 text-[#1844C6] sedan-icon" />
+                <div className="icon-shadow"></div>
+              </div>
+              <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
+                Lancer Evolution
+              </div>
+              <div className="icon-glow" style={{ backgroundColor: "rgba(24, 68, 198, 0.2)" }}></div>
             </motion.div>
 
+            {/* Toyota Allion (Sedan, Petrol) */}
             <motion.div
-              className="icon-container"
+              className="icon-container relative group"
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ duration: 0.7, delay: 0.3, type: "spring", stiffness: 200 }}
+              title="Toyota Allion"
+              whileHover={{ scale: 1.1 }}
+            >
+              <div className="icon-3d-wrapper">
+                <Car className="w-10 h-10 md:w-14 md:h-14 text-[#F7F7EA] sedan-icon-alt" />
+                <div className="icon-shadow"></div>
+              </div>
+              <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
+                Toyota Allion
+              </div>
+              <div className="icon-glow" style={{ backgroundColor: "rgba(247, 247, 234, 0.2)" }}></div>
+            </motion.div>
+
+            {/* Komatsu WA70 Wheel Loader (Construction, Diesel) */}
+            <motion.div
+              className="icon-container relative group"
               initial={{ scale: 0, rotate: 180 }}
               animate={{ scale: 1, rotate: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
+              transition={{ duration: 0.7, delay: 0.4, type: "spring", stiffness: 200 }}
+              title="Komatsu WA70 Wheel Loader"
+              whileHover={{ scale: 1.1 }}
             >
-              <Construction className="w-12 h-12 text-accent-500 excavator-icon" />
+              <div className="icon-3d-wrapper">
+                <Truck className="w-10 h-10 md:w-14 md:h-14 text-[#F76C09] loader-icon" />
+                <div className="icon-shadow"></div>
+              </div>
+              <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
+                Wheel Loader
+              </div>
+              <div className="icon-glow" style={{ backgroundColor: "rgba(247, 108, 9, 0.2)" }}></div>
             </motion.div>
 
+            {/* Caterpillar 320GC Excavator (Excavator, Diesel) */}
             <motion.div
-              className="icon-container"
+              className="icon-container relative group"
+              initial={{ scale: 0, rotate: 180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ duration: 0.7, delay: 0.5, type: "spring", stiffness: 200 }}
+              title="Caterpillar 320GC Excavator"
+              whileHover={{ scale: 1.1 }}
+            >
+              <div className="icon-3d-wrapper">
+                <Construction className="w-10 h-10 md:w-14 md:h-14 text-[#E77D2E] excavator-icon" />
+                <div className="icon-shadow"></div>
+              </div>
+              <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
+                Excavator
+              </div>
+              <div className="icon-glow" style={{ backgroundColor: "rgba(231, 125, 46, 0.2)" }}></div>
+            </motion.div>
+
+            {/* Komatsu D51PX Bulldozer (Bulldozer, Diesel) */}
+            <motion.div
+              className="icon-container relative group"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
+              transition={{ duration: 0.7, delay: 0.6, type: "spring", stiffness: 200 }}
+              title="Komatsu D51PX Bulldozer"
+              whileHover={{ scale: 1.1 }}
             >
-              <Globe className="w-12 h-12 text-accent-500 globe-icon" />
+              <div className="icon-3d-wrapper">
+                <Tractor className="w-10 h-10 md:w-14 md:h-14 text-[#3E5AC1] bulldozer-icon" />
+                <div className="icon-shadow"></div>
+              </div>
+              <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
+                Bulldozer
+              </div>
+              <div className="icon-glow" style={{ backgroundColor: "rgba(62, 90, 193, 0.2)" }}></div>
             </motion.div>
           </div>
 
