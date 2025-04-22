@@ -26,16 +26,16 @@ const Navbar = () => {
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     `px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
       isActive
-        ? 'text-primary-900 bg-primary-50'
-        : 'text-secondary-600 hover:text-primary-900 hover:bg-gray-100'
+        ? 'text-primary-600 bg-primary-50' /* Byzantine Blue */
+        : 'text-secondary-600 hover:text-primary-600 hover:bg-[#F7F7EA]' /* Ivory hover */
     }`;
 
   return (
     <nav
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white shadow-md py-2'
-          : 'bg-white/80 backdrop-blur-md py-4'
+          ? 'bg-[#FEFEFE] shadow-md py-2' /* White */
+          : 'bg-[#FEFEFE]/90 backdrop-blur-md py-4' /* White with transparency */
       }`}
     >
       <div className="container-custom">
@@ -47,7 +47,7 @@ const Navbar = () => {
             onClick={closeMenu}
           >
             <img src="/images/logo.png" alt="Bigtrading Logo" className="h-10 w-auto" />
-            <span className="text-xl font-display font-bold text-primary-900">
+            <span className="text-xl font-display font-bold text-primary-600">
               Bigtrading
             </span>
           </Link>
@@ -66,7 +66,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-secondary-600 hover:text-primary-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+              className="inline-flex items-center justify-center p-2 rounded-md text-secondary-600 hover:text-primary-600 hover:bg-[#F7F7EA] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-600"
               aria-expanded="false"
               onClick={toggleMenu}
             >

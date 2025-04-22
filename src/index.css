@@ -9,25 +9,25 @@
     @apply scroll-smooth;
   }
   body {
-    @apply font-sans text-secondary-900 bg-gray-50;
+    @apply font-sans text-secondary-900 bg-[#F7F7EA]; /* Ivory background */
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display text-primary-900 font-semibold;
+    @apply font-display text-primary-600 font-semibold; /* Byzantine Blue */
   }
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200;
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-600 transition-colors duration-200;
   }
   .btn-primary {
-    @apply bg-primary-800 hover:bg-primary-700 text-white;
+    @apply bg-primary-600 hover:bg-primary-900 text-white; /* Byzantine Blue to Violet Blue */
   }
   .btn-secondary {
-    @apply bg-secondary-200 hover:bg-secondary-300 text-secondary-800;
+    @apply bg-[#F7F7EA] hover:bg-gray-200 text-secondary-800 border border-gray-300; /* Ivory */
   }
   .btn-accent {
-    @apply bg-accent-400 hover:bg-accent-500 text-white;
+    @apply bg-accent-500 hover:bg-accent-600 text-white; /* Pumpkin to Safety Orange */
   }
   .container-custom {
     @apply px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl;
@@ -36,7 +36,7 @@
     @apply py-12 md:py-16 lg:py-20;
   }
   .card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+    @apply bg-[#FEFEFE] rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg; /* White */
   }
 }
 
