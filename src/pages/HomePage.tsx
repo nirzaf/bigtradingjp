@@ -12,18 +12,18 @@ const HomePage = () => {
 
   const filterVehicles = (filterType: string) => {
     setActiveFilter(filterType);
-    
+
     if (filterType === 'all') {
       setFilteredVehicles(vehicles);
       return;
     }
-    
+
     // Filter by body type
     if (['Sedan', 'SUV', 'Coupe', 'Convertible'].includes(filterType)) {
       setFilteredVehicles(vehicles.filter(v => v.bodyType === filterType));
       return;
     }
-    
+
     // Filter by fuel type
     if (['Electric', 'Petrol', 'Diesel', 'Hybrid'].includes(filterType)) {
       setFilteredVehicles(vehicles.filter(v => v.fuelType === filterType));
@@ -51,14 +51,14 @@ const HomePage = () => {
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[500px] flex items-center">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg" 
-            alt="Luxury car" 
+          <img
+            src="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
+            alt="Luxury car"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-900/70" />
         </div>
-        
+
         <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -93,10 +93,10 @@ const HomePage = () => {
               We offer an unmatched luxury vehicle experience with curated selection, transparent pricing, and exceptional service.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Feature 1 */}
-            <motion.div 
+            <motion.div
               className="text-center p-6 bg-gray-50 rounded-lg"
               whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
               transition={{ duration: 0.3 }}
@@ -109,9 +109,9 @@ const HomePage = () => {
                 Each vehicle in our inventory is hand-selected for its exceptional quality and condition.
               </p>
             </motion.div>
-            
+
             {/* Feature 2 */}
-            <motion.div 
+            <motion.div
               className="text-center p-6 bg-gray-50 rounded-lg"
               whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
               transition={{ duration: 0.3 }}
@@ -124,9 +124,9 @@ const HomePage = () => {
                 Our no-haggle pricing ensures you always get a fair deal with no hidden fees.
               </p>
             </motion.div>
-            
+
             {/* Feature 3 */}
-            <motion.div 
+            <motion.div
               className="text-center p-6 bg-gray-50 rounded-lg"
               whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
               transition={{ duration: 0.3 }}
@@ -139,9 +139,9 @@ const HomePage = () => {
                 Enjoy concierge-level service from your first inquiry to long after your purchase.
               </p>
             </motion.div>
-            
+
             {/* Feature 4 */}
-            <motion.div 
+            <motion.div
               className="text-center p-6 bg-gray-50 rounded-lg"
               whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
               transition={{ duration: 0.3 }}
@@ -167,7 +167,7 @@ const HomePage = () => {
               Browse our handpicked selection of premium vehicles, each one representing the pinnacle of automotive excellence.
             </p>
           </div>
-          
+
           {/* Filters */}
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             <button
@@ -221,9 +221,9 @@ const HomePage = () => {
               Electric
             </button>
           </div>
-          
+
           {/* Vehicle Grid */}
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             variants={containerVariants}
             initial="hidden"

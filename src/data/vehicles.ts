@@ -15,12 +15,12 @@ export const vehicles: Vehicle[] = [
     color: 'Frozen Dark Grey',
     features: ['Premium Sound System', 'Carbon Fiber Interior Trim', 'Heated Seats', 'Apple CarPlay', 'Head-Up Display', 'Adaptive Suspension', 'Carbon Ceramic Brakes'],
     images: {
-      main: 'https://images.pexels.com/photos/12906588/pexels-photo-12906588.jpeg',
+      main: '/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg',
       gallery: [
-        'https://images.pexels.com/photos/12906588/pexels-photo-12906588.jpeg',
-        'https://images.pexels.com/photos/9270143/pexels-photo-9270143.jpeg',
-        'https://images.pexels.com/photos/13298522/pexels-photo-13298522.jpeg',
-        'https://images.pexels.com/photos/4635346/pexels-photo-4635346.jpeg'
+        '/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg',
+        '/images/Blue Mitsubishi Lancer Evolution Front View.jpeg',
+        '/images/Blue Modified Mitsubishi Lancer Evolution Rear View.jpeg',
+        '/images/Recaro Car Seats Interior View.jpeg'
       ]
     },
     specs: {
@@ -45,12 +45,12 @@ export const vehicles: Vehicle[] = [
     color: 'Racing Yellow',
     features: ['Sport Chrono Package', 'BOSE® Surround Sound System', 'Adaptive Sport Seats', 'Porsche Dynamic Chassis Control', 'LED Matrix Headlights', 'Sport Exhaust System'],
     images: {
-      main: 'https://images.pexels.com/photos/3954440/pexels-photo-3954440.jpeg',
+      main: '/images/Modified Blue Mitsubishi Lancer Evolution.jpeg',
       gallery: [
-        'https://images.pexels.com/photos/3954440/pexels-photo-3954440.jpeg',
-        'https://images.pexels.com/photos/3954436/pexels-photo-3954436.jpeg',
-        'https://images.pexels.com/photos/3954426/pexels-photo-3954426.jpeg',
-        'https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg'
+        '/images/Modified Blue Mitsubishi Lancer Evolution.jpeg',
+        '/images/Blue Mitsubishi Lancer Evolution Front View.jpeg',
+        '/images/Blue Modified Mitsubishi Lancer Evolution Rear View.jpeg',
+        '/images/Recaro Car Seats Interior View.jpeg'
       ]
     },
     specs: {
@@ -75,12 +75,12 @@ export const vehicles: Vehicle[] = [
     color: 'Obsidian Black Metallic',
     features: ['Burmester® 4D Surround Sound', 'Executive Rear Seat Package', 'MBUX Augmented Reality Navigation', 'Active Ambient Lighting', 'Heated & Ventilated Massage Seats', 'Air Balance Package'],
     images: {
-      main: 'https://images.pexels.com/photos/13465516/pexels-photo-13465516.jpeg',
+      main: '/images/Silver Toyota Allion side view.jpeg',
       gallery: [
-        'https://images.pexels.com/photos/13465516/pexels-photo-13465516.jpeg',
-        'https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg',
-        'https://images.pexels.com/photos/3354648/pexels-photo-3354648.jpeg',
-        'https://images.pexels.com/photos/3689532/pexels-photo-3689532.jpeg'
+        '/images/Silver Toyota Allion side view.jpeg',
+        '/images/Silver Toyota Allion rear view.jpeg',
+        '/images/Toyota Interior Dashboard Steering Wheel.webp',
+        '/images/Vehicle Dashboard Gauges Service Meter Speedometerjpg.jpeg'
       ]
     },
     specs: {
@@ -105,12 +105,12 @@ export const vehicles: Vehicle[] = [
     color: 'Midnight Silver Metallic',
     features: ['Tri-Motor AWD', '17" Touchscreen Display', 'Glass Roof', 'Premium Audio System', 'Autopilot', 'Yoke Steering', 'Full Self-Driving Capability'],
     images: {
-      main: 'https://images.pexels.com/photos/14148071/pexels-photo-14148071.jpeg',
+      main: '/images/Yellow Wheel Loader Construction Vehicle.jpeg',
       gallery: [
-        'https://images.pexels.com/photos/14148071/pexels-photo-14148071.jpeg',
-        'https://images.pexels.com/photos/14148190/pexels-photo-14148190.jpeg',
-        'https://images.pexels.com/photos/12866420/pexels-photo-12866420.jpeg',
-        'https://images.pexels.com/photos/15218659/pexels-photo-15218659.jpeg'
+        '/images/Yellow Wheel Loader Construction Vehicle.jpeg',
+        '/images/Yellow Wheel Loader Heavy Equipment Closeup.jpeg',
+        '/images/Yellow Articulated Wheel Loaderjpg.jpeg',
+        '/images/Komatsu WA70 Loader Back View.jpeg'
       ]
     },
     specs: {
@@ -135,12 +135,12 @@ export const vehicles: Vehicle[] = [
     color: 'Daytona Gray Pearl',
     features: ['Bang & Olufsen 3D Sound System', 'Carbon Fiber Roof', 'Matrix LED Headlights', 'Air Suspension', 'All-Wheel Steering', 'Head-Up Display'],
     images: {
-      main: 'https://images.pexels.com/photos/9798361/pexels-photo-9798361.jpeg',
+      main: '/images/Caterpillar_320GC_Excavator_Side_View.jpeg',
       gallery: [
-        'https://images.pexels.com/photos/9798361/pexels-photo-9798361.jpeg',
-        'https://images.pexels.com/photos/10668641/pexels-photo-10668641.jpeg',
-        'https://images.pexels.com/photos/9798362/pexels-photo-9798362.jpeg',
-        'https://images.pexels.com/photos/10668642/pexels-photo-10668642.jpeg'
+        '/images/Caterpillar_320GC_Excavator_Side_View.jpeg',
+        '/images/Yellow CAT 320GC Excavator Quarry.jpeg',
+        '/images/CAT 320E Excavator Rear View.jpeg',
+        '/images/CAT Excavator Interior Controls Seat.jpeg'
       ]
     },
     specs: {
@@ -165,12 +165,12 @@ export const vehicles: Vehicle[] = [
     color: 'Santorini Black',
     features: ['Meridian™ Signature Sound System', 'Semi-Aniline Leather Seats', 'Executive Class Comfort-Plus Rear Seats', 'Cabin Air Purification Pro', 'Active Noise Cancellation', '24-way Heated and Cooled Massage Front Seats'],
     images: {
-      main: 'https://images.pexels.com/photos/14882519/pexels-photo-14882519.jpeg',
+      main: '/images/Komatsu D51PX Bulldozer Image.jpeg',
       gallery: [
-        'https://images.pexels.com/photos/14882519/pexels-photo-14882519.jpeg',
-        'https://images.pexels.com/photos/2920064/pexels-photo-2920064.jpeg',
-        'https://images.pexels.com/photos/13831422/pexels-photo-13831422.jpeg',
-        'https://images.pexels.com/photos/3874337/pexels-photo-3874337.jpeg'
+        '/images/Komatsu D51PX Bulldozer Image.jpeg',
+        '/images/Komatsu-D51PX-Bulldozer-Moving-Dirtjpg.jpeg',
+        '/images/Komatsu-D51PX-Bulldozer-Pushing-Dirtjpg.jpeg',
+        '/images/Bulldozer Control Panel and Steering Wheel.jpeg'
       ]
     },
     specs: {
