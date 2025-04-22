@@ -29,7 +29,7 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
-  
+
   // Handle hover states for menu items
   const handleHover = (item: string | null) => {
     setHoveredItem(item);
@@ -38,7 +38,7 @@ const Navbar = () => {
   const navLinkClass = ({ isActive }: { isActive: boolean }) => {
     return `relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-md ${
       isActive
-        ? 'text-[#F76C09] font-semibold' 
+        ? 'text-[#F76C09] font-semibold'
         : 'text-[#3E5AC1] hover:text-[#F76C09]'
     }`;
   };
@@ -50,7 +50,7 @@ const Navbar = () => {
       transition={{ type: 'spring', stiffness: 120, damping: 20 }}
       className={`sticky top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#FEFEFE] shadow-lg py-2' 
+          ? 'bg-[#FEFEFE] shadow-lg py-2'
           : 'bg-gradient-to-r from-[#FEFEFE]/95 to-[#F7F7EA]/95 backdrop-blur-md py-4'
       }`}
     >
@@ -66,14 +66,14 @@ const Navbar = () => {
               whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.05 }}
               transition={{ duration: 0.5 }}
             >
-              <img 
-                src="/images/logo.png" 
-                alt="Bigtrading Logo" 
-                className="h-12 w-auto drop-shadow-md transition-all duration-300 group-hover:drop-shadow-xl" 
+              <img
+                src="/images/logo.png"
+                alt="Bigtrading Logo"
+                className="h-12 w-auto drop-shadow-md transition-all duration-300 group-hover:drop-shadow-xl"
               />
             </motion.div>
             <div className="flex flex-col">
-              <motion.span 
+              <motion.span
                 className="text-xl font-display font-bold text-[#3E5AC1] uppercase tracking-wider"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -81,8 +81,8 @@ const Navbar = () => {
               >
                 BIG TRADING
               </motion.span>
-              <motion.span 
-                className="text-xs text-[#1844C6]/80 uppercase tracking-tight"
+              <motion.span
+                className="text-xs text-[#1844C6]/80 uppercase tracking-tight hidden md:block"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
@@ -96,7 +96,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-1">
             <div className="nav-links-container flex items-center">
               {['Home', 'About', 'Contact'].map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={item}
                   className="relative"
                   onHoverStart={() => handleHover(item)}
@@ -105,13 +105,13 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * (index + 1) }}
                 >
-                  <NavLink 
-                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
+                  <NavLink
+                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
                     className={navLinkClass}
                   >
                     {item}
                     {hoveredItem === item && (
-                      <motion.div 
+                      <motion.div
                         className="absolute bottom-0 left-0 h-0.5 w-full bg-[#F76C09] rounded-full"
                         layoutId="underline"
                         initial={{ opacity: 0 }}
@@ -123,8 +123,8 @@ const Navbar = () => {
                 </motion.div>
               ))}
             </div>
-            
-            <motion.a 
+
+            <motion.a
               href="tel:+81804213-9008"
               className="ml-6 flex items-center gap-2 px-4 py-2 bg-[#F76C09] text-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:bg-[#E77D2E]"
               whileHover={{ scale: 1.05 }}
@@ -207,15 +207,15 @@ const Navbar = () => {
                   </NavLink>
                 </motion.div>
               ))}
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
                 className="pt-2 mt-2 border-t border-[#3E5AC1]/10"
               >
-                <a 
-                  href="tel:+81804213-9008" 
+                <a
+                  href="tel:+81804213-9008"
                   className="flex items-center justify-center gap-2 w-full py-3 bg-[#F76C09] text-white rounded-xl shadow-md hover:bg-[#E77D2E] transition-colors duration-300"
                 >
                   <Phone size={16} />
