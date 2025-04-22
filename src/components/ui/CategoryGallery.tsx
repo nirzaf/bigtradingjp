@@ -19,9 +19,13 @@ const CategoryGallery = ({ categories }: CategoryGalleryProps) => {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-display font-bold mb-4 uppercase">Our Categories</h2>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-            Explore our wide range of vehicles and construction equipment categories.<br />
-            For inquiries, call us at <a href="tel:+81804213-9008" className="text-primary-600 hover:text-primary-800 transition-colors">+81 80-4213-9008</a>
+            Explore our wide range of vehicles and construction equipment categories.
           </p>
+          <div className="mt-4">
+            <a href="tel:+81804213-9008" className="btn btn-primary px-4 py-2 text-sm">
+              Call Us
+            </a>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
