@@ -1,0 +1,176 @@
+/* 3D Icon Effects */
+
+.icon-3d-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  perspective: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.icon-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icon-3d-front,
+.icon-3d-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.icon-3d-front {
+  background: linear-gradient(145deg, #f7f9ff, #e6e9f0);
+  box-shadow: 
+    5px 5px 10px rgba(0, 0, 0, 0.1),
+    -5px -5px 10px rgba(255, 255, 255, 0.8),
+    inset 0 0 0 rgba(255, 255, 255, 0.4),
+    inset 0 0 0 rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.icon-3d-back {
+  background: linear-gradient(145deg, #3E5AC1, #1844C6);
+  transform: rotateY(180deg);
+  box-shadow: 
+    5px 5px 10px rgba(0, 0, 0, 0.2),
+    -5px -5px 10px rgba(255, 255, 255, 0.1),
+    inset 0 0 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover .icon-3d {
+  transform: rotateY(180deg);
+}
+
+/* Icon glow effect */
+.icon-glow {
+  filter: drop-shadow(0 0 5px rgba(62, 90, 193, 0.5));
+  transition: filter 0.3s ease;
+}
+
+.feature-card:hover .icon-glow {
+  filter: drop-shadow(0 0 8px rgba(247, 108, 9, 0.6));
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.icon-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.icon-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Shine effect */
+.icon-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes shine {
+  0% {
+    top: -100%;
+    left: -100%;
+  }
+  100% {
+    top: 100%;
+    left: 100%;
+  }
+}
+
+/* Feature card styles */
+.feature-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  box-shadow: 
+    5px 5px 15px rgba(0, 0, 0, 0.05),
+    -5px -5px 15px rgba(255, 255, 255, 0.6);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    8px 8px 20px rgba(0, 0, 0, 0.1),
+    -8px -8px 20px rgba(255, 255, 255, 0.7);
+}
+
+/* Icon background effect */
+.icon-bg {
+  position: relative;
+}
+
+.icon-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(62, 90, 193, 0.1) 0%, rgba(62, 90, 193, 0) 70%);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .icon-bg::before {
+  transform: scale(1.5);
+}
+
+/* Accent color for back icons */
+.icon-3d-back svg {
+  color: white;
+}

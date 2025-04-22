@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
-import { Search, CircleDollarSign, ThumbsUp, Award } from 'lucide-react';
+import { Search, CircleDollarSign, ThumbsUp, Award, CheckCircle, Shield, Star } from 'lucide-react';
+import '../ui/3DIconEffects.css';
 
 interface FeatureItem {
   icon: JSX.Element;
+  backIcon: JSX.Element;
   title: string;
   description: string;
 }
@@ -10,22 +12,26 @@ interface FeatureItem {
 const FeatureSection = () => {
   const features: FeatureItem[] = [
     {
-      icon: <Search className="w-8 h-8 text-primary-800" />,
+      icon: <Search className="w-10 h-10 text-primary-800" />,
+      backIcon: <Search className="w-10 h-10" />,
       title: "Curated Selection",
       description: "Each vehicle in our inventory is hand-selected for its exceptional quality and condition."
     },
     {
-      icon: <CircleDollarSign className="w-8 h-8 text-primary-800" />,
+      icon: <CircleDollarSign className="w-10 h-10 text-primary-800" />,
+      backIcon: <CircleDollarSign className="w-10 h-10" />,
       title: "Transparent Pricing",
       description: "Our no-haggle pricing ensures you always get a fair deal with no hidden fees."
     },
     {
-      icon: <ThumbsUp className="w-8 h-8 text-primary-800" />,
+      icon: <ThumbsUp className="w-10 h-10 text-primary-800" />,
+      backIcon: <ThumbsUp className="w-10 h-10" />,
       title: "Premium Service",
       description: "Enjoy concierge-level service from your first inquiry to long after your purchase."
     },
     {
-      icon: <Award className="w-8 h-8 text-primary-800" />,
+      icon: <Award className="w-10 h-10 text-primary-800" />,
+      backIcon: <Award className="w-10 h-10" />,
       title: "Quality Guarantee",
       description: "All vehicles undergo rigorous inspection and come with a comprehensive warranty."
     }
