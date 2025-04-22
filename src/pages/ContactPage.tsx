@@ -59,7 +59,7 @@ const ContactPage = () => {
       transition={{ duration: 0.3 }}
     >
       <PageHeader
-        title="Contact Us"
+        title="CONTACT BIG TRADING CO., LTD"
         subtitle="Our team is ready to assist you with any questions or inquiries"
         backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
       />
@@ -85,9 +85,9 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-lg font-medium text-primary-900 mb-1">Our Location</h3>
                     <p className="text-secondary-700">
-                      123 Luxury Lane<br />
-                      Beverly Hills, CA 90210<br />
-                      United States
+                      Kisosaki-cho, Karoto 553<br />
+                      Kuwana, Mie Ken<br />
+                      Japan
                     </p>
                   </div>
                 </div>

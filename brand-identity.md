@@ -1,5 +1,5 @@
 ### 🔹 **Company Name:**
-**BIG TRADING CO., LTD**
+**BIG TRADING LTD**
 
 ### 🔸 **Tagline:**
 **EXPORTER OF MOTOR VEHICLES, SPARE PARTS AND MACHINERIES**
@@ -12,7 +12,7 @@
 
 #### 2. **Typography:**
 - The word **"BIG"** is bold, uppercase, and colored **blue**.
-- **"BIG TRADING CO., LTD"** is also uppercase, white text inside a solid **blue** rectangle.
+- **"BIG TRADING "** is also uppercase, white text inside a solid **blue** rectangle.
 - The tagline is written in **black/dark gray**, in smaller uppercase letters.
 
 ### 📘 **Color Palette (Based on Visual Estimation):**

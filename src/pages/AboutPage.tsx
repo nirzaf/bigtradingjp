@@ -12,7 +12,7 @@ const AboutPage = () => {
       transition={{ duration: 0.3 }}
     >
       <PageHeader
-        title="About Big Trading Company"
+        title="About BIG TRADING "
         subtitle="Home/About"
         backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
       />
@@ -27,7 +27,7 @@ const AboutPage = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-display font-bold mb-4">About Big Trading Company</h2>
+              <h2 className="text-3xl font-display font-bold mb-4 uppercase">About BIG TRADING </h2>
               <p className="text-secondary-700 mb-4">
                 Big Trading Company Ltd. began its journey in 2015, rooted in the vibrant industrial region of Kuwana, Mie Ken, Japan. Strategically located in Kisosaki-cho, Karoto 553, the company has grown steadily over the past decade, establishing a solid presence in Trucking & Equipment, Exports, Retailing, and Consultancy.
               </p>
@@ -65,7 +65,7 @@ const AboutPage = () => {
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">Our Core Values</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 uppercase">Our Core Values</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
               At Big Trading Company, we're guided by our commitment to excellence, integrity, and customer satisfaction in everything we do.
             </p>
@@ -130,7 +130,7 @@ const AboutPage = () => {
       <section className="py-16">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">Our Business Areas</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 uppercase">Our Business Areas</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
               Big Trading Company specializes in four key business areas, delivering expertise and excellence across multiple sectors.
             </p>
@@ -212,7 +212,7 @@ const AboutPage = () => {
       <section className="py-16 bg-primary-900 text-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4 text-white">Why Clients Choose Us</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 text-white uppercase">Why Clients Choose Us</h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
               Since 2015, clients across the globe have trusted Big Trading Company for their vehicle and equipment needs. Here's why.
             </p>
@@ -276,7 +276,7 @@ const AboutPage = () => {
       {/* CTA Section */}
       <section className="py-16 bg-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-display font-bold mb-4">Ready to Partner with Big Trading?</h2>
+          <h2 className="text-3xl font-display font-bold mb-4 uppercase">Ready to Partner with BIG TRADING?</h2>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto mb-8">
             Join our global network of satisfied clients and discover how Big Trading Company can meet your vehicle and equipment needs.
           </p>

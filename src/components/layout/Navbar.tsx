@@ -47,9 +47,14 @@ const Navbar = () => {
             onClick={closeMenu}
           >
             <img src="/images/logo.png" alt="Bigtrading Logo" className="h-10 w-auto" />
-            <span className="text-xl font-display font-bold text-primary-600">
-              Bigtrading
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl font-display font-bold text-primary-600 uppercase tracking-wider">
+                BIG TRADING 
+              </span>
+              <span className="text-xs text-secondary-800 uppercase tracking-tight">
+                EXPORTER OF MOTOR VEHICLES, SPARE PARTS AND MACHINERIES
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

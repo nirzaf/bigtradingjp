@@ -107,11 +107,14 @@ const HomePage = () => {
             transition={{ duration: 0.6 }}
             className="max-w-3xl text-white"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4">
-              Premium Vehicles & <span className="text-accent-400">Construction</span> Equipment
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 uppercase tracking-wide">
+              <span className="text-white">BIG TRADING</span> <span className="text-accent-500"></span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-200 mb-8">
-              Discover our curated collection of performance vehicles and heavy machinery, each one selected for its exceptional quality, reliability, and performance.
+            <p className="text-lg md:text-xl text-gray-200 mb-4 uppercase tracking-wider font-semibold">
+              EXPORTER OF MOTOR VEHICLES, SPARE PARTS AND MACHINERIES
+            </p>
+            <p className="text-lg text-gray-200 mb-8">
+              Established in 2015, we deliver high-quality vehicles and equipment worldwide from our base in Kuwana, Japan.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#vehicle-gallery" className="btn btn-accent px-6 py-3 text-base">
@@ -129,7 +132,7 @@ const HomePage = () => {
       <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">Why Choose Big Trading Co</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 uppercase">Why Choose BIG TRADING </h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
               We offer an unmatched selection of performance vehicles and construction equipment with transparent pricing and exceptional service.
             </p>
@@ -206,7 +209,7 @@ const HomePage = () => {
       <section id="vehicle-gallery" className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4">Featured Inventory</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 uppercase">Featured Inventory</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
               Browse our handpicked selection of performance vehicles and construction equipment, each one representing the pinnacle of engineering excellence.
             </p>
@@ -294,7 +297,7 @@ const HomePage = () => {
       {/* Call to Action */}
       <section className="py-16 bg-primary-900 text-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-display font-bold mb-4">Ready to Find Your Perfect Vehicle?</h2>
+          <h2 className="text-3xl font-display font-bold mb-4 uppercase">Ready to Find Your Perfect Vehicle?</h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
             Our team of experts is ready to help you find the perfect vehicle or equipment that matches your needs and requirements.
           </p>

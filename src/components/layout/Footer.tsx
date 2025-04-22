@@ -10,12 +10,17 @@ const Footer = () => {
           <div className="md:col-span-4">
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <img src="/images/logo.png" alt="Bigtrading Logo" className="h-8 w-auto" />
-              <span className="text-xl font-display font-bold text-white">
-                Bigtrading
-              </span>
+              <div className="flex flex-col">
+                <span className="text-xl font-display font-bold text-white uppercase tracking-wider">
+                  BIG TRADING 
+                </span>
+                <span className="text-xs text-gray-300 uppercase tracking-tight">
+                  EXPORTER OF MOTOR VEHICLES, SPARE PARTS AND MACHINERIES
+                </span>
+              </div>
             </Link>
             <p className="text-gray-300 mb-4">
-              Providing exceptional luxury vehicles and personalized service since 2008. We specialize in premium automobiles for the discerning driver.
+              Established in 2015, BIG TRADING  specializes in exporting high-quality motor vehicles, spare parts, and construction machinery worldwide. Based in Kuwana, Mie Ken, Japan, we deliver excellence and reliability to our global clients.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-accent-500 transition-colors"> {/* Pumpkin */}
@@ -57,26 +62,26 @@ const Footer = () => {
 
           {/* Vehicles */}
           <div className="md:col-span-3">
-            <h3 className="text-white font-display text-lg font-semibold mb-4">Vehicles</h3>
+            <h3 className="text-white font-display text-lg font-semibold mb-4">Our Products</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  Luxury Sedans
+                  Motor Vehicles
                 </Link>
               </li>
               <li>
                 <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  Performance Cars
+                  Spare Parts
                 </Link>
               </li>
               <li>
                 <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  SUVs & Crossovers
+                  Construction Machinery
                 </Link>
               </li>
               <li>
                 <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  Electric Vehicles
+                  Heavy Equipment
                 </Link>
               </li>
             </ul>
@@ -89,19 +94,19 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 text-accent-500 mr-2 mt-0.5" />
                 <span className="text-gray-300">
-                  123 Luxury Lane, Beverly Hills, CA 90210
+                  Kisosaki-cho, Karoto 553, Kuwana, Mie Ken, Japan
                 </span>
               </li>
               <li className="flex items-center">
                 <Phone className="w-5 h-5 text-accent-500 mr-2" />
-                <a href="tel:+1-800-555-0123" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  (800) 555-0123
+                <a href="tel:+81-90-1234-5678" className="text-gray-300 hover:text-accent-500 transition-colors">
+                  +81-90-1234-5678
                 </a>
               </li>
               <li className="flex items-center">
                 <Mail className="w-5 h-5 text-accent-500 mr-2" />
-                <a href="mailto:info@bigtrading.com" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  info@bigtrading.com
+                <a href="mailto:bigtradingjp@gmail.com" className="text-gray-300 hover:text-accent-500 transition-colors">
+                  bigtradingjp@gmail.com
                 </a>
               </li>
             </ul>
@@ -112,7 +117,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Bigtrading. All rights reserved.
+            &copy; {new Date().getFullYear()} BIG TRADING . All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="text-gray-400 hover:text-accent-500 text-sm transition-colors">
