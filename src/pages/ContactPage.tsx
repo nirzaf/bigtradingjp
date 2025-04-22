@@ -75,7 +75,7 @@ const ContactPage = () => {
               transition={{ duration: 0.5 }}
               className="lg:col-span-1"
             >
-              <h2 className="text-2xl font-display font-bold mb-6">Get in Touch</h2>
+              <h2 className="text-2xl font-display font-bold mb-6 uppercase">Get in Touch</h2>
 
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -99,13 +99,13 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-lg font-medium text-primary-900 mb-1">Phone</h3>
                     <p className="text-secondary-700">
-                      <a href="tel:+18005550123" className="hover:text-primary-800 transition-colors">
-                        (800) 555-0123
+                      <a href="tel:+81804213-9008" className="hover:text-primary-800 transition-colors">
+                        +81 80-4213-9008
                       </a>
                     </p>
                     <p className="text-secondary-700">
-                      <a href="tel:+18005550124" className="hover:text-primary-800 transition-colors">
-                        (800) 555-0124 (Sales)
+                      <a href="tel:+81804213-9008" className="hover:text-primary-800 transition-colors">
+                        +81 80-4213-9008 (Sales)
                       </a>
                     </p>
                   </div>
@@ -118,13 +118,13 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-lg font-medium text-primary-900 mb-1">Email</h3>
                     <p className="text-secondary-700">
-                      <a href="mailto:info@bigtrading.com" className="hover:text-primary-800 transition-colors">
-                        info@bigtrading.com
+                      <a href="mailto:bigtradingjp@gmail.com" className="hover:text-primary-800 transition-colors">
+                        bigtradingjp@gmail.com
                       </a>
                     </p>
                     <p className="text-secondary-700">
-                      <a href="mailto:sales@bigtrading.com" className="hover:text-primary-800 transition-colors">
-                        sales@bigtrading.com
+                      <a href="mailto:bigtradingjp@gmail.com" className="hover:text-primary-800 transition-colors">
+                        bigtradingjp@gmail.com (Sales)
                       </a>
                     </p>
                   </div>
@@ -137,9 +137,9 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-lg font-medium text-primary-900 mb-1">Business Hours</h3>
                     <p className="text-secondary-700">
-                      Monday - Friday: 9:00 AM - 7:00 PM<br />
-                      Saturday: 10:00 AM - 6:00 PM<br />
-                      Sunday: By Appointment Only
+                      Monday - Friday: 9:00 AM - 6:00 PM (JST)<br />
+                      Saturday: 10:00 AM - 4:00 PM (JST)<br />
+                      Sunday: Closed
                     </p>
                   </div>
                 </div>
@@ -154,7 +154,7 @@ const ContactPage = () => {
               className="lg:col-span-2"
             >
               <div className="bg-gray-50 rounded-lg p-8">
-                <h2 className="text-2xl font-display font-bold mb-6">Send Us a Message</h2>
+                <h2 className="text-2xl font-display font-bold mb-6 uppercase">Send Us a Message</h2>
 
                 {formStatus.success && (
                   <motion.div
@@ -295,9 +295,9 @@ const ContactPage = () => {
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-2xl font-display font-bold mb-4">Visit Our Showroom</h2>
+            <h2 className="text-2xl font-display font-bold mb-4 uppercase">Visit Our Office</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-              Experience our collection of exceptional vehicles and construction equipment in person at our Beverly Hills showroom.
+              Visit our office in Kuwana, Mie Ken to discuss your vehicle and equipment needs with our expert team.
             </p>
           </div>
 
@@ -306,7 +306,7 @@ const ContactPage = () => {
             <div className="w-full h-full flex items-center justify-center bg-gray-300">
               <div className="text-center">
                 <MapPin className="w-12 h-12 text-primary-800 mx-auto mb-2" />
-                <p className="text-xl font-medium">123 Luxury Lane, Beverly Hills, CA 90210</p>
+                <p className="text-xl font-medium">Kisosaki-cho, Karoto 553, Kuwana, Mie Ken, Japan</p>
                 <p className="text-secondary-600">Interactive map would be displayed here</p>
               </div>
             </div>

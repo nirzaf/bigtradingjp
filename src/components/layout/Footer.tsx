@@ -12,7 +12,7 @@ const Footer = () => {
               <img src="/images/logo.png" alt="Bigtrading Logo" className="h-8 w-auto" />
               <div className="flex flex-col">
                 <span className="text-xl font-display font-bold text-white uppercase tracking-wider">
-                  BIG TRADING 
+                  BIG TRADING
                 </span>
                 <span className="text-xs text-gray-300 uppercase tracking-tight">
                   EXPORTER OF MOTOR VEHICLES, SPARE PARTS AND MACHINERIES
@@ -99,8 +99,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Phone className="w-5 h-5 text-accent-500 mr-2" />
-                <a href="tel:+81-90-1234-5678" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  +81-90-1234-5678
+                <a href="tel:+81804213-9008" className="text-gray-300 hover:text-accent-500 transition-colors">
+                  +81 80-4213-9008
                 </a>
               </li>
               <li className="flex items-center">

@@ -120,8 +120,8 @@ const HomePage = () => {
               <a href="#vehicle-gallery" className="btn btn-accent px-6 py-3 text-base">
                 View Inventory
               </a>
-              <a href="#" className="btn bg-white/10 hover:bg-white/20 text-white border-white/30 px-6 py-3 text-base">
-                Contact Us
+              <a href="tel:+81804213-9008" className="btn bg-white/10 hover:bg-white/20 text-white border-white/30 px-6 py-3 text-base">
+                Call Us: +81 80-4213-9008
               </a>
             </div>
           </motion.div>
@@ -299,7 +299,8 @@ const HomePage = () => {
         <div className="container-custom text-center">
           <h2 className="text-3xl font-display font-bold mb-4 uppercase">Ready to Find Your Perfect Vehicle?</h2>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
-            Our team of experts is ready to help you find the perfect vehicle or equipment that matches your needs and requirements.
+            Our team of experts is ready to help you find the perfect vehicle or equipment that matches your needs and requirements.<br />
+            Call us directly at <a href="tel:+81804213-9008" className="text-accent-500 hover:text-accent-400 transition-colors">+81 80-4213-9008</a>
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a href="#vehicle-gallery" className="btn btn-accent px-6 py-3 text-base">

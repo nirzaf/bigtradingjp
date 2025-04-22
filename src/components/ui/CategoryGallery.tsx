@@ -17,9 +17,10 @@ const CategoryGallery = ({ categories }: CategoryGalleryProps) => {
     <section className="py-16 bg-white">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-4">Our Categories</h2>
+          <h2 className="text-3xl font-display font-bold mb-4 uppercase">Our Categories</h2>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-            Explore our wide range of vehicles and construction equipment categories
+            Explore our wide range of vehicles and construction equipment categories.<br />
+            For inquiries, call us at <a href="tel:+81804213-9008" className="text-primary-600 hover:text-primary-800 transition-colors">+81 80-4213-9008</a>
           </p>
         </div>
 

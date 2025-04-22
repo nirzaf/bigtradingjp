@@ -38,7 +38,7 @@ const AboutPage = () => {
                 Driven by a vision to transcend borders, Big Trading leverages its deep industry knowledge to serve a diverse and ever-growing clientele. The company remains focused on sustainable growth, innovation, and customer satisfaction, positioning itself as a leader in the world of global trade.
               </p>
               <p className="text-secondary-700">
-                For inquiries or collaborations, please reach out at <a href="mailto:bigtradingjp@gmail.com" className="text-primary-700 hover:text-primary-900 transition-colors">bigtradingjp@gmail.com</a>.
+                For inquiries or collaborations, please reach out at <a href="mailto:bigtradingjp@gmail.com" className="text-primary-700 hover:text-primary-900 transition-colors">bigtradingjp@gmail.com</a> or call us at <a href="tel:+81804213-9008" className="text-primary-700 hover:text-primary-900 transition-colors">+81 80-4213-9008</a>.
               </p>
             </motion.div>
 
@@ -278,7 +278,8 @@ const AboutPage = () => {
         <div className="container-custom text-center">
           <h2 className="text-3xl font-display font-bold mb-4 uppercase">Ready to Partner with BIG TRADING?</h2>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto mb-8">
-            Join our global network of satisfied clients and discover how Big Trading Company can meet your vehicle and equipment needs.
+            Join our global network of satisfied clients and discover how Big Trading Company can meet your vehicle and equipment needs.<br />
+            Call us directly at <a href="tel:+81804213-9008" className="text-primary-600 hover:text-primary-800 transition-colors">+81 80-4213-9008</a>
           </p>
           <div className="flex justify-center">
             <a href="/contact" className="btn btn-accent px-6 py-3 text-base">
