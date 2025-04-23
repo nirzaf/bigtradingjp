@@ -5,26 +5,28 @@ import { vehicles } from '../../data/vehicles';
 import { Vehicle } from '../../types/vehicle';
 
 const VehicleGallery = () => {
-  const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[]>(vehicles);
+  // Mark all vehicles as sold
+  const soldVehicles = vehicles.map(vehicle => ({ ...vehicle, sold: true }));
+  const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[]>(soldVehicles);
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
   const filterVehicles = (filterType: string) => {
     setActiveFilter(filterType);
 
     if (filterType === 'all') {
-      setFilteredVehicles(vehicles);
+      setFilteredVehicles(soldVehicles);
       return;
     }
 
     // Filter by body type
     if (['Sedan', 'SUV', 'Coupe', 'Convertible', 'Construction', 'Excavator', 'Bulldozer'].includes(filterType)) {
-      setFilteredVehicles(vehicles.filter(v => v.bodyType === filterType));
+      setFilteredVehicles(soldVehicles.filter(v => v.bodyType === filterType));
       return;
     }
 
     // Filter by fuel type
     if (['Electric', 'Petrol', 'Diesel', 'Hybrid'].includes(filterType)) {
-      setFilteredVehicles(vehicles.filter(v => v.fuelType === filterType));
+      setFilteredVehicles(soldVehicles.filter(v => v.fuelType === filterType));
       return;
     }
   };
@@ -52,9 +54,9 @@ const VehicleGallery = () => {
     <section id="vehicle-gallery" className="py-16 bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-4 uppercase">Featured Inventory</h2>
+          <h2 className="text-3xl font-display font-bold mb-4 uppercase">Previous Exports</h2>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-            Browse our handpicked selection of performance vehicles and construction equipment, each one representing the pinnacle of engineering excellence.
+            Explore our past exports of premium vehicles and construction equipment. These examples showcase our quality standards and expertise in global trading.
           </p>
         </div>
 

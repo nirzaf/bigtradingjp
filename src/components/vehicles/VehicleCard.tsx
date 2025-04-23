@@ -30,8 +30,8 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
           />
           {vehicle.sold && (
-            <div className="absolute top-0 right-0 bg-error-600 text-white px-3 py-1 text-sm font-semibold">
-              SOLD
+            <div className="absolute top-5 -right-10 w-32 bg-error-600 text-white py-1 text-xs font-bold uppercase tracking-wider shadow-md z-10 transform rotate-45 text-center border-t border-b border-white/30">
+              Sold
             </div>
           )}
         </div>
@@ -60,8 +60,8 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
             </div>
 
             <div className="text-center">
-              <span className="inline-block bg-primary-50 text-primary-800 hover:bg-primary-100 rounded-full px-4 py-1 text-sm font-medium transition-colors duration-200">
-                View Details
+              <span className="inline-block bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full px-4 py-1 text-sm font-medium transition-colors duration-200">
+                View Past Export
               </span>
             </div>
           </div>
