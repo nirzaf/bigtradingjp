@@ -61,7 +61,7 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
 
             <div className="text-center">
               <span className="inline-block bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full px-4 py-1 text-sm font-medium transition-colors duration-200">
-                View Past Export
+                View Details
               </span>
             </div>
           </div>

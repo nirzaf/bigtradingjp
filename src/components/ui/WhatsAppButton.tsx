@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { getWhatsAppUrl } from '../../utils/whatsapp';
 
 const WhatsAppButton = () => {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -9,10 +10,8 @@ const WhatsAppButton = () => {
     setTimeout(() => setShowTooltip(false), 2000); // Hide tooltip after 2 seconds
   };
 
-  // Format the phone number for WhatsApp (remove spaces and dashes)
-  const phoneNumber = '+81804213-9008'.replace(/[-\s]/g, '');
-  const defaultMessage = encodeURIComponent('Hello! I am interested in your vehicles/equipment. Can you provide more information?');
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${defaultMessage}`;
+  // Get WhatsApp URL with default message
+  const whatsappUrl = getWhatsAppUrl('Hello! I am interested in your vehicles/equipment. Can you provide more information?');
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
