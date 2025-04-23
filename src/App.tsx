@@ -6,6 +6,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 import WideBanner from './components/ui/WideBanner';
+import WhatsAppButton from './components/ui/WhatsAppButton';
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -41,6 +42,7 @@ function App() {
         />
       </div>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 }
