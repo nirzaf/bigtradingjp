@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Calendar, Gauge, Car, Info, SprayCan, Settings, Check } from 'lucide-react';
 import { getWhatsAppUrl } from '../utils/whatsapp';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Helmet } from 'react-helmet-async';
 
 import { getVehicleById } from '../data/vehicles';
 import { Vehicle } from '../types/vehicle';
@@ -30,6 +31,42 @@ const VehicleDetailPage = () => {
     }
   }, [vehicleId]);
 
+  // Generate structured data for the vehicle
+  const generateStructuredData = () => {
+    if (!vehicle) return null;
+    
+    const structuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'Vehicle',
+      'name': `${vehicle.make} ${vehicle.model}`,
+      'description': t('vehicle.lancer.description'),
+      'vehicleIdentificationNumber': vehicle.id,
+      'modelDate': vehicle.year,
+      'vehicleEngine': {
+        '@type': 'EngineSpecification',
+        'fuelType': vehicle.fuelType
+      },
+      'mileageFromOdometer': {
+        '@type': 'QuantitativeValue',
+        'value': vehicle.mileage,
+        'unitCode': 'KMT'
+      },
+      'brand': {
+        '@type': 'Brand',
+        'name': vehicle.make
+      },
+      'model': vehicle.model,
+      'offers': {
+        '@type': 'Offer',
+        'availability': vehicle.sold ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
+        'itemCondition': 'https://schema.org/UsedCondition'
+      },
+      'image': vehicle.images.main
+    };
+    
+    return JSON.stringify(structuredData);
+  };
+  
   if (loading) {
     return <LoadingSpinner />;
   }
@@ -57,7 +94,19 @@ const VehicleDetailPage = () => {
   const allImages = [vehicle.images.main, ...vehicle.images.gallery];
 
   return (
-    <motion.div
+    <>
+      <Helmet>
+        <title>{`${vehicle.make} ${vehicle.model} (${vehicle.year}) | BIG TRADING`}</title>
+        <meta name="description" content={t('vehicle.lancer.description')} />
+        <meta name="keywords" content={`${vehicle.make}, ${vehicle.model}, used vehicle, export, Japan, ${vehicle.year}, ${vehicle.fuelType}`} />
+        <link rel="canonical" href={`https://www.bigtrading.com/vehicles/${vehicle.id}`} />
+        <meta property="og:title" content={`${vehicle.make} ${vehicle.model} (${vehicle.year}) | BIG TRADING`} />
+        <meta property="og:description" content={t('vehicle.lancer.description')} />
+        <meta property="og:image" content={vehicle.images.main} />
+        <meta property="og:url" content={`https://www.bigtrading.com/vehicles/${vehicle.id}`} />
+        <script type="application/ld+json">{generateStructuredData()}</script>
+      </Helmet>
+      <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -276,6 +325,7 @@ const VehicleDetailPage = () => {
 
       {/* Related Vehicles Section (could be implemented in the future) */}
     </motion.div>
+    </>  
   );
 };
 
