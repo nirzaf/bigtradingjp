@@ -121,19 +121,24 @@ const Footer = () => {
           </p>
 
           <div className="flex items-center justify-center">
-            <p className="text-gray-400 text-sm flex items-center">
-              <Code className="w-4 h-4 text-accent-500 mr-1" />
-              Powered by <a href="https://quadrate.lk" target="_blank" rel="noopener noreferrer" className="text-accent-400 hover:text-accent-300 transition-colors ml-1 font-medium">Quadrate Tech Solutions</a>
-            </p>
+            <a
+              href="https://quadrate.lk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-gray-300 text-sm flex items-center group transition-colors duration-300"
+            >
+              <Code className="w-4 h-4 text-accent-500 group-hover:text-accent-400 mr-1 transition-colors duration-300" />
+              Powered by <span className="text-accent-400 group-hover:text-accent-300 transition-colors ml-1 font-medium">Quadrate Tech Solutions</span>
+            </a>
           </div>
 
           <div className="flex space-x-4 justify-center md:justify-end">
-            <a href="#" className="text-gray-400 hover:text-accent-500 text-sm transition-colors">
+            <Link to="/privacy-policy" className="text-gray-400 hover:text-accent-500 text-sm transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="text-gray-400 hover:text-accent-500 text-sm transition-colors">
+            </Link>
+            <Link to="/terms-of-service" className="text-gray-400 hover:text-accent-500 text-sm transition-colors">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
