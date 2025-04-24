@@ -27,7 +27,7 @@ const Footer = () => {
                 <Facebook className="w-5 h-5" />
                 <span className="sr-only">Facebook</span>
               </a>
-              <a href="#" className="text-gray-300 hover:text-accent-500 transition-colors"> {/* Pumpkin */}
+              <a href="https://www.instagram.com/bigjapan_jdm/?igsh=MXJqa2x1N3c1MTV0bw%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-accent-500 transition-colors"> {/* Pumpkin */}
                 <Instagram className="w-5 h-5" />
                 <span className="sr-only">Instagram</span>
               </a>
