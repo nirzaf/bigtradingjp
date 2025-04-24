@@ -100,6 +100,25 @@ const translations = {
     'vehicle.topSpeed': 'Top Speed',
     'vehicle.interestedInVehicle': 'I\'m interested in this',
     'vehicle.moreInfo': 'Can you provide more information?',
+    
+    // Vehicle Features
+    'vehicle.recaro': 'Recaro Sport Seats',
+    'vehicle.suspension': 'Upgraded Suspension',
+    'vehicle.carbon': 'Carbon Fiber Accents',
+    'vehicle.lsd': 'Limited Slip Differential',
+    'vehicle.exhaust': 'Performance Exhaust System',
+    'vehicle.wheels': 'Aftermarket Wheels',
+    'vehicle.turbo': 'Turbo Boost Controller',
+    'vehicle.lancer.description': 'The Mitsubishi Lancer Evolution delivers exhilarating performance with its rally-bred heritage. This tuned blue model features enhanced aerodynamics, precision handling, and aggressive styling that turns heads wherever it goes.',
+    'vehicle.about': 'About this vehicle',
+    
+    // Vehicle Gallery Descriptions
+    'vehicles.lancer.description': 'The Mitsubishi Lancer Evolution delivers exhilarating performance with its rally-bred heritage. This tuned blue model features enhanced aerodynamics, precision handling, and aggressive styling.',
+    'vehicles.allion.description': 'The Toyota Allion combines elegant styling with practical functionality. This silver sedan offers a comfortable ride, excellent fuel efficiency, and ample interior space for daily commuting.',
+    'vehicles.komatsu.wa70.description': 'The Komatsu WA70 Wheel Loader is a versatile and powerful construction vehicle designed for efficient material handling in various work environments.',
+    'vehicles.caterpillar.320gc.description': 'The Caterpillar 320GC Excavator delivers exceptional performance and efficiency for demanding construction projects with reduced fuel consumption.',
+    'vehicles.komatsu.d51px.description': 'The Komatsu D51PX Bulldozer is a powerful and versatile earthmoving machine designed for construction and mining applications with excellent stability.',
+    'vehicles.caterpillar.140m.description': 'The Caterpillar 140M Motor Grader is a precision earthmoving machine designed for road construction and maintenance with advanced control systems.',
 
     // About Page
     'about.title': 'About BIG TRADING',
@@ -251,6 +270,25 @@ const translations = {
     'vehicle.topSpeed': '最高速度',
     'vehicle.interestedInVehicle': 'この車両に興味があります',
     'vehicle.moreInfo': '詳細情報を教えていただけますか？',
+    
+    // Vehicle Features
+    'vehicle.recaro': 'レカロスポーツシート',
+    'vehicle.suspension': 'アップグレードサスペンション',
+    'vehicle.carbon': 'カーボンファイバーアクセント',
+    'vehicle.lsd': 'リミテッドスリップディファレンシャル',
+    'vehicle.exhaust': 'パフォーマンスエキゾーストシステム',
+    'vehicle.wheels': 'アフターマーケットホイール',
+    'vehicle.turbo': 'ターボブーストコントローラー',
+    'vehicle.lancer.description': '三菱ランサーエボリューションは、ラリーブレッドの伝統を持つ興奮のパフォーマンスを提供します。このチューンドブルーモデルは、強化されたエアロダイナミクス、精密なハンドリング、そしてどこに行っても視線を集めるアグレッシブなスタイリングを特徴としています。',
+    'vehicle.about': 'この車両について',
+    
+    // Vehicle Gallery Descriptions
+    'vehicles.lancer.description': '三菱ランサーエボリューションは、ラリーブレッドの伝統を持つ興奮のパフォーマンスを提供します。このチューンドブルーモデルは、強化されたエアロダイナミクス、精密なハンドリング、そしてアグレッシブなスタイリングを特徴としています。',
+    'vehicles.allion.description': 'トヨタ・アリオンは、優雅なスタイリングと実用的な機能性を兵ね備えています。このシルバーのセダンは、快適な乗り心地、優れた燃費効率、日常の通勤に十分な室内空間を提供します。',
+    'vehicles.komatsu.wa70.description': 'コマツWA70ホイールローダーは、様々な作業環境で効率的な材料処理を行うために設計された多目的で強力な建設車両です。',
+    'vehicles.caterpillar.320gc.description': 'キャタピラー320GCショベルは、燃費削減と共に、要求の厳しい建設プロジェクトに対して優れた性能と効率性を提供します。',
+    'vehicles.komatsu.d51px.description': 'コマツD51PXブルドーザーは、優れた安定性を持ち、建設や鉱業用途に設計された強力で多目的な土木作業機械です。',
+    'vehicles.caterpillar.140m.description': 'キャタピラー140Mモーターグレーダーは、高度な制御システムを備え、道路建設や保守管理のために設計された精密な土木作業機械です。',
 
     // About Page
     'about.title': 'BIG TRADINGについて',

@@ -110,21 +110,43 @@ const VehicleDetailPage = () => {
               {/* Description Section */}
               <div className="mt-8">
                 <h2 className="text-2xl font-display font-semibold mb-4">
-                  {t('vehicle.aboutThis')} {vehicle.make} {vehicle.model}
+                  {t('vehicle.about')}
                 </h2>
                 <p className="text-secondary-700 mb-6">
-                  {vehicle.description}
+                  {t('vehicle.lancer.description')}
                 </p>
 
                 {/* Features List */}
                 <h3 className="text-xl font-display font-semibold mb-3">{t('vehicle.keyFeatures')}</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-8">
-                  {vehicle.features.map((feature, index) => (
-                    <div key={index} className="flex items-center">
-                      <Check className="w-5 h-5 text-success-500 mr-2 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </div>
-                  ))}
+                  <div className="flex items-center">
+                    <Check className="w-5 h-5 text-success-500 mr-2 flex-shrink-0" />
+                    <span>{t('vehicle.recaro')}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Check className="w-5 h-5 text-success-500 mr-2 flex-shrink-0" />
+                    <span>{t('vehicle.suspension')}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Check className="w-5 h-5 text-success-500 mr-2 flex-shrink-0" />
+                    <span>{t('vehicle.carbon')}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Check className="w-5 h-5 text-success-500 mr-2 flex-shrink-0" />
+                    <span>{t('vehicle.lsd')}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Check className="w-5 h-5 text-success-500 mr-2 flex-shrink-0" />
+                    <span>{t('vehicle.exhaust')}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Check className="w-5 h-5 text-success-500 mr-2 flex-shrink-0" />
+                    <span>{t('vehicle.wheels')}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Check className="w-5 h-5 text-success-500 mr-2 flex-shrink-0" />
+                    <span>{t('vehicle.turbo')}</span>
+                  </div>
                 </div>
               </div>
             </div>

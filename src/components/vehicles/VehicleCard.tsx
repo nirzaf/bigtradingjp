@@ -15,6 +15,29 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
 
   // Format mileage with commas
   const formattedMileage = new Intl.NumberFormat('en-US').format(vehicle.mileage);
+  
+  // Get the appropriate description based on vehicle type
+  const getVehicleDescription = (vehicle: Vehicle) => {
+    const make = vehicle.make.toLowerCase();
+    const model = vehicle.model.toLowerCase();
+    
+    if (make === 'mitsubishi' && model.includes('lancer')) {
+      return t('vehicles.lancer.description');
+    } else if (make === 'toyota' && model.includes('allion')) {
+      return t('vehicles.allion.description');
+    } else if (make === 'komatsu' && model.includes('wa70')) {
+      return t('vehicles.komatsu.wa70.description');
+    } else if (make === 'caterpillar' && model.includes('320gc')) {
+      return t('vehicles.caterpillar.320gc.description');
+    } else if (make === 'komatsu' && model.includes('d51px')) {
+      return t('vehicles.komatsu.d51px.description');
+    } else if (make === 'caterpillar' && model.includes('140m')) {
+      return t('vehicles.caterpillar.140m.description');
+    } else {
+      // Fallback to original description if no translation is available
+      return vehicle.description.substring(0, 100) + '...';
+    }
+  };
 
   return (
     <motion.div
@@ -42,7 +65,7 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
             {vehicle.make} {vehicle.model}
           </h3>
           <p className="text-sm text-secondary-600 mb-4 line-clamp-2">
-            {vehicle.description.substring(0, 100)}...
+            {getVehicleDescription(vehicle)}
           </p>
 
           <div className="mt-auto">
