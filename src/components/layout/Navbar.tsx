@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Globe, Car } from 'lucide-react';
-import { useLanguage } from '../../contexts/LanguageContext';
-import LanguageSelector from '../ui/LanguageSelector';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
@@ -10,7 +8,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const location = useLocation();
-  const { t } = useLanguage();
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -98,26 +95,22 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
             <div className="nav-links-container flex items-center">
-              {[
-                { key: 'Home', path: '/', label: t('nav.home') },
-                { key: 'About', path: '/about', label: t('nav.about') },
-                { key: 'Contact', path: '/contact', label: t('nav.contact') }
-              ].map((item, index) => (
+              {['Home', 'About', 'Contact'].map((item, index) => (
                 <motion.div
-                  key={item.key}
+                  key={item}
                   className="relative"
-                  onHoverStart={() => handleHover(item.key)}
+                  onHoverStart={() => handleHover(item)}
                   onHoverEnd={() => handleHover(null)}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * (index + 1) }}
                 >
                   <NavLink
-                    to={item.path}
+                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
                     className={navLinkClass}
                   >
-                    {item.label}
-                    {hoveredItem === item.key && (
+                    {item}
+                    {hoveredItem === item && (
                       <motion.div
                         className="absolute bottom-0 left-0 h-0.5 w-full bg-[#F76C09] rounded-full"
                         layoutId="underline"
@@ -131,22 +124,18 @@ const Navbar = () => {
               ))}
             </div>
 
-            <div className="flex items-center gap-4">
-              <LanguageSelector />
-
-              <motion.a
-                href="tel:+81804213-9008"
-                className="flex items-center gap-2 px-4 py-2 bg-[#F76C09] text-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:bg-[#E77D2E]"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                <Phone size={16} />
-                <span className="text-sm font-medium">{t('cta.callUs')}</span>
-              </motion.a>
-            </div>
+            <motion.a
+              href="tel:+81804213-9008"
+              className="ml-6 flex items-center gap-2 px-4 py-2 bg-[#F76C09] text-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:bg-[#E77D2E]"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <Phone size={16} />
+              <span className="text-sm font-medium">Call Us</span>
+            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -199,24 +188,22 @@ const Navbar = () => {
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           >
             <div className="px-4 pt-3 pb-4 space-y-3 bg-gradient-to-b from-[#FEFEFE] to-[#F7F7EA]/90 shadow-lg rounded-b-2xl border-t border-[#3E5AC1]/10">
-              {[
-                { key: 'Home', path: '/', label: t('nav.home'), icon: <Car size={18} /> },
-                { key: 'About', path: '/about', label: t('nav.about'), icon: <Globe size={18} /> },
-                { key: 'Contact', path: '/contact', label: t('nav.contact'), icon: <Phone size={18} /> }
-              ].map((item, index) => (
+              {['Home', 'About', 'Contact'].map((item, index) => (
                 <motion.div
-                  key={item.key}
+                  key={item}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 * index }}
                 >
                   <NavLink
-                    to={item.path}
+                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
                     className={({ isActive }) => `flex items-center space-x-2 px-3 py-2.5 rounded-xl ${isActive ? 'bg-[#3E5AC1]/10 text-[#F76C09]' : 'text-[#3E5AC1]'}`}
                     onClick={closeMenu}
                   >
-                    {item.icon}
-                    <span>{item.label}</span>
+                    {item === 'Home' && <Car size={18} />}
+                    {item === 'About' && <Globe size={18} />}
+                    {item === 'Contact' && <Phone size={18} />}
+                    <span>{item}</span>
                   </NavLink>
                 </motion.div>
               ))}
@@ -231,14 +218,14 @@ const Navbar = () => {
                   <span className="text-sm text-[#3E5AC1]">{t('nav.language')}:</span>
                   <div className="flex items-center gap-2">
                     <button
-                      onClick={() => useLanguage().setLanguage('en')}
-                      className={`px-3 py-1 rounded-md text-sm ${useLanguage().language === 'en' ? 'bg-[#3E5AC1] text-white' : 'bg-gray-100 text-[#3E5AC1]'}`}
+                      onClick={() => setLanguage('en')}
+                      className={`px-3 py-1 rounded-md text-sm ${language === 'en' ? 'bg-[#3E5AC1] text-white' : 'bg-gray-100 text-[#3E5AC1]'}`}
                     >
                       🇺🇸 EN
                     </button>
                     <button
-                      onClick={() => useLanguage().setLanguage('ja')}
-                      className={`px-3 py-1 rounded-md text-sm ${useLanguage().language === 'ja' ? 'bg-[#3E5AC1] text-white' : 'bg-gray-100 text-[#3E5AC1]'}`}
+                      onClick={() => setLanguage('ja')}
+                      className={`px-3 py-1 rounded-md text-sm ${language === 'ja' ? 'bg-[#3E5AC1] text-white' : 'bg-gray-100 text-[#3E5AC1]'}`}
                     >
                       🇯🇵 JP
                     </button>

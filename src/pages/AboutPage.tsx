@@ -2,10 +2,8 @@ import { motion } from 'framer-motion';
 import { Shield, Users, Star, Award, Clock, Sparkles, Car, CircleDollarSign, ShoppingBag, Briefcase } from 'lucide-react';
 
 import PageHeader from '../components/ui/PageHeader';
-import { useLanguage } from '../contexts/LanguageContext';
 
 const AboutPage = () => {
-  const { t } = useLanguage();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -14,8 +12,8 @@ const AboutPage = () => {
       transition={{ duration: 0.3 }}
     >
       <PageHeader
-        title={t('about.title')}
-        subtitle={`${t('nav.home')}/${t('nav.about')}`}
+        title="About BIG TRADING "
+        subtitle="Home/About"
         backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
       />
 
@@ -29,7 +27,7 @@ const AboutPage = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-display font-bold mb-4 uppercase">{t('about.title')}</h2>
+              <h2 className="text-3xl font-display font-bold mb-4 uppercase">About BIG TRADING </h2>
               <p className="text-secondary-700 mb-4">
                 Big Trading Company Ltd. began its journey in 2015, rooted in the vibrant industrial region of Kuwana, Mie Ken, Japan. Strategically located in Kisosaki-cho, Karoto 553, the company has grown steadily over the past decade, establishing a solid presence in Trucking & Equipment, Exports, Retailing, and Consultancy.
               </p>
@@ -39,9 +37,14 @@ const AboutPage = () => {
               <p className="text-secondary-700 mb-4">
                 Driven by a vision to transcend borders, Big Trading leverages its deep industry knowledge to serve a diverse and ever-growing clientele. The company remains focused on sustainable growth, innovation, and customer satisfaction, positioning itself as a leader in the world of global trade.
               </p>
-              <p className="text-secondary-700">
+              <p className="text-secondary-700 mb-4">
                 For inquiries or collaborations, please reach out at <a href="mailto:bigtradingjp@gmail.com" className="text-primary-700 hover:text-primary-900 transition-colors">bigtradingjp@gmail.com</a> or <a href="tel:+81804213-9008" className="text-primary-700 hover:text-primary-900 transition-colors">call us</a>.
               </p>
+              <div className="mt-4 text-center">
+                <a href="/company-info" className="inline-block px-4 py-2 bg-primary-100 text-primary-800 rounded-md hover:bg-primary-200 transition-colors text-sm">
+                  View Bilingual Company Information (日本語版はこちら)
+                </a>
+              </div>
             </motion.div>
 
             <motion.div
@@ -67,7 +70,7 @@ const AboutPage = () => {
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4 uppercase">{t('about.ourValues')}</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 uppercase">Our Core Values</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
               At Big Trading Company, we're guided by our commitment to excellence, integrity, and customer satisfaction in everything we do.
             </p>
@@ -85,9 +88,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Shield className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">{t('about.value2Title')}</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">Global Expertise</h3>
               <p className="text-secondary-700 text-center">
-                {t('about.value2Content')}
+                With deep knowledge of international markets and trade regulations, we facilitate seamless transactions across borders and cultures.
               </p>
             </motion.div>
 
@@ -102,9 +105,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Star className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">{t('about.value1Title')}</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">Quality Assurance</h3>
               <p className="text-secondary-700 text-center">
-                {t('about.value1Content')}
+                We maintain rigorous quality control standards for all vehicles and equipment, ensuring our clients receive only the best products that meet their specific needs.
               </p>
             </motion.div>
 
@@ -119,9 +122,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Users className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">{t('about.value3Title')}</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">Customer Partnership</h3>
               <p className="text-secondary-700 text-center">
-                {t('about.value3Content')}
+                We view our clients as partners, building lasting relationships based on trust, reliability, and a deep understanding of their business needs and goals.
               </p>
             </motion.div>
           </div>
@@ -282,12 +285,15 @@ const AboutPage = () => {
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto mb-8">
             Join our global network of satisfied clients and discover how Big Trading Company can meet your vehicle and equipment needs.
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <a href="tel:+81804213-9008" className="btn btn-primary px-6 py-3 text-base">
-              {t('cta.callUs')}
+              Call Us
             </a>
             <a href="/contact" className="btn btn-accent px-6 py-3 text-base">
-              {t('cta.contactUs')}
+              Contact Us
+            </a>
+            <a href="/company-info" className="btn bg-primary-100 text-primary-800 px-6 py-3 text-base hover:bg-primary-200 transition-colors">
+              View Bilingual Company Info
             </a>
           </div>
         </div>

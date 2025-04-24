@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 
 type Language = 'en' | 'ja';
 
@@ -172,10 +172,34 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  // Initialize language from localStorage or default to 'en'
+  const [language, setLanguageState] = useState<Language>(() => {
+    try {
+      const storedLanguage = localStorage.getItem('language');
+      return storedLanguage ? (storedLanguage as Language) : 'en';
+    } catch (error) {
+      console.error('Error accessing localStorage:', error);
+      return 'en';
+    }
+  });
+
+  // Custom setter that also updates localStorage
+  const setLanguage = (newLanguage: Language) => {
+    try {
+      localStorage.setItem('language', newLanguage);
+      setLanguageState(newLanguage);
+    } catch (error) {
+      console.error('Error setting language in localStorage:', error);
+      setLanguageState(newLanguage);
+    }
+  };
 
   const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations[typeof language]] || key;
+    // Safely access translations
+    if (translations[language] && key in translations[language]) {
+      return translations[language][key as keyof typeof translations[typeof language]];
+    }
+    return key; // Fallback to key if translation not found
   };
 
   return (
