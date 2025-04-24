@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Circle, CalendarClock, Gauge } from 'lucide-react';
+import { Circle, CalendarClock, Gauge, MessageCircle } from 'lucide-react';
 import { Vehicle } from '../../types/vehicle';
 
 interface VehicleCardProps {
@@ -51,7 +51,7 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
               </div>
               <div className="flex items-center text-sm text-secondary-700">
                 <Gauge className="w-4 h-4 mr-1 text-accent-500" />
-                {formattedMileage} mi
+                {formattedMileage} km
               </div>
               <div className="flex items-center text-sm text-secondary-700">
                 <Circle className="w-4 h-4 mr-1 text-accent-500" />
@@ -60,7 +60,8 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
             </div>
 
             <div className="text-center">
-              <span className="inline-block bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-full px-4 py-1 text-sm font-medium transition-colors duration-200">
+              <span className="inline-flex items-center gap-1.5 bg-green-500 text-white hover:bg-green-600 rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200">
+                <MessageCircle className="w-4 h-4" />
                 View Details
               </span>
             </div>
