@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Car, Mail, MapPin, Phone, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Car, Mail, MapPin, Phone, Facebook, Instagram, Twitter, Code } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -115,11 +115,19 @@ const Footer = () => {
 
         <hr className="border-gray-700 my-6" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center text-center md:text-left">
           <p className="text-gray-400 text-sm">
             &copy; {new Date().getFullYear()} BIG TRADING . All rights reserved.
           </p>
-          <div className="flex space-x-4 mt-4 md:mt-0">
+
+          <div className="flex items-center justify-center">
+            <p className="text-gray-400 text-sm flex items-center">
+              <Code className="w-4 h-4 text-accent-500 mr-1" />
+              Powered by <a href="https://quadrate.lk" target="_blank" rel="noopener noreferrer" className="text-accent-400 hover:text-accent-300 transition-colors ml-1 font-medium">Quadrate Tech Solutions</a>
+            </p>
+          </div>
+
+          <div className="flex space-x-4 justify-center md:justify-end">
             <a href="#" className="text-gray-400 hover:text-accent-500 text-sm transition-colors">
               Privacy Policy
             </a>
