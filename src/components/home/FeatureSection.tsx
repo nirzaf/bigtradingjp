@@ -1,6 +1,16 @@
 import { motion } from 'framer-motion';
-import { Search, CircleDollarSign, ThumbsUp, Award, CheckCircle, Shield, Star } from 'lucide-react';
+import { Search, CircleDollarSign, ThumbsUp, Award } from 'lucide-react';
 import '../ui/3DIconEffects.css';
+
+// Color constants from color-codes.md
+const COLORS = {
+  byzantineBlue: '#3E5AC1',
+  ivory: '#F7F7EA',
+  white: '#FEFEFE',
+  pumpkin: '#F76C09',
+  violetBlue: '#1844C6',
+  safetyOrange: '#E77D2E'
+};
 
 interface FeatureItem {
   icon: JSX.Element;
@@ -12,25 +22,25 @@ interface FeatureItem {
 const FeatureSection = () => {
   const features: FeatureItem[] = [
     {
-      icon: <Search className="w-12 h-12 text-primary-800" />,
+      icon: <Search className="w-12 h-12" style={{ color: COLORS.byzantineBlue }} />,
       backIcon: <Search className="w-12 h-12" />,
       title: "Curated Selection",
       description: "Each vehicle in our inventory is hand-selected for its exceptional quality and condition."
     },
     {
-      icon: <CircleDollarSign className="w-12 h-12 text-primary-800" />,
+      icon: <CircleDollarSign className="w-12 h-12" style={{ color: COLORS.byzantineBlue }} />,
       backIcon: <CircleDollarSign className="w-12 h-12" />,
       title: "Transparent Pricing",
       description: "Our no-haggle pricing ensures you always get a fair deal with no hidden fees."
     },
     {
-      icon: <ThumbsUp className="w-12 h-12 text-primary-800" />,
+      icon: <ThumbsUp className="w-12 h-12" style={{ color: COLORS.byzantineBlue }} />,
       backIcon: <ThumbsUp className="w-12 h-12" />,
       title: "Premium Service",
       description: "Enjoy concierge-level service from your first inquiry to long after your purchase."
     },
     {
-      icon: <Award className="w-12 h-12 text-primary-800" />,
+      icon: <Award className="w-12 h-12" style={{ color: COLORS.byzantineBlue }} />,
       backIcon: <Award className="w-12 h-12" />,
       title: "Quality Guarantee",
       description: "All vehicles undergo rigorous inspection and come with a comprehensive warranty."
@@ -54,7 +64,8 @@ const FeatureSection = () => {
             <h2 className="text-3xl font-display font-bold mb-2 uppercase relative inline-block">
               Why Choose <span className="text-primary-600">BIG TRADING</span>
               <motion.div
-                className="absolute -bottom-2 left-0 w-full h-1 bg-accent-500 rounded-full"
+                className="absolute -bottom-2 left-0 w-full h-1 rounded-full"
+                style={{ background: `linear-gradient(90deg, ${COLORS.byzantineBlue}, ${COLORS.violetBlue}, ${COLORS.pumpkin}, ${COLORS.safetyOrange})` }}
                 initial={{ width: 0, left: '50%' }}
                 whileInView={{ width: '100%', left: 0 }}
                 viewport={{ once: true }}
@@ -79,14 +90,14 @@ const FeatureSection = () => {
             >
               <div className="icon-3d-container">
                 <div className="icon-3d icon-float">
-                  <div className="icon-3d-front icon-bg icon-shine">
-                    <div className="icon-glow">
+                  <div className="icon-3d-front icon-bg icon-shine icon-wave">
+                    <div className="icon-glow icon-orbit">
                       <div className="flex items-center justify-center">
                         {feature.icon}
                       </div>
                     </div>
                   </div>
-                  <div className="icon-3d-back">
+                  <div className="icon-3d-back icon-pulse">
                     <div className="flex items-center justify-center">
                       {feature.backIcon}
                     </div>
