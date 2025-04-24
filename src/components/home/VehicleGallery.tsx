@@ -3,8 +3,10 @@ import { motion } from 'framer-motion';
 import VehicleCard from '../vehicles/VehicleCard';
 import { vehicles } from '../../data/vehicles';
 import { Vehicle } from '../../types/vehicle';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const VehicleGallery = () => {
+  const { t } = useLanguage();
   // Mark all vehicles as sold
   const soldVehicles = vehicles.map(vehicle => ({ ...vehicle, sold: true }));
   const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[]>(soldVehicles);
@@ -42,21 +44,21 @@ const VehicleGallery = () => {
   };
 
   const filterButtons = [
-    { type: 'all', label: 'All Vehicles' },
-    { type: 'Sedan', label: 'Sedans' },
-    { type: 'Construction', label: 'Construction' },
-    { type: 'Excavator', label: 'Excavators' },
-    { type: 'Bulldozer', label: 'Bulldozers' },
-    { type: 'Diesel', label: 'Diesel' }
+    { type: 'all', label: t('vehicles.allVehicles') },
+    { type: 'Sedan', label: t('vehicles.sedans') },
+    { type: 'Construction', label: t('vehicles.construction') },
+    { type: 'Excavator', label: t('vehicles.excavators') },
+    { type: 'Bulldozer', label: t('vehicles.bulldozers') },
+    { type: 'Diesel', label: t('vehicles.diesel') }
   ];
 
   return (
     <section id="vehicle-gallery" className="py-16 bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-display font-bold mb-4 uppercase">Previous Exports</h2>
+          <h2 className="text-3xl font-display font-bold mb-4 uppercase">{t('vehicles.previousExports')}</h2>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-            Explore our past exports of premium vehicles and construction equipment. These examples showcase our quality standards and expertise in global trading.
+            {t('vehicles.previousExportsDesc')}
           </p>
         </div>
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Circle, CalendarClock, Gauge, MessageCircle } from 'lucide-react';
 import { Vehicle } from '../../types/vehicle';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 interface VehicleCardProps {
   vehicle: Vehicle;
@@ -9,6 +10,7 @@ interface VehicleCardProps {
 }
 
 const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
+  const { t } = useLanguage();
   // Price removed as requested
 
   // Format mileage with commas
@@ -31,7 +33,7 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
           />
           {vehicle.sold && (
             <div className="absolute top-5 -right-10 w-32 bg-error-600 text-white py-1 text-xs font-bold uppercase tracking-wider shadow-md z-10 transform rotate-45 text-center border-t border-b border-white/30">
-              Sold
+              {t('vehicles.sold')}
             </div>
           )}
         </div>
@@ -62,7 +64,7 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
             <div className="text-center">
               <span className="inline-flex items-center gap-1.5 bg-green-500 text-white hover:bg-green-600 rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200">
                 <MessageCircle className="w-4 h-4" />
-                View Details
+                {t('vehicles.viewDetails')}
               </span>
             </div>
           </div>
