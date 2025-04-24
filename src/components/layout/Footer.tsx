@@ -22,7 +22,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-gray-300 mb-4">
-              Established in 2015, BIG TRADING  specializes in exporting high-quality motor vehicles, spare parts, and construction machinery worldwide. Based in Kuwana, Mie Ken, Japan, we deliver excellence and reliability to our global clients.
+              {t('footer.companyDescription')}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-accent-500 transition-colors"> {/* Pumpkin */}
@@ -42,21 +42,21 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="md:col-span-2">
-            <h3 className="text-white font-display text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white font-display text-lg font-semibold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  Home
+                  {t('nav.home')}
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  About Us
+                  {t('footer.aboutUs')}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  Contact
+                  {t('nav.contact')}
                 </Link>
               </li>
             </ul>
@@ -64,26 +64,26 @@ const Footer = () => {
 
           {/* Vehicles */}
           <div className="md:col-span-3">
-            <h3 className="text-white font-display text-lg font-semibold mb-4">Our Products</h3>
+            <h3 className="text-white font-display text-lg font-semibold mb-4">{t('footer.ourProducts')}</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  Motor Vehicles
+                  {t('footer.motorVehicles')}
                 </Link>
               </li>
               <li>
                 <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  Spare Parts
+                  {t('footer.spareParts')}
                 </Link>
               </li>
               <li>
                 <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  Construction Machinery
+                  {t('footer.constructionMachinery')}
                 </Link>
               </li>
               <li>
                 <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  Heavy Equipment
+                  {t('footer.heavyEquipment')}
                 </Link>
               </li>
             </ul>
@@ -91,7 +91,7 @@ const Footer = () => {
 
           {/* Contact Information */}
           <div className="md:col-span-3">
-            <h3 className="text-white font-display text-lg font-semibold mb-4">Contact Us</h3>
+            <h3 className="text-white font-display text-lg font-semibold mb-4">{t('footer.contactUs')}</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 text-accent-500 mr-2 mt-0.5" />
@@ -136,10 +136,10 @@ const Footer = () => {
 
           <div className="flex space-x-4 justify-center md:justify-end">
             <Link to="/privacy-policy" className="text-gray-400 hover:text-accent-500 text-sm transition-colors">
-              Privacy Policy
+              {t('footer.privacyPolicy')}
             </Link>
             <Link to="/terms-of-service" className="text-gray-400 hover:text-accent-500 text-sm transition-colors">
-              Terms of Service
+              {t('footer.termsOfService')}
             </Link>
           </div>
         </div>

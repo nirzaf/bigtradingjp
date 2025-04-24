@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 
 import PageHeader from '../components/ui/PageHeader';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface FormData {
   name: string;
@@ -13,6 +14,7 @@ interface FormData {
 }
 
 const ContactPage = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -59,8 +61,8 @@ const ContactPage = () => {
       transition={{ duration: 0.3 }}
     >
       <PageHeader
-        title="CONTACT BIG TRADING CO., LTD"
-        subtitle="Our team is ready to assist you with any questions or inquiries"
+        title={t('contact.title')}
+        subtitle={t('contact.subtitle')}
         backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
       />
 
@@ -75,7 +77,7 @@ const ContactPage = () => {
               transition={{ duration: 0.5 }}
               className="lg:col-span-1"
             >
-              <h2 className="text-2xl font-display font-bold mb-6 uppercase">Get in Touch</h2>
+              <h2 className="text-2xl font-display font-bold mb-6 uppercase">{t('contact.getInTouch')}</h2>
 
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -83,7 +85,7 @@ const ContactPage = () => {
                     <MapPin className="w-6 h-6 text-primary-800" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-primary-900 mb-1">Our Location</h3>
+                    <h3 className="text-lg font-medium text-primary-900 mb-1">{t('contact.officeAddress')}</h3>
                     <p className="text-secondary-700">
                       Kisosaki-cho, Karoto 553<br />
                       Kuwana, Mie Ken<br />
@@ -97,7 +99,7 @@ const ContactPage = () => {
                     <Phone className="w-6 h-6 text-primary-800" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-primary-900 mb-1">Phone</h3>
+                    <h3 className="text-lg font-medium text-primary-900 mb-1">{t('contact.phoneNumber')}</h3>
                     <p className="text-secondary-700">
                       <a href="tel:+81804213-9008" className="hover:text-primary-800 transition-colors">
                         +81 80-4213-9008
@@ -116,7 +118,7 @@ const ContactPage = () => {
                     <Mail className="w-6 h-6 text-primary-800" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-primary-900 mb-1">Email</h3>
+                    <h3 className="text-lg font-medium text-primary-900 mb-1">{t('contact.emailAddress')}</h3>
                     <p className="text-secondary-700">
                       <a href="mailto:bigtradingjp@gmail.com" className="hover:text-primary-800 transition-colors">
                         bigtradingjp@gmail.com
@@ -135,7 +137,7 @@ const ContactPage = () => {
                     <Clock className="w-6 h-6 text-primary-800" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-primary-900 mb-1">Business Hours</h3>
+                    <h3 className="text-lg font-medium text-primary-900 mb-1">{t('contact.businessHours')}</h3>
                     <p className="text-secondary-700">
                       Monday - Friday: 9:00 AM - 6:00 PM (JST)<br />
                       Saturday: 10:00 AM - 4:00 PM (JST)<br />
@@ -154,7 +156,7 @@ const ContactPage = () => {
               className="lg:col-span-2"
             >
               <div className="bg-gray-50 rounded-lg p-8">
-                <h2 className="text-2xl font-display font-bold mb-6 uppercase">Send Us a Message</h2>
+                <h2 className="text-2xl font-display font-bold mb-6 uppercase">{t('contact.contactForm')}</h2>
 
                 {formStatus.success && (
                   <motion.div
@@ -180,7 +182,7 @@ const ContactPage = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-secondary-700 mb-1">
-                        Full Name *
+                        {t('contact.name')} *
                       </label>
                       <input
                         type="text"
@@ -195,7 +197,7 @@ const ContactPage = () => {
 
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-secondary-700 mb-1">
-                        Email Address *
+                        {t('contact.email')} *
                       </label>
                       <input
                         type="email"
@@ -210,7 +212,7 @@ const ContactPage = () => {
 
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-secondary-700 mb-1">
-                        Phone Number
+                        {t('contact.phone')}
                       </label>
                       <input
                         type="tel"
@@ -247,7 +249,7 @@ const ContactPage = () => {
 
                   <div className="mb-6">
                     <label htmlFor="message" className="block text-sm font-medium text-secondary-700 mb-1">
-                      Message *
+                      {t('contact.message')} *
                     </label>
                     <textarea
                       id="message"
@@ -279,7 +281,7 @@ const ContactPage = () => {
                       ) : (
                         <>
                           <Send className="w-5 h-5 mr-2" />
-                          Send Message
+                          {t('contact.submit')}
                         </>
                       )}
                     </button>

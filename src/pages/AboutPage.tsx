@@ -2,8 +2,10 @@ import { motion } from 'framer-motion';
 import { Shield, Users, Star, Award, Clock, Sparkles, Car, CircleDollarSign, ShoppingBag, Briefcase } from 'lucide-react';
 
 import PageHeader from '../components/ui/PageHeader';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const AboutPage = () => {
+  const { t } = useLanguage();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -12,8 +14,8 @@ const AboutPage = () => {
       transition={{ duration: 0.3 }}
     >
       <PageHeader
-        title="About BIG TRADING "
-        subtitle="Home/About"
+        title={t('about.title')}
+        subtitle={`${t('nav.home')}/${t('nav.about')}`}
         backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
       />
 
@@ -27,7 +29,7 @@ const AboutPage = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-display font-bold mb-4 uppercase">About BIG TRADING </h2>
+              <h2 className="text-3xl font-display font-bold mb-4 uppercase">{t('about.title')}</h2>
               <p className="text-secondary-700 mb-4">
                 Big Trading Company Ltd. began its journey in 2015, rooted in the vibrant industrial region of Kuwana, Mie Ken, Japan. Strategically located in Kisosaki-cho, Karoto 553, the company has grown steadily over the past decade, establishing a solid presence in Trucking & Equipment, Exports, Retailing, and Consultancy.
               </p>
@@ -65,7 +67,7 @@ const AboutPage = () => {
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4 uppercase">Our Core Values</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 uppercase">{t('about.ourValues')}</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
               At Big Trading Company, we're guided by our commitment to excellence, integrity, and customer satisfaction in everything we do.
             </p>
@@ -83,9 +85,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Shield className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">Global Expertise</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">{t('about.value2Title')}</h3>
               <p className="text-secondary-700 text-center">
-                With deep knowledge of international markets and trade regulations, we facilitate seamless transactions across borders and cultures.
+                {t('about.value2Content')}
               </p>
             </motion.div>
 
@@ -100,9 +102,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Star className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">Quality Assurance</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">{t('about.value1Title')}</h3>
               <p className="text-secondary-700 text-center">
-                We maintain rigorous quality control standards for all vehicles and equipment, ensuring our clients receive only the best products that meet their specific needs.
+                {t('about.value1Content')}
               </p>
             </motion.div>
 
@@ -117,9 +119,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Users className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">Customer Partnership</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">{t('about.value3Title')}</h3>
               <p className="text-secondary-700 text-center">
-                We view our clients as partners, building lasting relationships based on trust, reliability, and a deep understanding of their business needs and goals.
+                {t('about.value3Content')}
               </p>
             </motion.div>
           </div>
@@ -282,10 +284,10 @@ const AboutPage = () => {
           </p>
           <div className="flex justify-center gap-4">
             <a href="tel:+81804213-9008" className="btn btn-primary px-6 py-3 text-base">
-              Call Us
+              {t('cta.callUs')}
             </a>
             <a href="/contact" className="btn btn-accent px-6 py-3 text-base">
-              Contact Us
+              {t('cta.contactUs')}
             </a>
           </div>
         </div>
