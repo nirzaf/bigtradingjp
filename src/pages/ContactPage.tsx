@@ -291,28 +291,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-display font-bold mb-4 uppercase">Visit Our Office</h2>
-            <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-              Visit our office in Kuwana, Mie Ken to discuss your vehicle and equipment needs with our expert team.
-            </p>
-          </div>
 
-          <div className="h-96 bg-gray-200 rounded-lg overflow-hidden">
-            {/* Map would go here. For now, displaying a placeholder */}
-            <div className="w-full h-full flex items-center justify-center bg-gray-300">
-              <div className="text-center">
-                <MapPin className="w-12 h-12 text-primary-800 mx-auto mb-2" />
-                <p className="text-xl font-medium">Kisosaki-cho, Karoto 553, Kuwana, Mie Ken, Japan</p>
-                <p className="text-secondary-600">Interactive map would be displayed here</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </motion.div>
   );
 };
