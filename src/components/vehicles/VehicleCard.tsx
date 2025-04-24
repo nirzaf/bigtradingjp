@@ -49,15 +49,15 @@ const VehicleCard = ({ vehicle, index }: VehicleCardProps) => {
             <div className="grid grid-cols-3 gap-2 mb-4">
               <div className="flex items-center text-sm text-secondary-700">
                 <CalendarClock className="w-4 h-4 mr-1 text-accent-500" />
-                {vehicle.year}
+                {t('vehicles.year')}: {vehicle.year}
               </div>
               <div className="flex items-center text-sm text-secondary-700">
                 <Gauge className="w-4 h-4 mr-1 text-accent-500" />
-                {formattedMileage} km
+                {t('vehicles.mileage')}: {formattedMileage} {t('vehicles.km')}
               </div>
               <div className="flex items-center text-sm text-secondary-700">
                 <Circle className="w-4 h-4 mr-1 text-accent-500" />
-                {vehicle.fuelType}
+                {t('vehicles.fuelType')}: {vehicle.fuelType}
               </div>
             </div>
 

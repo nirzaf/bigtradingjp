@@ -1,27 +1,29 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Category } from '../../data/categories';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 interface CategoryGalleryProps {
   categories: Category[];
 }
 
 const CategoryGallery = ({ categories }: CategoryGalleryProps) => {
+  const { t } = useLanguage();
   return (
     <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative">
       <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-display font-bold mb-4 uppercase relative inline-block">
-            <span className="relative z-10">Our Categories</span>
+            <span className="relative z-10">{t('categories.title')}</span>
             <span className="absolute -bottom-2 left-0 right-0 h-3 bg-primary-200/50 -rotate-1 z-0"></span>
           </h2>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto mb-6">
-            Explore our wide range of vehicles and construction equipment categories.
+            {t('categories.description')}
           </p>
           <div className="mt-6">
             <a href="tel:+81804213-9008" className="btn btn-primary px-6 py-3 text-sm font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:translate-y-[-2px]">
-              Call Us
+              {t('categories.callUs')}
             </a>
           </div>
         </div>
@@ -46,9 +48,9 @@ const CategoryGallery = ({ categories }: CategoryGalleryProps) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-900/70 via-primary-800/30 to-transparent flex items-end transition-all duration-300 group-hover:from-primary-900/80 group-hover:via-primary-800/40 z-20">
                   <div className="w-full p-6">
                     <h3 className="text-white text-xl md:text-2xl font-display font-bold tracking-wide transition-transform duration-300 group-hover:translate-y-[-5px] drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]">
-                      {category.name}
+                      {t(category.translationKey)}
                     </h3>
-                    <p className="text-white/80 text-sm font-medium transition-all duration-300 group-hover:text-white group-hover:translate-y-[-3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">Click to explore</p>
+                    <p className="text-white/80 text-sm font-medium transition-all duration-300 group-hover:text-white group-hover:translate-y-[-3px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">{t('categories.clickToExplore')}</p>
                   </div>
                 </div>
               </Link>

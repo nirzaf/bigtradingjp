@@ -61,6 +61,22 @@ const translations = {
     'vehicles.diesel': 'Diesel',
     'vehicles.sold': 'Sold',
     'vehicles.viewDetails': 'View Details',
+    'vehicles.km': 'km',
+    'vehicles.year': 'Year',
+    'vehicles.mileage': 'Mileage',
+    'vehicles.fuelType': 'Fuel Type',
+    
+    // Categories Section
+    'categories.title': 'Our Categories',
+    'categories.description': 'Explore our wide range of vehicles and construction equipment categories.',
+    'categories.callUs': 'Call Us',
+    'categories.clickToExplore': 'Click to explore',
+    'categories.excavators': 'Excavators',
+    'categories.vehicles': 'Vehicles',
+    'categories.dumpTrucks': 'Dump Trucks',
+    'categories.roadRollers': 'Road Rollers',
+    'categories.motorGraders': 'Motor Graders',
+    'categories.mobileCranes': 'Mobile Cranes',
 
     // Vehicle Detail Page
     'vehicle.contactForPricing': 'Contact for pricing',
@@ -196,6 +212,22 @@ const translations = {
     'vehicles.diesel': 'ディーゼル',
     'vehicles.sold': '売約済',
     'vehicles.viewDetails': '詳細を見る',
+    'vehicles.km': 'km',
+    'vehicles.year': '年式',
+    'vehicles.mileage': '走行距離',
+    'vehicles.fuelType': '燃料タイプ',
+    
+    // Categories Section
+    'categories.title': '取扱カテゴリー',
+    'categories.description': '幅広い車両や建設機器のカテゴリーをご覧ください。',
+    'categories.callUs': 'お電話はこちら',
+    'categories.clickToExplore': 'クリックして詳細を見る',
+    'categories.excavators': 'ショベルカー',
+    'categories.vehicles': '車両',
+    'categories.dumpTrucks': 'ダンプトラック',
+    'categories.roadRollers': 'ロードローラー',
+    'categories.motorGraders': 'モーターグレーダー',
+    'categories.mobileCranes': 'クレーン車',
 
     // Vehicle Detail Page
     'vehicle.contactForPricing': '価格はお問い合わせください',
