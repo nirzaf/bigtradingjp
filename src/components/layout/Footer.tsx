@@ -55,11 +55,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/company-info" className="text-gray-300 hover:text-accent-500 transition-colors">
-                  BIG TRADINGについて
-                </Link>
-              </li>
-              <li>
                 <Link to="/contact" className="text-gray-300 hover:text-accent-500 transition-colors">
                   {t('nav.contact')}
                 </Link>

@@ -35,19 +35,17 @@ const AboutPage = () => {
                 {t('about.ourStoryContent')}
               </p>
               <p className="text-secondary-700 mb-4">
-                With 10 years of experience in both local and international trading, Big Trading has built a reputation for reliability, industry expertise, and a forward-thinking approach. Operating under the Big Trading banner, the company is committed to delivering excellence and forging lasting relationships with clients across the globe.
+                {t('about.experienceText')}
               </p>
               <p className="text-secondary-700 mb-4">
-                Driven by a vision to transcend borders, Big Trading leverages its deep industry knowledge to serve a diverse and ever-growing clientele. The company remains focused on sustainable growth, innovation, and customer satisfaction, positioning itself as a leader in the world of global trade.
+                {t('about.visionText')}
               </p>
               <p className="text-secondary-700 mb-4">
-                For inquiries or collaborations, please reach out at <a href="mailto:bigtradingjp@gmail.com" className="text-primary-700 hover:text-primary-900 transition-colors">{t('about.emailUs')}</a> or <a href="tel:+81804213-9008" className="text-primary-700 hover:text-primary-900 transition-colors">{t('about.callUs')}</a>.
+                {t('about.inquiryText1')}
+                <a href="mailto:bigtradingjp@gmail.com" className="text-primary-700 hover:text-primary-900 transition-colors">{t('about.emailUs')}</a>
+                {t('about.inquiryText2')}
+                <a href="tel:+81804213-9008" className="text-primary-700 hover:text-primary-900 transition-colors">{t('about.callUs')}</a>.
               </p>
-              <div className="mt-4 text-center">
-                <a href="/company-info" className="inline-block px-4 py-2 bg-primary-100 text-primary-800 rounded-md hover:bg-primary-200 transition-colors text-sm">
-                  {t('about.viewBilingual')}
-                </a>
-              </div>
             </motion.div>
 
             <motion.div
@@ -294,9 +292,6 @@ const AboutPage = () => {
             </a>
             <a href="/contact" className="btn btn-accent px-6 py-3 text-base">
               {t('about.contactUsBtn')}
-            </a>
-            <a href="/company-info" className="btn bg-primary-100 text-primary-800 px-6 py-3 text-base hover:bg-primary-200 transition-colors">
-              {t('about.viewBilingualBtn')}
             </a>
           </div>
         </div>
