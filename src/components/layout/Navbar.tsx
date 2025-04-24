@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Globe, Car } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const location = useLocation();
+  const { t, language, setLanguage } = useLanguage();
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -136,6 +138,22 @@ const Navbar = () => {
               <Phone size={16} />
               <span className="text-sm font-medium">Call Us</span>
             </motion.a>
+            <div className="flex items-center gap-2 ml-4">
+              <Globe size={16} />
+              <span className="text-sm text-[#3E5AC1]">{t('nav.language')}:</span>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-3 py-1 rounded-md text-sm ${language === 'en' ? 'bg-[#3E5AC1] text-white' : 'bg-gray-100 text-[#3E5AC1]'}`}
+              >
+                🇺🇸 EN
+              </button>
+              <button
+                onClick={() => setLanguage('ja')}
+                className={`px-3 py-1 rounded-md text-sm ${language === 'ja' ? 'bg-[#3E5AC1] text-white' : 'bg-gray-100 text-[#3E5AC1]'}`}
+              >
+                🇯🇵 JP
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
