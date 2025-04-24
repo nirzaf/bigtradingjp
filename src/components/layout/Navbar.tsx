@@ -38,11 +38,10 @@ const Navbar = () => {
   };
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) => {
-    return `relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-md ${
-      isActive
+    return `relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-md ${isActive
         ? 'text-[#F76C09] font-semibold'
         : 'text-[#3E5AC1] hover:text-[#F76C09]'
-    }`;
+      }`;
   };
 
   return (
@@ -50,11 +49,10 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-      className={`sticky top-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`sticky top-0 z-50 transition-all duration-500 ${scrolled
           ? 'bg-[#FEFEFE] shadow-lg py-2'
           : 'bg-gradient-to-r from-[#FEFEFE]/95 to-[#F7F7EA]/95 backdrop-blur-md py-4'
-      }`}
+        }`}
     >
       <div className="container-custom">
         <div className="flex items-center justify-between">
@@ -89,7 +87,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                EXPORTER OF MOTOR VEHICLES, SPARE PARTS AND MACHINERIES
+                {language === 'en' ? 'EXPORTER OF MOTOR VEHICLES, SPARE PARTS AND MACHINERIES' : '自動車、スペアパーツ、機械類の輸出業者'}
               </motion.span>
             </div>
           </Link>

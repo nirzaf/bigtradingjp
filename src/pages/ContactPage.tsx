@@ -14,7 +14,7 @@ interface FormData {
 }
 
 const ContactPage = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -139,9 +139,19 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-lg font-medium text-primary-900 mb-1">{t('contact.businessHours')}</h3>
                     <p className="text-secondary-700">
-                      Monday - Friday: 9:00 AM - 6:00 PM (JST)<br />
-                      Saturday: 10:00 AM - 4:00 PM (JST)<br />
-                      Sunday: Closed
+                      {language === 'en' ? (
+                        <>
+                          Monday - Friday: 9:00 AM - 6:00 PM (JST)<br />
+                          Saturday: 10:00 AM - 4:00 PM (JST)<br />
+                          Sunday: Closed
+                        </>
+                      ) : (
+                        <>
+                          月曜日〜金曜日：午前9時〜午後6時（日本時間）<br />
+                          土曜日：午前10時〜午後4時（日本時間）<br />
+                          日曜日：休業
+                        </>
+                      )}
                     </p>
                   </div>
                 </div>
@@ -266,9 +276,8 @@ const ContactPage = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`flex items-center justify-center w-full md:w-auto px-6 py-3 bg-primary-800 text-white rounded-md font-medium transition-colors ${
-                        isSubmitting ? 'bg-primary-600 cursor-not-allowed' : 'hover:bg-primary-700'
-                      }`}
+                      className={`flex items-center justify-center w-full md:w-auto px-6 py-3 bg-primary-800 text-white rounded-md font-medium transition-colors ${isSubmitting ? 'bg-primary-600 cursor-not-allowed' : 'hover:bg-primary-700'
+                        }`}
                     >
                       {isSubmitting ? (
                         <>

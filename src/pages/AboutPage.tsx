@@ -2,8 +2,11 @@ import { motion } from 'framer-motion';
 import { Shield, Users, Star, Award, Clock, Sparkles, Car, CircleDollarSign, ShoppingBag, Briefcase } from 'lucide-react';
 
 import PageHeader from '../components/ui/PageHeader';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const AboutPage = () => {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -12,8 +15,8 @@ const AboutPage = () => {
       transition={{ duration: 0.3 }}
     >
       <PageHeader
-        title="About BIG TRADING "
-        subtitle="Home/About"
+        title={t('about.title')}
+        subtitle={`${t('nav.home')}/${t('nav.about')}`}
         backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
       />
 
@@ -27,9 +30,9 @@ const AboutPage = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-display font-bold mb-4 uppercase">About BIG TRADING </h2>
+              <h2 className="text-3xl font-display font-bold mb-4 uppercase">{t('about.title')}</h2>
               <p className="text-secondary-700 mb-4">
-                Big Trading Company Ltd. began its journey in 2015, rooted in the vibrant industrial region of Kuwana, Mie Ken, Japan. Strategically located in Kisosaki-cho, Karoto 553, the company has grown steadily over the past decade, establishing a solid presence in Trucking & Equipment, Exports, Retailing, and Consultancy.
+                {t('about.ourStoryContent')}
               </p>
               <p className="text-secondary-700 mb-4">
                 With 10 years of experience in both local and international trading, Big Trading has built a reputation for reliability, industry expertise, and a forward-thinking approach. Operating under the Big Trading banner, the company is committed to delivering excellence and forging lasting relationships with clients across the globe.
@@ -38,11 +41,11 @@ const AboutPage = () => {
                 Driven by a vision to transcend borders, Big Trading leverages its deep industry knowledge to serve a diverse and ever-growing clientele. The company remains focused on sustainable growth, innovation, and customer satisfaction, positioning itself as a leader in the world of global trade.
               </p>
               <p className="text-secondary-700 mb-4">
-                For inquiries or collaborations, please reach out at <a href="mailto:bigtradingjp@gmail.com" className="text-primary-700 hover:text-primary-900 transition-colors">bigtradingjp@gmail.com</a> or <a href="tel:+81804213-9008" className="text-primary-700 hover:text-primary-900 transition-colors">call us</a>.
+                For inquiries or collaborations, please reach out at <a href="mailto:bigtradingjp@gmail.com" className="text-primary-700 hover:text-primary-900 transition-colors">{t('about.emailUs')}</a> or <a href="tel:+81804213-9008" className="text-primary-700 hover:text-primary-900 transition-colors">{t('about.callUs')}</a>.
               </p>
               <div className="mt-4 text-center">
                 <a href="/company-info" className="inline-block px-4 py-2 bg-primary-100 text-primary-800 rounded-md hover:bg-primary-200 transition-colors text-sm">
-                  View Bilingual Company Information (日本語版はこちら)
+                  {t('about.viewBilingual')}
                 </a>
               </div>
             </motion.div>
@@ -70,9 +73,9 @@ const AboutPage = () => {
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4 uppercase">Our Core Values</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 uppercase">{t('about.coreValues')}</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-              At Big Trading Company, we're guided by our commitment to excellence, integrity, and customer satisfaction in everything we do.
+              {t('about.coreValuesDescription')}
             </p>
           </div>
 
@@ -88,9 +91,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Shield className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">Global Expertise</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">{t('about.globalExpertise')}</h3>
               <p className="text-secondary-700 text-center">
-                With deep knowledge of international markets and trade regulations, we facilitate seamless transactions across borders and cultures.
+                {t('about.globalExpertiseDesc')}
               </p>
             </motion.div>
 
@@ -105,9 +108,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Star className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">Quality Assurance</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">{t('about.qualityAssurance')}</h3>
               <p className="text-secondary-700 text-center">
-                We maintain rigorous quality control standards for all vehicles and equipment, ensuring our clients receive only the best products that meet their specific needs.
+                {t('about.qualityAssuranceDesc')}
               </p>
             </motion.div>
 
@@ -122,9 +125,9 @@ const AboutPage = () => {
               <div className="flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-4 mx-auto">
                 <Users className="w-8 h-8 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3 text-center">Customer Partnership</h3>
+              <h3 className="text-xl font-display font-semibold mb-3 text-center">{t('about.customerPartnership')}</h3>
               <p className="text-secondary-700 text-center">
-                We view our clients as partners, building lasting relationships based on trust, reliability, and a deep understanding of their business needs and goals.
+                {t('about.customerPartnershipDesc')}
               </p>
             </motion.div>
           </div>
@@ -135,9 +138,9 @@ const AboutPage = () => {
       <section className="py-16">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4 uppercase">Our Business Areas</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 uppercase">{t('about.businessAreas')}</h2>
             <p className="text-lg text-secondary-600 max-w-3xl mx-auto">
-              Big Trading Company specializes in four key business areas, delivering expertise and excellence across multiple sectors.
+              {t('about.businessAreasDesc')}
             </p>
           </div>
 
@@ -153,9 +156,9 @@ const AboutPage = () => {
               <div className="relative mb-4 mx-auto w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center">
                 <Car className="w-10 h-10 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3">Trucking & Equipment</h3>
+              <h3 className="text-xl font-display font-semibold mb-3">{t('about.truckingEquipment')}</h3>
               <p className="text-secondary-600">
-                Specializing in high-quality trucks, construction equipment, and heavy machinery for various industrial applications.
+                {t('about.truckingEquipmentDesc')}
               </p>
             </motion.div>
 
@@ -170,9 +173,9 @@ const AboutPage = () => {
               <div className="relative mb-4 mx-auto w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center">
                 <CircleDollarSign className="w-10 h-10 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3">Exports</h3>
+              <h3 className="text-xl font-display font-semibold mb-3">{t('about.exports')}</h3>
               <p className="text-secondary-600">
-                Facilitating international trade with expertise in export regulations, logistics, and cross-border transactions.
+                {t('about.exportsDesc')}
               </p>
             </motion.div>
 
@@ -187,9 +190,9 @@ const AboutPage = () => {
               <div className="relative mb-4 mx-auto w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center">
                 <ShoppingBag className="w-10 h-10 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3">Retailing</h3>
+              <h3 className="text-xl font-display font-semibold mb-3">{t('about.retailing')}</h3>
               <p className="text-secondary-600">
-                Providing premium vehicles and equipment to local markets with personalized service and competitive pricing.
+                {t('about.retailingDesc')}
               </p>
             </motion.div>
 
@@ -204,9 +207,9 @@ const AboutPage = () => {
               <div className="relative mb-4 mx-auto w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center">
                 <Briefcase className="w-10 h-10 text-primary-800" />
               </div>
-              <h3 className="text-xl font-display font-semibold mb-3">Consultancy</h3>
+              <h3 className="text-xl font-display font-semibold mb-3">{t('about.consultancy')}</h3>
               <p className="text-secondary-600">
-                Offering expert advice on market trends, investment opportunities, and strategic business development in the automotive and equipment sectors.
+                {t('about.consultancyDesc')}
               </p>
             </motion.div>
           </div>
@@ -217,9 +220,9 @@ const AboutPage = () => {
       <section className="py-16 bg-primary-900 text-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4 text-white uppercase">Why Clients Choose Us</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 text-white uppercase">{content.whyChooseUs}</h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              Since 2015, clients across the globe have trusted Big Trading Company for their vehicle and equipment needs. Here's why.
+              {content.whyChooseUsDesc}
             </p>
           </div>
 
@@ -234,9 +237,9 @@ const AboutPage = () => {
             >
               <Award className="w-10 h-10 text-accent-400 mr-4 flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-display font-semibold mb-2 text-white">Global Network</h3>
+                <h3 className="text-xl font-display font-semibold mb-2 text-white">{content.globalNetwork}</h3>
                 <p className="text-gray-300">
-                  Our extensive international network allows us to source and deliver equipment and vehicles worldwide with efficiency and reliability.
+                  {content.globalNetworkDesc}
                 </p>
               </div>
             </motion.div>
@@ -251,9 +254,9 @@ const AboutPage = () => {
             >
               <Sparkles className="w-10 h-10 text-accent-400 mr-4 flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-display font-semibold mb-2 text-white">Industry Expertise</h3>
+                <h3 className="text-xl font-display font-semibold mb-2 text-white">{content.industryExpertise}</h3>
                 <p className="text-gray-300">
-                  Our team brings deep knowledge of both local and international markets, regulations, and industry best practices to every transaction.
+                  {content.industryExpertiseDesc}
                 </p>
               </div>
             </motion.div>
@@ -268,9 +271,9 @@ const AboutPage = () => {
             >
               <Clock className="w-10 h-10 text-accent-400 mr-4 flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-display font-semibold mb-2 text-white">Customized Solutions</h3>
+                <h3 className="text-xl font-display font-semibold mb-2 text-white">{content.customizedSolutions}</h3>
                 <p className="text-gray-300">
-                  We tailor our services to meet the specific needs of each client, providing personalized solutions rather than one-size-fits-all approaches.
+                  {content.customizedSolutionsDesc}
                 </p>
               </div>
             </motion.div>
@@ -281,19 +284,19 @@ const AboutPage = () => {
       {/* CTA Section */}
       <section className="py-16 bg-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-display font-bold mb-4 uppercase">Ready to Partner with BIG TRADING?</h2>
+          <h2 className="text-3xl font-display font-bold mb-4 uppercase">{content.readyToPartner}</h2>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto mb-8">
-            Join our global network of satisfied clients and discover how Big Trading Company can meet your vehicle and equipment needs.
+            {content.readyToPartnerDesc}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="tel:+81804213-9008" className="btn btn-primary px-6 py-3 text-base">
-              Call Us
+              {content.callUsBtn}
             </a>
             <a href="/contact" className="btn btn-accent px-6 py-3 text-base">
-              Contact Us
+              {content.contactUsBtn}
             </a>
             <a href="/company-info" className="btn bg-primary-100 text-primary-800 px-6 py-3 text-base hover:bg-primary-200 transition-colors">
-              View Bilingual Company Info
+              {content.viewBilingualBtn}
             </a>
           </div>
         </div>

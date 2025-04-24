@@ -6,7 +6,7 @@ const BilingualAboutContent: React.FC = () => {
 
   const content = {
     en: {
-      title: "BIG TRADINGについて",
+      title: "About BIG TRADING",
       paragraph1: "Big Trading Company Ltd. began its journey in 2015, rooted in the vibrant industrial region of Kuwana, Mie Ken, Japan. Strategically located in Kisosaki-cho, Karoto 553, the company has grown steadily over the past decade, establishing a solid presence in Trucking & Equipment, Exports, Retailing, and Consultancy.",
       paragraph2: "With 10 years of experience in both local and international trading, Big Trading has built a reputation for reliability, industry expertise, and a forward-thinking approach. Operating under the Big Trading banner, the company is committed to delivering excellence and forging lasting relationships with clients across the globe.",
       paragraph3: "Driven by a vision to transcend borders, Big Trading leverages its deep industry knowledge to serve a diverse and ever-growing clientele. The company remains focused on sustainable growth, innovation, and customer satisfaction, positioning itself as a leader in the world of global trade.",
@@ -55,8 +55,7 @@ const BilingualAboutContent: React.FC = () => {
         <a href="tel:+81804213-9008" className="text-primary-700 hover:text-primary-900 transition-colors">
           {currentContent.callUs}
         </a>
-        {language === 'ja' && currentContent.callUsText}
-        {language === 'en' && '.'}
+        {language === 'ja' ? (content.ja.callUsText || '') : '.'}
       </p>
     </div>
   );
