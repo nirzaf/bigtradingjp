@@ -1,4 +1,6 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { saveLanguagePreference } from '../utils/storage';
+import { initializeLanguage } from '../utils/languageDetection';
 
 type Language = 'en' | 'ja';
 
@@ -65,7 +67,7 @@ const translations = {
     'vehicles.year': 'Year',
     'vehicles.mileage': 'Mileage',
     'vehicles.fuelType': 'Fuel Type',
-    
+
     // Categories Section
     'categories.title': 'Our Categories',
     'categories.description': 'Explore our wide range of vehicles and construction equipment categories.',
@@ -100,7 +102,7 @@ const translations = {
     'vehicle.topSpeed': 'Top Speed',
     'vehicle.interestedInVehicle': 'I\'m interested in this',
     'vehicle.moreInfo': 'Can you provide more information?',
-    
+
     // Vehicle Features
     'vehicle.recaro': 'Recaro Sport Seats',
     'vehicle.suspension': 'Upgraded Suspension',
@@ -111,7 +113,7 @@ const translations = {
     'vehicle.turbo': 'Turbo Boost Controller',
     'vehicle.lancer.description': 'The Mitsubishi Lancer Evolution delivers exhilarating performance with its rally-bred heritage. This tuned blue model features enhanced aerodynamics, precision handling, and aggressive styling that turns heads wherever it goes.',
     'vehicle.about': 'About this vehicle',
-    
+
     // Vehicle Gallery Descriptions
     'vehicles.lancer.description': 'The Mitsubishi Lancer Evolution delivers exhilarating performance with its rally-bred heritage. This tuned blue model features enhanced aerodynamics, precision handling, and aggressive styling.',
     'vehicles.allion.description': 'The Toyota Allion combines elegant styling with practical functionality. This silver sedan offers a comfortable ride, excellent fuel efficiency, and ample interior space for daily commuting.',
@@ -157,6 +159,19 @@ const translations = {
     'about.viewBilingual': 'View Bilingual Company Information (日本語版はこちら)',
     'about.emailUs': 'bigtradingjp@gmail.com',
     'about.callUs': 'call us',
+    'about.whyChooseUs': 'Why Clients Choose Us',
+    'about.whyChooseUsDesc': 'Since 2015, clients across the globe have trusted Big Trading Company for their vehicle and equipment needs. Here\'s why.',
+    'about.globalNetwork': 'Global Network',
+    'about.globalNetworkDesc': 'Our extensive international network allows us to source and deliver equipment and vehicles worldwide with efficiency and reliability.',
+    'about.industryExpertise': 'Industry Expertise',
+    'about.industryExpertiseDesc': 'Our team brings deep knowledge of both local and international markets, regulations, and industry best practices to every transaction.',
+    'about.customizedSolutions': 'Customized Solutions',
+    'about.customizedSolutionsDesc': 'We tailor our services to meet the specific needs of each client, providing personalized solutions rather than one-size-fits-all approaches.',
+    'about.readyToPartner': 'Ready to Partner with BIG TRADING?',
+    'about.readyToPartnerDesc': 'Join our global network of satisfied clients and discover how Big Trading Company can meet your vehicle and equipment needs.',
+    'about.callUsBtn': 'Call Us',
+    'about.contactUsBtn': 'Contact Us',
+    'about.viewBilingualBtn': 'View Bilingual Company Info',
 
     // Contact Page
     'contact.title': 'Contact Us',
@@ -235,7 +250,7 @@ const translations = {
     'vehicles.year': '年式',
     'vehicles.mileage': '走行距離',
     'vehicles.fuelType': '燃料タイプ',
-    
+
     // Categories Section
     'categories.title': '取扱カテゴリー',
     'categories.description': '幅広い車両や建設機器のカテゴリーをご覧ください。',
@@ -270,7 +285,7 @@ const translations = {
     'vehicle.topSpeed': '最高速度',
     'vehicle.interestedInVehicle': 'この車両に興味があります',
     'vehicle.moreInfo': '詳細情報を教えていただけますか？',
-    
+
     // Vehicle Features
     'vehicle.recaro': 'レカロスポーツシート',
     'vehicle.suspension': 'アップグレードサスペンション',
@@ -281,7 +296,7 @@ const translations = {
     'vehicle.turbo': 'ターボブーストコントローラー',
     'vehicle.lancer.description': '三菱ランサーエボリューションは、ラリーブレッドの伝統を持つ興奮のパフォーマンスを提供します。このチューンドブルーモデルは、強化されたエアロダイナミクス、精密なハンドリング、そしてどこに行っても視線を集めるアグレッシブなスタイリングを特徴としています。',
     'vehicle.about': 'この車両について',
-    
+
     // Vehicle Gallery Descriptions
     'vehicles.lancer.description': '三菱ランサーエボリューションは、ラリーブレッドの伝統を持つ興奮のパフォーマンスを提供します。このチューンドブルーモデルは、強化されたエアロダイナミクス、精密なハンドリング、そしてアグレッシブなスタイリングを特徴としています。',
     'vehicles.allion.description': 'トヨタ・アリオンは、優雅なスタイリングと実用的な機能性を兵ね備えています。このシルバーのセダンは、快適な乗り心地、優れた燃費効率、日常の通勤に十分な室内空間を提供します。',
@@ -327,6 +342,19 @@ const translations = {
     'about.viewBilingual': '二か国語の会社情報を見る (日本語版はこちら)',
     'about.emailUs': 'bigtradingjp@gmail.com',
     'about.callUs': 'お電話ください',
+    'about.whyChooseUs': 'お客様に選ばれる理由',
+    'about.whyChooseUsDesc': '2015年以来、世界中のお客様が車両や機器のニーズに対してビッグトレーディングを信頼しています。その理由をご紹介します。',
+    'about.globalNetwork': 'グローバルネットワーク',
+    'about.globalNetworkDesc': '当社の広範な国際ネットワークにより、効率的かつ信頼性の高い方法で世界中の機器や車両を調達し、配送することができます。',
+    'about.industryExpertise': '業界の専門知識',
+    'about.industryExpertiseDesc': '当社のチームは、国内外の市場、規制、業界のベストプラクティスに関する深い知識をすべての取引にもたらします。',
+    'about.customizedSolutions': 'カスタマイズされたソリューション',
+    'about.customizedSolutionsDesc': '当社は、各クライアントの特定のニーズに合わせてサービスを調整し、画一的なアプローチではなく、パーソナライズされたソリューションを提供します。',
+    'about.readyToPartner': 'BIG TRADINGとのパートナーシップの準備はできていますか？',
+    'about.readyToPartnerDesc': '当社の満足されたクライアントのグローバルネットワークに参加し、ビッグトレーディングがお客様の車両や機器のニーズをどのように満たすことができるかをご覧ください。',
+    'about.callUsBtn': 'お電話はこちら',
+    'about.contactUsBtn': 'お問い合わせ',
+    'about.viewBilingualBtn': '二か国語の会社情報を見る',
 
     // Contact Page
     'contact.title': 'お問い合わせ',
@@ -354,26 +382,29 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  // Initialize language from localStorage or default to 'en'
+  // Initialize language from browser settings, storage, or default to 'en'
   const [language, setLanguageState] = useState<Language>(() => {
-    try {
-      const storedLanguage = localStorage.getItem('language');
-      return storedLanguage ? (storedLanguage as Language) : 'en';
-    } catch (error) {
-      console.error('Error accessing localStorage:', error);
-      return 'en';
-    }
+    return initializeLanguage() as Language;
   });
 
-  // Custom setter that also updates localStorage
+  // Effect to sync language across tabs/windows
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'big_trading_language' && e.newValue) {
+        setLanguageState(e.newValue as Language);
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
+  // Custom setter that updates both localStorage and cookies
   const setLanguage = (newLanguage: Language) => {
-    try {
-      localStorage.setItem('language', newLanguage);
-      setLanguageState(newLanguage);
-    } catch (error) {
-      console.error('Error setting language in localStorage:', error);
-      setLanguageState(newLanguage);
-    }
+    saveLanguagePreference(newLanguage);
+    setLanguageState(newLanguage);
   };
 
   const t = (key: string): string => {

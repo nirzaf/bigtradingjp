@@ -7,6 +7,7 @@ import Footer from './components/layout/Footer';
 import LoadingSpinner from './components/ui/LoadingSpinner';
 import WideBanner from './components/ui/WideBanner';
 import WhatsAppButton from './components/ui/WhatsAppButton';
+import FloatingLanguageSwitcher from './components/ui/FloatingLanguageSwitcher';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 // Lazy load pages for better performance
@@ -51,6 +52,7 @@ function App() {
         </div>
         <Footer />
         <WhatsAppButton />
+        <FloatingLanguageSwitcher />
       </div>
     </LanguageProvider>
   );

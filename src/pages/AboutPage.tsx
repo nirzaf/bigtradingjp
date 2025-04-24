@@ -220,9 +220,9 @@ const AboutPage = () => {
       <section className="py-16 bg-primary-900 text-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold mb-4 text-white uppercase">{content.whyChooseUs}</h2>
+            <h2 className="text-3xl font-display font-bold mb-4 text-white uppercase">{t('about.whyChooseUs')}</h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              {content.whyChooseUsDesc}
+              {t('about.whyChooseUsDesc')}
             </p>
           </div>
 
@@ -237,9 +237,9 @@ const AboutPage = () => {
             >
               <Award className="w-10 h-10 text-accent-400 mr-4 flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-display font-semibold mb-2 text-white">{content.globalNetwork}</h3>
+                <h3 className="text-xl font-display font-semibold mb-2 text-white">{t('about.globalNetwork')}</h3>
                 <p className="text-gray-300">
-                  {content.globalNetworkDesc}
+                  {t('about.globalNetworkDesc')}
                 </p>
               </div>
             </motion.div>
@@ -254,9 +254,9 @@ const AboutPage = () => {
             >
               <Sparkles className="w-10 h-10 text-accent-400 mr-4 flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-display font-semibold mb-2 text-white">{content.industryExpertise}</h3>
+                <h3 className="text-xl font-display font-semibold mb-2 text-white">{t('about.industryExpertise')}</h3>
                 <p className="text-gray-300">
-                  {content.industryExpertiseDesc}
+                  {t('about.industryExpertiseDesc')}
                 </p>
               </div>
             </motion.div>
@@ -271,9 +271,9 @@ const AboutPage = () => {
             >
               <Clock className="w-10 h-10 text-accent-400 mr-4 flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-display font-semibold mb-2 text-white">{content.customizedSolutions}</h3>
+                <h3 className="text-xl font-display font-semibold mb-2 text-white">{t('about.customizedSolutions')}</h3>
                 <p className="text-gray-300">
-                  {content.customizedSolutionsDesc}
+                  {t('about.customizedSolutionsDesc')}
                 </p>
               </div>
             </motion.div>
@@ -284,19 +284,19 @@ const AboutPage = () => {
       {/* CTA Section */}
       <section className="py-16 bg-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-display font-bold mb-4 uppercase">{content.readyToPartner}</h2>
+          <h2 className="text-3xl font-display font-bold mb-4 uppercase">{t('about.readyToPartner')}</h2>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto mb-8">
-            {content.readyToPartnerDesc}
+            {t('about.readyToPartnerDesc')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a href="tel:+81804213-9008" className="btn btn-primary px-6 py-3 text-base">
-              {content.callUsBtn}
+              {t('about.callUsBtn')}
             </a>
             <a href="/contact" className="btn btn-accent px-6 py-3 text-base">
-              {content.contactUsBtn}
+              {t('about.contactUsBtn')}
             </a>
             <a href="/company-info" className="btn bg-primary-100 text-primary-800 px-6 py-3 text-base hover:bg-primary-200 transition-colors">
-              {content.viewBilingualBtn}
+              {t('about.viewBilingualBtn')}
             </a>
           </div>
         </div>

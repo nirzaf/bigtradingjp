@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Globe, Car } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../../contexts/LanguageContext';
+import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -136,21 +137,8 @@ const Navbar = () => {
               <Phone size={16} />
               <span className="text-sm font-medium">Call Us</span>
             </motion.a>
-            <div className="flex items-center gap-2 ml-4">
-              <Globe size={16} />
-              <span className="text-sm text-[#3E5AC1]">{t('nav.language')}:</span>
-              <button
-                onClick={() => setLanguage('en')}
-                className={`px-3 py-1 rounded-md text-sm ${language === 'en' ? 'bg-[#3E5AC1] text-white' : 'bg-gray-100 text-[#3E5AC1]'}`}
-              >
-                🇺🇸 EN
-              </button>
-              <button
-                onClick={() => setLanguage('ja')}
-                className={`px-3 py-1 rounded-md text-sm ${language === 'ja' ? 'bg-[#3E5AC1] text-white' : 'bg-gray-100 text-[#3E5AC1]'}`}
-              >
-                🇯🇵 JP
-              </button>
+            <div className="ml-4">
+              <LanguageSwitcher className="bg-gray-100 hover:bg-gray-200 text-[#3E5AC1]" />
             </div>
           </div>
 
@@ -230,22 +218,8 @@ const Navbar = () => {
                 transition={{ delay: 0.4 }}
                 className="pt-2 mt-2 border-t border-[#3E5AC1]/10"
               >
-                <div className="flex items-center justify-between mb-3 px-2">
-                  <span className="text-sm text-[#3E5AC1]">{t('nav.language')}:</span>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setLanguage('en')}
-                      className={`px-3 py-1 rounded-md text-sm ${language === 'en' ? 'bg-[#3E5AC1] text-white' : 'bg-gray-100 text-[#3E5AC1]'}`}
-                    >
-                      🇺🇸 EN
-                    </button>
-                    <button
-                      onClick={() => setLanguage('ja')}
-                      className={`px-3 py-1 rounded-md text-sm ${language === 'ja' ? 'bg-[#3E5AC1] text-white' : 'bg-gray-100 text-[#3E5AC1]'}`}
-                    >
-                      🇯🇵 JP
-                    </button>
-                  </div>
+                <div className="flex items-center justify-center mb-3 px-2">
+                  <LanguageSwitcher className="w-full bg-gray-100 hover:bg-gray-200 text-[#3E5AC1]" />
                 </div>
 
                 <a
