@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone, Facebook, Instagram, Twitter, Code } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
   return (
     <footer className="bg-primary-900 text-white pt-12 pb-6"> {/* Violet Blue */}
       <div className="container-custom">
@@ -117,7 +119,7 @@ const Footer = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center text-center md:text-left">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} BIG TRADING . All rights reserved.
+            &copy; {new Date().getFullYear()} BIG TRADING . {t('footer.rights')}
           </p>
 
           <div className="flex items-center justify-center">
@@ -128,7 +130,7 @@ const Footer = () => {
               className="text-gray-400 hover:text-gray-300 text-sm flex items-center group transition-colors duration-300"
             >
               <Code className="w-4 h-4 text-accent-500 group-hover:text-accent-400 mr-1 transition-colors duration-300" />
-              Powered by <span className="text-accent-400 group-hover:text-accent-300 transition-colors ml-1 font-medium">Quadrate Tech Solutions</span>
+              {t('footer.poweredBy')}
             </a>
           </div>
 

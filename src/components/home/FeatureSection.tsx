@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Search, CircleDollarSign, ThumbsUp, Award } from 'lucide-react';
 import '../ui/3DIconEffects.css';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 // Color constants from color-codes.md
 const COLORS = {
@@ -20,30 +21,32 @@ interface FeatureItem {
 }
 
 const FeatureSection = () => {
+  const { t } = useLanguage();
+
   const features: FeatureItem[] = [
     {
       icon: <Search className="w-12 h-12" style={{ color: COLORS.byzantineBlue }} />,
       backIcon: <Search className="w-12 h-12" />,
-      title: "Curated Selection",
-      description: "Each vehicle in our inventory is hand-selected for its exceptional quality and condition."
+      title: t('feature.curatedSelection.title'),
+      description: t('feature.curatedSelection.description')
     },
     {
       icon: <CircleDollarSign className="w-12 h-12" style={{ color: COLORS.byzantineBlue }} />,
       backIcon: <CircleDollarSign className="w-12 h-12" />,
-      title: "Transparent Pricing",
-      description: "Our no-haggle pricing ensures you always get a fair deal with no hidden fees."
+      title: t('feature.transparentPricing.title'),
+      description: t('feature.transparentPricing.description')
     },
     {
       icon: <ThumbsUp className="w-12 h-12" style={{ color: COLORS.byzantineBlue }} />,
       backIcon: <ThumbsUp className="w-12 h-12" />,
-      title: "Premium Service",
-      description: "Enjoy concierge-level service from your first inquiry to long after your purchase."
+      title: t('feature.premiumService.title'),
+      description: t('feature.premiumService.description')
     },
     {
       icon: <Award className="w-12 h-12" style={{ color: COLORS.byzantineBlue }} />,
       backIcon: <Award className="w-12 h-12" />,
-      title: "Quality Guarantee",
-      description: "All vehicles undergo rigorous inspection and come with a comprehensive warranty."
+      title: t('feature.qualityGuarantee.title'),
+      description: t('feature.qualityGuarantee.description')
     }
   ];
 
@@ -62,7 +65,7 @@ const FeatureSection = () => {
             className="inline-block"
           >
             <h2 className="text-3xl font-display font-bold mb-2 uppercase relative inline-block">
-              Why Choose <span className="text-primary-600">BIG TRADING</span>
+              {t('feature.whyChoose')} <span className="text-primary-600">BIG TRADING</span>
               <motion.div
                 className="absolute -bottom-2 left-0 w-full h-1 rounded-full"
                 style={{ background: `linear-gradient(90deg, ${COLORS.byzantineBlue}, ${COLORS.violetBlue}, ${COLORS.pumpkin}, ${COLORS.safetyOrange})` }}
@@ -74,7 +77,7 @@ const FeatureSection = () => {
             </h2>
           </motion.div>
           <p className="text-lg text-secondary-600 max-w-3xl mx-auto mt-6">
-            We offer an unmatched selection of performance vehicles and construction equipment with transparent pricing and exceptional service.
+            {t('feature.whyChooseDescription')}
           </p>
         </div>
 
