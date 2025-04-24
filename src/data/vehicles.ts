@@ -151,6 +151,36 @@ export const vehicles: Vehicle[] = [
       topSpeed: '5.3 mph'
     },
     sold: false
+  },
+  {
+    id: '6',
+    make: 'Caterpillar',
+    model: '140M Motor Grader',
+    year: 2023,
+    price: 245000,
+    mileage: 420,
+    description: 'The Caterpillar 140M Motor Grader is a precision earthmoving machine designed for road construction and maintenance. With its articulated frame and advanced blade control, this motor grader delivers exceptional grading accuracy and productivity for infrastructure projects.',
+    transmission: 'Hydrostatic',
+    fuelType: 'Diesel',
+    bodyType: 'Construction',
+    color: 'CAT Yellow',
+    features: ['Articulated Frame', 'Electronic Joystick Controls', 'Climate-Controlled Cab', 'Advanced Blade Control System', 'Rear Ripper Attachment', 'All-Wheel Drive Option', 'Integrated Grade Control Technology'],
+    images: {
+      main: '/images/CAT_140M_Motor_Grader_Yellow.jpg',
+      gallery: [
+        '/images/CAT_140M_Motor_Grader_Yellow.jpg',
+        '/images/CAT_140M_Motor_Grader.jpeg',
+        '/images/CAT_140M_Motor_Grader_new.jpeg',
+        '/images/CAT_140M_Yellow_CAT_Motor_Grader.jpg'
+      ]
+    },
+    specs: {
+      engine: '7.2L CAT C9.3 Diesel',
+      power: '213 hp',
+      acceleration: 'N/A',
+      topSpeed: '27 mph'
+    },
+    sold: false
   }
 ];
 
