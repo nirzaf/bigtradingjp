@@ -1,191 +1,195 @@
-/* Animated Icons CSS */
+/* Improved Animated Icons CSS */
+
+/* --- Configuration Variables --- */
+:root {
+  --icon-perspective: 1200px; /* Deeper perspective */
+  --icon-glow-blur: 20px;     /* Softer glow */
+  --icon-glow-opacity: 0.3;
+  --icon-glow-opacity-hover: 0.6;
+  --icon-shadow-blur: 5px;
+  --icon-shadow-opacity: 0.25;
+  --icon-hover-scale: 1.05;   /* Subtle scale on hover */
+  --icon-hover-rotateX: -10deg; /* Tilt effect on hover */
+  --icon-hover-translateY: -4px; /* Lift effect on hover */
+  --transition-speed: 0.35s;    /* Consistent transition speed */
+
+  /* Default Glow Color (can be overridden per icon) */
+  --glow-color: rgba(255, 255, 255, 0.8);
+
+  /* Specific Icon Glow Colors - Using BIJ Trading color palette */
+  --sedan-glow-color: rgba(24, 68, 198, 0.8); /* Violet Blue */
+  --sedan-alt-glow-color: rgba(247, 247, 234, 0.9); /* Ivory */
+  --loader-glow-color: rgba(247, 108, 9, 0.8); /* Pumpkin */
+  --excavator-glow-color: rgba(231, 125, 46, 0.8); /* Safety Orange */
+  --bulldozer-glow-color: rgba(62, 90, 193, 0.8); /* Byzantine Blue */
+  --gear-glow-color: rgba(150, 150, 150, 0.8); /* Added glow for gear */
+  --globe-glow-color: rgba(50, 150, 255, 0.8); /* Added glow for globe */
+}
+
+/* --- Base Icon Styles --- */
 
 .icon-container {
   position: relative;
-  display: inline-flex;
+  display: inline-flex; /* Use inline-flex for easier alignment */
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding: 12px;
-  z-index: 1;
+  padding: 15px; /* Slightly more padding */
+  z-index: 10; /* Ensure icons are above background/particles */
+  /* transition for potential container-level effects */
+  transition: transform var(--transition-speed) ease-out;
+  min-width: 100px; /* Ensure container has some size */
+  min-height: 100px;
+  text-align: center; /* Center icon label */
+  flex-direction: column; /* Stack icon and label */
 }
 
-/* 3D Icon Wrapper */
+/* 3D Wrapper - Apply perspective and transition */
 .icon-3d-wrapper {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.4));
   transform-style: preserve-3d;
-  perspective: 1000px;
+  perspective: var(--icon-perspective);
+  transition: transform var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition */
+  /* Base drop shadow for depth - subtle */
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.15));
+  margin-bottom: 8px; /* Space between icon and label */
+}
+
+/* Apply hover effects to the wrapper for tilt/lift */
+.icon-container:hover .icon-3d-wrapper {
+  transform: translateY(var(--icon-hover-translateY)) rotateX(var(--icon-hover-rotateX)) scale(var(--icon-hover-scale));
+}
+
+/* Generic Icon Styling (applied to the SVG/img itself) */
+.icon-base { /* Add this class to your actual icon elements (svg, img) */
+  display: block; /* Prevents extra space below inline SVGs/imgs */
+  position: relative; /* Needed for z-index stacking if required */
+  transform: translateZ(10px); /* Lift icon slightly in 3D space */
+  transition: transform var(--transition-speed) ease-out; /* Smooth icon transforms */
+  stroke-width: 1.5; /* Keep if using SVG strokes */
+  width: 48px; /* Standard icon size */
+  height: 48px;
 }
 
 /* Icon Shadow */
 .icon-shadow {
   position: absolute;
-  bottom: -8px;
+  bottom: -10px; /* Position further down */
   left: 50%;
-  transform: translateX(-50%);
-  width: 70%;
-  height: 5px;
-  background: rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%) scale(1); /* Start at normal scale */
+  width: 80%; /* Slightly wider */
+  height: 6px;
+  background: rgba(0, 0, 0, var(--icon-shadow-opacity));
   border-radius: 50%;
-  filter: blur(4px);
-  z-index: -1;
-  opacity: 0.7;
+  filter: blur(var(--icon-shadow-blur));
+  z-index: -1; /* Behind the icon */
+  transition: transform var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1),
+              opacity var(--transition-speed) ease-out;
 }
 
-/* Icon Glow Effect */
+/* Shadow effect on hover - gets smaller and fainter */
+.icon-container:hover .icon-shadow {
+  transform: translateX(-50%) scale(0.8);
+  opacity: calc(var(--icon-shadow-opacity) * 0.6); /* Reduce opacity */
+}
+
+/* Icon Glow Effect - Unified */
 .icon-glow {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  transform: translate(-50%, -50%) scale(1); /* Center and initial scale */
+  width: 110%;  /* Slightly larger than icon */
+  height: 110%;
   border-radius: 50%;
-  filter: blur(15px);
-  z-index: -1;
-  opacity: 0.4;
-  transition: opacity 0.3s ease;
+  /* Use variable for color, ensure fallback */
+  background: radial-gradient(circle, var(--glow-color, rgba(255,255,255,0.1)) 10%, transparent 70%);
+  filter: blur(var(--icon-glow-blur));
+  z-index: -2; /* Behind shadow and icon */
+  opacity: var(--icon-glow-opacity);
+  transition: opacity var(--transition-speed) ease-out,
+              transform var(--transition-speed) ease-out;
 }
 
+/* Glow effect on hover - pulse animation */
 .icon-container:hover .icon-glow {
-  opacity: 0.8;
-  animation: pulse-glow 2s infinite;
+  opacity: var(--icon-glow-opacity-hover);
+  animation: pulse-glow 1.8s infinite ease-in-out;
 }
+
+/* Assign glow colors using modifier classes on the .icon-glow element */
+.icon-glow.sedan { --glow-color: var(--sedan-glow-color); }
+.icon-glow.sedan-alt { --glow-color: var(--sedan-alt-glow-color); }
+.icon-glow.loader { --glow-color: var(--loader-glow-color); }
+.icon-glow.excavator { --glow-color: var(--excavator-glow-color); }
+.icon-glow.bulldozer { --glow-color: var(--bulldozer-glow-color); }
+.icon-glow.gear { --glow-color: var(--gear-glow-color); }
+.icon-glow.globe { --glow-color: var(--globe-glow-color); }
 
 /* Sedan Icon Animation - Mitsubishi Lancer */
 .sedan-icon {
-  position: relative;
-  animation: sedan-move 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 2px rgba(24, 68, 198, 0.5));
-  transform: translateZ(5px);
+  animation: sedan-move 4.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   stroke-width: 1.5;
-}
-
-.sedan-icon::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: radial-gradient(circle at 30% 30%, rgba(24, 68, 198, 0.8), rgba(24, 68, 198, 0.1));
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0.2;
-  filter: blur(4px);
+  width: 48px;
+  height: 48px;
 }
 
 /* Sedan Icon Animation - Toyota Allion */
 .sedan-icon-alt {
-  position: relative;
-  animation: sedan-move-alt 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 2px rgba(247, 247, 234, 0.5));
-  transform: translateZ(5px);
+  animation: sedan-move-alt 4.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   stroke-width: 1.5;
-}
-
-.sedan-icon-alt::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: radial-gradient(circle at 30% 30%, rgba(247, 247, 234, 0.8), rgba(247, 247, 234, 0.1));
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0.2;
-  filter: blur(4px);
+  width: 48px;
+  height: 48px;
 }
 
 /* Wheel Loader Icon Animation */
 .loader-icon {
-  position: relative;
-  animation: loader-move 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 2px rgba(247, 108, 9, 0.5));
-  transform: translateZ(5px);
+  animation: loader-move 3.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   stroke-width: 1.5;
-}
-
-.loader-icon::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: radial-gradient(circle at 30% 30%, rgba(247, 108, 9, 0.8), rgba(247, 108, 9, 0.1));
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0.2;
-  filter: blur(4px);
+  width: 48px;
+  height: 48px;
 }
 
 /* Excavator Icon Animation */
 .excavator-icon {
-  position: relative;
-  animation: excavator-move 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 2px rgba(231, 125, 46, 0.5));
-  transform: translateZ(5px);
+  animation: excavator-move 5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   stroke-width: 1.5;
-}
-
-.excavator-icon::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: radial-gradient(circle at 30% 30%, rgba(231, 125, 46, 0.8), rgba(231, 125, 46, 0.1));
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0.2;
-  filter: blur(4px);
+  width: 48px;
+  height: 48px;
 }
 
 /* Bulldozer Icon Animation */
 .bulldozer-icon {
-  position: relative;
-  animation: bulldozer-move 5s ease-in-out infinite;
-  filter: drop-shadow(0 0 2px rgba(62, 90, 193, 0.5));
-  transform: translateZ(5px);
+  animation: bulldozer-move 5.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
   stroke-width: 1.5;
-}
-
-.bulldozer-icon::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: radial-gradient(circle at 30% 30%, rgba(62, 90, 193, 0.8), rgba(62, 90, 193, 0.1));
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0.2;
-  filter: blur(4px);
+  width: 48px;
+  height: 48px;
 }
 
 /* Gear Icon Animation */
 .gear-icon {
-  animation: rotate 10s linear infinite;
+  animation: rotate 12s linear infinite; /* Slightly slower */
+  width: 48px;
+  height: 48px;
 }
 
 .gear-icon-reverse {
-  animation: rotate-reverse 7s linear infinite;
+  animation: rotate-reverse 8s linear infinite; /* Slightly slower */
+  width: 48px;
+  height: 48px;
 }
 
 /* Globe Icon Animation */
 .globe-icon {
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse 2.5s ease-in-out infinite; /* Slightly slower pulse */
+  width: 48px;
+  height: 48px;
 }
 
-/* Sparkle Animation */
+/* --- Sparkle Effect --- */
 .sparkle-container {
   position: absolute;
   top: 0;
@@ -193,17 +197,22 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2; /* Above icon, below potential overlays */
+  overflow: visible; /* Allow sparkles to go outside bounds slightly */
 }
 
 .sparkle {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly brighter */
   border-radius: 50%;
-  animation: sparkle-fade 2s ease-in-out infinite;
+  animation: sparkle-fade 1.8s ease-out infinite; /* Adjusted timing */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Add subtle sparkle shadow */
+  width: 4px; /* Sparkle size */
+  height: 4px;
 }
 
-/* Keyframes */
+/* --- Keyframes --- */
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -225,143 +234,88 @@
 }
 
 @keyframes excavator-move {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg) perspective(500px) rotateX(0deg);
-  }
-  25% {
-    transform: translateY(-5px) rotate(2deg) perspective(500px) rotateX(-5deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(-2deg) perspective(500px) rotateX(5deg);
-  }
-  75% {
-    transform: translateY(-3px) rotate(1deg) perspective(500px) rotateX(-2deg);
-  }
+  0%, 100% { transform: translate(0, 0) rotate(0deg) rotateX(0deg) translateZ(10px); }
+  25% { transform: translate(0, -4px) rotate(1.5deg) rotateX(-4deg) translateZ(13px); }
+  50% { transform: translate(0, -6px) rotate(-1.5deg) rotateX(4deg) translateZ(16px); } /* More Z */
+  75% { transform: translate(0, -2px) rotate(0.5deg) rotateX(-1deg) translateZ(8px); }
 }
 
 @keyframes bulldozer-move {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg) perspective(500px) rotateZ(0deg);
-  }
-  25% {
-    transform: translateY(-3px) rotate(-1deg) perspective(500px) rotateZ(2deg);
-  }
-  50% {
-    transform: translateY(-6px) rotate(1deg) perspective(500px) rotateZ(-2deg);
-  }
-  75% {
-    transform: translateY(-2px) rotate(-1deg) perspective(500px) rotateZ(1deg);
-  }
+  0%, 100% { transform: translate(0, 0) rotate(0deg) rotateZ(0deg) translateZ(10px); }
+  25% { transform: translate(0, -2px) rotate(-0.5deg) rotateZ(1.5deg) translateZ(12px); }
+  50% { transform: translate(0, -4px) rotate(0.5deg) rotateZ(-1.5deg) translateZ(14px); } /* More Z */
+  75% { transform: translate(0, -1px) rotate(-0.5deg) rotateZ(0.5deg) translateZ(8px); }
 }
 
 @keyframes sedan-move {
-  0%, 100% {
-    transform: translateX(0) translateY(0) rotateY(0deg);
-  }
-  25% {
-    transform: translateX(-3px) translateY(-1px) rotateY(-5deg);
-  }
-  75% {
-    transform: translateX(3px) translateY(1px) rotateY(5deg);
-  }
+  0%, 100% { transform: translate(0, 0) rotateY(0deg) rotateX(0deg) translateZ(10px); }
+  25% { transform: translate(-2px, -1px) rotateY(-4deg) rotateX(2deg) translateZ(12px); }
+  75% { transform: translate(2px, 1px) rotateY(4deg) rotateX(-2deg) translateZ(8px); }
 }
 
 @keyframes sedan-move-alt {
-  0%, 100% {
-    transform: translateX(0) translateY(0) rotateY(0deg);
-  }
-  25% {
-    transform: translateX(3px) translateY(-1px) rotateY(5deg);
-  }
-  75% {
-    transform: translateX(-3px) translateY(1px) rotateY(-5deg);
-  }
+  0%, 100% { transform: translate(0, 0) rotateY(0deg) rotateX(0deg) translateZ(10px); }
+  25% { transform: translate(2px, -1px) rotateY(4deg) rotateX(2deg) translateZ(12px); }
+  75% { transform: translate(-2px, 1px) rotateY(-4deg) rotateX(-2deg) translateZ(8px); }
 }
 
 @keyframes loader-move {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg) scale(1);
-  }
-  25% {
-    transform: translateY(-4px) rotate(1deg) scale(1.02);
-  }
-  50% {
-    transform: translateY(-7px) rotate(-1deg) scale(1.05);
-  }
-  75% {
-    transform: translateY(-3px) rotate(0deg) scale(1.02);
-  }
+  0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1) translateZ(10px); }
+  25% { transform: translate(0, -3px) rotate(1deg) scale(1.02) translateZ(12px); }
+  50% { transform: translate(0, -5px) rotate(-1deg) scale(1.04) translateZ(15px); } /* More Z */
+  75% { transform: translate(0, -2px) rotate(0deg) scale(1.01) translateZ(8px); }
 }
 
 @keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg) translateZ(10px); } /* Maintain Z */
+  to { transform: rotate(360deg) translateZ(10px); }
 }
 
 @keyframes rotate-reverse {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
+  from { transform: rotate(0deg) translateZ(10px); } /* Maintain Z */
+  to { transform: rotate(-360deg) translateZ(10px); }
 }
 
 @keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
+  0%, 100% { transform: scale(1) translateZ(10px); opacity: 1; } /* Maintain Z */
+  50% { transform: scale(1.08) translateZ(10px); opacity: 0.85; } /* Slightly larger pulse */
 }
 
 @keyframes pulse-glow {
   0%, 100% {
-    opacity: 0.4;
+    opacity: var(--icon-glow-opacity);
     transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1.2);
+    opacity: var(--icon-glow-opacity-hover);
+    transform: translate(-50%, -50%) scale(1.15); /* Slightly larger glow pulse */
   }
 }
 
 @keyframes sparkle-fade {
-  0%, 100% {
-    opacity: 0;
-    transform: scale(0);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
+  0%, 100% { opacity: 0; transform: scale(0.5); } /* Start smaller */
+  50% { opacity: 1; transform: scale(1); }
+  75% { opacity: 0.5; transform: scale(0.8); } /* Fade out smoother */
 }
 
-/* Animated background for hero section */
+/* --- Animated Background & Particles --- */
 .animated-bg {
-  position: absolute;
+  position: fixed; /* Use fixed to cover viewport */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 0;
+  z-index: -3; /* Ensure it's behind everything */
 }
 
 .animated-bg::before {
   content: '';
   position: absolute;
-  top: -10%;
-  left: -10%;
-  width: 120%;
-  height: 120%;
+  top: -15%; /* Cover more area */
+  left: -15%;
+  width: 130%;
+  height: 130%;
   background: linear-gradient(
     135deg,
     rgba(62, 90, 193, 0.1) 0%,
@@ -370,136 +324,124 @@
     rgba(231, 125, 46, 0.1) 75%,
     rgba(62, 90, 193, 0.1) 100%
   );
-  animation: bg-shift 15s ease-in-out infinite alternate;
+  animation: bg-shift 20s ease-in-out infinite alternate; /* Slower shift */
+  opacity: 0.7; /* Slightly less intense */
 }
 
 @keyframes bg-shift {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  100% {
-    transform: translate(-5%, -5%) scale(1.1);
-  }
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  100% { transform: translate(-5%, -5%) scale(1.1) rotate(5deg); } /* Add subtle rotation */
 }
 
 /* Floating particles */
 .particles-container {
-  position: absolute;
+  position: fixed; /* Use fixed to cover viewport */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  z-index: 1;
+  z-index: -2; /* Behind icons but above bg */
+  pointer-events: none; /* Ensure they don't interfere */
 }
 
 .particle {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.6); /* Slightly more visible */
   border-radius: 50%;
   pointer-events: none;
+  filter: blur(1px); /* Soften particles */
 }
 
-.particle-1 {
-  width: 6px;
-  height: 6px;
-  animation: particle-move-1 15s linear infinite;
-}
+/* Particle variations */
+.particle-1 { width: 5px; height: 5px; animation: particle-move-1 18s linear infinite; }
+.particle-2 { width: 7px; height: 7px; animation: particle-move-2 24s linear infinite; }
+.particle-3 { width: 3px; height: 3px; animation: particle-move-3 30s linear infinite; }
+.particle-4 { width: 4px; height: 4px; animation: particle-move-1 22s linear infinite reverse 1s; } /* Variation + delay */
+.particle-5 { width: 6px; height: 6px; animation: particle-move-2 28s linear infinite reverse 2s; } /* Variation + delay */
 
-.particle-2 {
-  width: 8px;
-  height: 8px;
-  animation: particle-move-2 20s linear infinite;
-}
-
-.particle-3 {
-  width: 4px;
-  height: 4px;
-  animation: particle-move-3 25s linear infinite;
-}
-
+/* Adjusted particle keyframes for smoother, more varied movement */
 @keyframes particle-move-1 {
-  0% {
-    top: -5%;
-    left: 10%;
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.5;
-  }
-  80% {
-    opacity: 0.5;
-  }
-  100% {
-    top: 105%;
-    left: 30%;
-    opacity: 0;
-  }
+  0% { transform: translate(10vw, -5vh) scale(0.5); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translate(30vw, 105vh) scale(1); opacity: 0; }
 }
 
 @keyframes particle-move-2 {
-  0% {
-    top: -5%;
-    left: 50%;
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.5;
-  }
-  80% {
-    opacity: 0.5;
-  }
-  100% {
-    top: 105%;
-    left: 70%;
-    opacity: 0;
-  }
+  0% { transform: translate(50vw, -5vh) scale(0.5); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translate(75vw, 105vh) scale(1.2); opacity: 0; }
 }
 
 @keyframes particle-move-3 {
-  0% {
-    top: -5%;
-    left: 80%;
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.5;
-  }
-  80% {
-    opacity: 0.5;
-  }
-  100% {
-    top: 105%;
-    left: 60%;
-    opacity: 0;
-  }
+  0% { transform: translate(85vw, -5vh) scale(0.5); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translate(60vw, 105vh) scale(0.8); opacity: 0; }
 }
 
-/* Animated Call Button */
+/* --- Animated Call Button --- */
 .animated-call-btn {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  position: relative; /* Needed for pseudo-element */
+  overflow: hidden;   /* Keep the shine contained */
+  transition: all var(--transition-speed) cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+  transform: perspective(300px) translateZ(0); /* Prepare for 3D-ish effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Base shadow */
+  border-radius: 8px; /* Example: Add rounded corners */
+  padding: 10px 20px; /* Example padding */
+  background-color: #0d6efd; /* Updated Bootstrap Blue */
+  color: white; /* Example text color */
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-block; /* Ensure it behaves like a block for margin */
+  text-decoration: none; /* Remove underline if used as link */
+  z-index: 10; /* Ensure button is above background */
 }
 
+/* Shine effect */
 .animated-call-btn::before {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
+  left: -100%; /* Start off-screen */
+  width: 50%;   /* Narrower shine */
   height: 100%;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.3), /* Softer shine */
     transparent
   );
-  transition: all 0.5s ease;
+  transform: skewX(-25deg); /* Angle the shine */
+  transition: left 0.7s cubic-bezier(0.23, 1, 0.32, 1); /* Faster shine */
 }
 
 .animated-call-btn:hover::before {
-  left: 100%;
+  left: 120%; /* Move fully across */
+}
+
+/* Enhanced hover effect */
+.animated-call-btn:hover {
+  transform: perspective(300px) translateZ(15px) translateY(-2px); /* Lift and bring forward */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
+  filter: brightness(1.1); /* Slightly brighten */
+  background-color: #0b5ed7; /* Darker blue on hover */
+}
+
+.animated-call-btn:active {
+  transform: perspective(300px) translateZ(5px) translateY(0px); /* Press down effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  filter: brightness(0.95); /* Slightly darken */
+  background-color: #0a58ca; /* Even darker when active */
+}
+
+/* Helper for centering content */
+.content-wrapper {
+  position: relative; /* To ensure it's above fixed background/particles */
+  z-index: 5;
 }
 
 .animated-call-btn:hover {

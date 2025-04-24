@@ -6,21 +6,22 @@ const HeroSection = () => {
   // Function to create animated particles
   const createParticles = () => {
     const particles = [];
-    for (let i = 0; i < 10; i++) {
-      const delay = Math.random() * 25;
-      const size = Math.random() * 6 + 2;
+    const particleClasses = ['particle-1', 'particle-2', 'particle-3', 'particle-4', 'particle-5'];
+    
+    for (let i = 0; i < 15; i++) {
+      const delay = Math.random() * 20;
+      const particleClass = particleClasses[Math.floor(Math.random() * particleClasses.length)];
       const startLeft = Math.random() * 100;
+      const startTop = Math.random() * 20;
 
       particles.push(
         <div
           key={i}
-          className="particle"
+          className={`particle ${particleClass}`}
           style={{
-            width: `${size}px`,
-            height: `${size}px`,
             left: `${startLeft}%`,
-            opacity: 0,
-            animation: `particle-move-${Math.floor(Math.random() * 3) + 1} ${20 + Math.random() * 10}s linear infinite ${delay}s`
+            top: `${startTop}%`,
+            animationDelay: `${delay}s`
           }}
         />
       );
@@ -62,13 +63,17 @@ const HeroSection = () => {
               whileHover={{ scale: 1.1 }}
             >
               <div className="icon-3d-wrapper">
-                <Car className="w-10 h-10 md:w-14 md:h-14 text-[#1844C6] sedan-icon" />
+                <Car className="icon-base sedan-icon w-10 h-10 md:w-14 md:h-14 text-[#1844C6]" />
+                <div className="icon-glow sedan"></div>
                 <div className="icon-shadow"></div>
+                <div className="sparkle-container">
+                  <div className="sparkle" style={{top: "15%", left: "20%", animationDelay: "0.2s"}}></div>
+                  <div className="sparkle" style={{top: "70%", left: "80%", animationDelay: "0.8s"}}></div>
+                </div>
               </div>
               <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
                 Lancer Evolution
               </div>
-              <div className="icon-glow" style={{ backgroundColor: "rgba(24, 68, 198, 0.2)" }}></div>
             </motion.div>
 
             {/* Toyota Allion (Sedan, Petrol) */}
@@ -81,13 +86,17 @@ const HeroSection = () => {
               whileHover={{ scale: 1.1 }}
             >
               <div className="icon-3d-wrapper">
-                <Car className="w-10 h-10 md:w-14 md:h-14 text-[#F7F7EA] sedan-icon-alt" />
+                <Car className="icon-base sedan-icon-alt w-10 h-10 md:w-14 md:h-14 text-[#F7F7EA]" />
+                <div className="icon-glow sedan-alt"></div>
                 <div className="icon-shadow"></div>
+                <div className="sparkle-container">
+                  <div className="sparkle" style={{top: "25%", left: "75%", animationDelay: "0.4s"}}></div>
+                  <div className="sparkle" style={{top: "65%", left: "25%", animationDelay: "1.2s"}}></div>
+                </div>
               </div>
               <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
                 Toyota Allion
               </div>
-              <div className="icon-glow" style={{ backgroundColor: "rgba(247, 247, 234, 0.2)" }}></div>
             </motion.div>
 
             {/* Komatsu WA70 Wheel Loader (Construction, Diesel) */}
@@ -100,13 +109,17 @@ const HeroSection = () => {
               whileHover={{ scale: 1.1 }}
             >
               <div className="icon-3d-wrapper">
-                <Truck className="w-10 h-10 md:w-14 md:h-14 text-[#F76C09] loader-icon" />
+                <Truck className="icon-base loader-icon w-10 h-10 md:w-14 md:h-14 text-[#F76C09]" />
+                <div className="icon-glow loader"></div>
                 <div className="icon-shadow"></div>
+                <div className="sparkle-container">
+                  <div className="sparkle" style={{top: "30%", left: "30%", animationDelay: "0.6s"}}></div>
+                  <div className="sparkle" style={{top: "60%", left: "70%", animationDelay: "1.4s"}}></div>
+                </div>
               </div>
               <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
                 Wheel Loader
               </div>
-              <div className="icon-glow" style={{ backgroundColor: "rgba(247, 108, 9, 0.2)" }}></div>
             </motion.div>
 
             {/* Caterpillar 320GC Excavator (Excavator, Diesel) */}
@@ -119,13 +132,17 @@ const HeroSection = () => {
               whileHover={{ scale: 1.1 }}
             >
               <div className="icon-3d-wrapper">
-                <Construction className="w-10 h-10 md:w-14 md:h-14 text-[#E77D2E] excavator-icon" />
+                <Construction className="icon-base excavator-icon w-10 h-10 md:w-14 md:h-14 text-[#E77D2E]" />
+                <div className="icon-glow excavator"></div>
                 <div className="icon-shadow"></div>
+                <div className="sparkle-container">
+                  <div className="sparkle" style={{top: "20%", left: "60%", animationDelay: "0.3s"}}></div>
+                  <div className="sparkle" style={{top: "70%", left: "40%", animationDelay: "1.0s"}}></div>
+                </div>
               </div>
               <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
                 Excavator
               </div>
-              <div className="icon-glow" style={{ backgroundColor: "rgba(231, 125, 46, 0.2)" }}></div>
             </motion.div>
 
             {/* Komatsu D51PX Bulldozer (Bulldozer, Diesel) */}
@@ -138,13 +155,17 @@ const HeroSection = () => {
               whileHover={{ scale: 1.1 }}
             >
               <div className="icon-3d-wrapper">
-                <Tractor className="w-10 h-10 md:w-14 md:h-14 text-[#3E5AC1] bulldozer-icon" />
+                <Tractor className="icon-base bulldozer-icon w-10 h-10 md:w-14 md:h-14 text-[#3E5AC1]" />
+                <div className="icon-glow bulldozer"></div>
                 <div className="icon-shadow"></div>
+                <div className="sparkle-container">
+                  <div className="sparkle" style={{top: "25%", left: "25%", animationDelay: "0.5s"}}></div>
+                  <div className="sparkle" style={{top: "65%", left: "65%", animationDelay: "1.3s"}}></div>
+                </div>
               </div>
               <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
                 Bulldozer
               </div>
-              <div className="icon-glow" style={{ backgroundColor: "rgba(62, 90, 193, 0.2)" }}></div>
             </motion.div>
           </div>
 
@@ -190,16 +211,23 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.8 }}
           >
             <div className="relative bg-gradient-to-r from-primary-800/40 to-primary-900/40 p-4 rounded-lg border border-white/10 max-w-2xl">
-              <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 bg-primary-800 p-2 rounded-full border border-white/10 shadow-lg">
-                <Settings className="w-5 h-5 text-accent-500 gear-icon" />
+              <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 bg-primary-800 p-2 rounded-full border border-white/10 shadow-lg z-10">
+                <div className="icon-3d-wrapper" style={{margin: 0}}>
+                  <Settings className="icon-base gear-icon w-5 h-5 text-accent-500" />
+                  <div className="icon-glow gear" style={{opacity: 0.4}}></div>
+                  <div className="sparkle-container">
+                    <div className="sparkle" style={{top: "20%", left: "20%", animationDelay: "0.2s", width: "2px", height: "2px"}}></div>
+                    <div className="sparkle" style={{top: "70%", left: "70%", animationDelay: "0.8s", width: "2px", height: "2px"}}></div>
+                  </div>
+                </div>
               </div>
-              <p className="text-base text-gray-200 text-center px-4 leading-relaxed">
+              <p className="text-base text-gray-200 text-center px-4 leading-relaxed relative z-20">
                 <span className="font-semibold text-white">Global Exporters Since 2015</span>
                 <span className="block mt-1 mb-2 h-px w-16 mx-auto bg-gradient-to-r from-transparent via-accent-500 to-transparent"></span>
-                <span className="text-sm">Premium vehicles & machinery from Japan to the world.</span>
+                <span className="text-base md:text-lg font-medium text-white bg-gradient-to-r from-accent-500/20 to-accent-400/20 px-3 py-1 rounded-md shadow-inner border-l-2 border-r-2 border-accent-500/30 block my-2 relative z-20">Premium vehicles & machinery from Japan to the world.</span>
                 <span className="block mt-2"><span className="text-accent-400">Excellence</span> • <span className="text-white">Quality</span> • <span className="text-accent-400">Reliability</span></span>
               </p>
-              <div className="absolute -right-3 top-1/2 transform -translate-y-1/2 bg-primary-800 p-2 rounded-full border border-white/10 shadow-lg">
+              <div className="absolute -right-3 top-1/2 transform -translate-y-1/2 bg-primary-800 p-2 rounded-full border border-white/10 shadow-lg z-10">
                 <Wrench className="w-5 h-5 text-accent-500 gear-icon-reverse" />
               </div>
             </div>
@@ -211,18 +239,11 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1 }}
           >
-            <a
-              href="tel:+81804213-9008"
-              className="relative overflow-hidden group bg-gradient-to-r from-accent-500 to-accent-600 hover:from-accent-600 hover:to-accent-700 text-white font-medium rounded-lg px-6 py-3 text-base shadow-lg hover:shadow-xl transition-all duration-300 border border-accent-400/20"
-            >
-              <span className="relative z-10 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                </svg>
-                Contact Us
-              </span>
-              <div className="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-gradient-to-r from-white/10 via-white/5 to-transparent transition-transform duration-700 ease-in-out"></div>
-            </a>
+            <div className="flex flex-col items-center">
+              <a href="#contact" className="mt-6 animated-call-btn">
+                Contact Us Now
+              </a>
+            </div>
           </motion.div>
         </motion.div>
       </div>
