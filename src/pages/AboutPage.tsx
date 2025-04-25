@@ -67,6 +67,126 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* Company Information */}
+      <section className="py-16 bg-gray-100">
+        <div className="container-custom">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl font-display font-bold mb-4 uppercase">{t('about.companyInfoTitle')}</h2>
+          </motion.div>
+
+          <motion.div
+            className="bg-white rounded-lg shadow-md p-6 mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-lg font-semibold text-primary-800 mb-2">{t('about.companyName')}</h3>
+                <p className="text-secondary-700">{t('about.companyNameValue')}</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-lg font-semibold text-primary-800 mb-2">{t('about.currentAddress')}</h3>
+                <p className="text-secondary-700">{t('about.currentAddressValue')}</p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-lg font-semibold text-primary-800 mb-2">{t('about.lastUpdated')}</h3>
+                <p className="text-secondary-700">{t('about.lastUpdatedValue')}</p>
+              </motion.div>
+            </div>
+
+            <motion.div
+              className="mt-8"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-display font-bold mb-4">{t('about.changeHistoryTitle')}</h3>
+              <div className="overflow-x-auto">
+                <table className="min-w-full bg-white border border-gray-200">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="py-3 px-4 text-left font-semibold text-primary-800 border-b">{t('about.changeDate')}</th>
+                      <th className="py-3 px-4 text-left font-semibold text-primary-800 border-b">{t('about.changeReason')}</th>
+                      <th className="py-3 px-4 text-left font-semibold text-primary-800 border-b">{t('about.previousAddress')}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <motion.tr
+                      className="border-b hover:bg-gray-50"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.4 }}
+                      viewport={{ once: true }}
+                    >
+                      <td className="py-3 px-4">{t('about.change1Date')}</td>
+                      <td className="py-3 px-4">{t('about.change1Reason')}</td>
+                      <td className="py-3 px-4">{t('about.change1Address')}</td>
+                    </motion.tr>
+                    <motion.tr
+                      className="border-b hover:bg-gray-50"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.5 }}
+                      viewport={{ once: true }}
+                    >
+                      <td className="py-3 px-4">{t('about.change2Date')}</td>
+                      <td className="py-3 px-4">{t('about.change2Reason')}</td>
+                      <td className="py-3 px-4">{t('about.change2Address')}</td>
+                    </motion.tr>
+                    <motion.tr
+                      className="border-b hover:bg-gray-50"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.6 }}
+                      viewport={{ once: true }}
+                    >
+                      <td className="py-3 px-4">{t('about.change3Date')}</td>
+                      <td className="py-3 px-4">{t('about.change3Reason')}</td>
+                      <td className="py-3 px-4">{t('about.change3Address')}</td>
+                    </motion.tr>
+                    <motion.tr
+                      className="hover:bg-gray-50"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.7 }}
+                      viewport={{ once: true }}
+                    >
+                      <td className="py-3 px-4">{t('about.change4Date')}</td>
+                      <td className="py-3 px-4">{t('about.change4Reason')}</td>
+                      <td className="py-3 px-4">{t('about.change4Address')}</td>
+                    </motion.tr>
+                  </tbody>
+                </table>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Mission & Values */}
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
