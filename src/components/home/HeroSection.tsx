@@ -123,20 +123,6 @@ const HeroSection = () => {
 
           {/* Vehicle Animations - All in one row */}
           <div className="mb-6 sm:mb-8">
-            {/* Animation section title */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
-              className="text-center mb-3 sm:mb-4"
-            >
-              <div className="inline-block bg-accent-500/15 backdrop-blur-md px-3 py-1 rounded-full border border-accent-500/25">
-                <span className="text-xs sm:text-sm text-white font-medium">
-                  {t('business.ourFleet')}
-                </span>
-              </div>
-            </motion.div>
-
             {/* All Animations in a single row */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-5 px-1 sm:px-2 max-w-3xl mx-auto">
               {vehicleAnimations.map((vehicle, index) => (
