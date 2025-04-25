@@ -138,7 +138,7 @@ const HeroSection = () => {
             </motion.div>
 
             {/* All Animations in a single row */}
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 px-1 sm:px-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-5 px-1 sm:px-2 max-w-3xl mx-auto">
               {vehicleAnimations.map((vehicle, index) => (
                 <motion.div
                   key={`vehicle-${index}`}
@@ -151,11 +151,11 @@ const HeroSection = () => {
                     type: "spring",
                     stiffness: 200
                   }}
-                  whileHover={{ scale: 1.15, y: -8, transition: { duration: 0.3 } }}
+                  whileHover={{ scale: 1.12, y: -5, transition: { duration: 0.3 } }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <div
-                    className={`bg-white/50 dark:bg-white/40 p-3 sm:p-4 rounded-lg border border-accent-500/30 hover:border-accent-500/70 transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-md animate-pulse-subtle ${index % 2 === 0 ? 'animate-float-slow' : 'animate-float-slower'}`}
+                    className={`bg-white/50 dark:bg-white/40 p-2 sm:p-3 md:p-4 rounded-md border border-accent-500/30 hover:border-accent-500/70 transition-all duration-300 shadow-md hover:shadow-lg backdrop-blur-md animate-pulse-subtle ${index % 2 === 0 ? 'animate-float-slow' : 'animate-float-slower'} w-full flex justify-center`}
                   >
                     <div className="relative">
                       {/* Subtle glow effect behind animation */}
@@ -166,8 +166,8 @@ const HeroSection = () => {
                         animationData={vehicle.animation}
                         play
                         style={{
-                          width: isMobile ? 70 : 100,
-                          height: isMobile ? 70 : 100,
+                          width: isMobile ? 70 : 110,
+                          height: isMobile ? 70 : 110,
                           position: 'relative',
                           zIndex: 2
                         }}
