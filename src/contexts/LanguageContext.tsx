@@ -50,7 +50,7 @@ const translations = {
     'footer.contactUs': 'Contact Us',
     'footer.privacyPolicy': 'Privacy Policy',
     'footer.termsOfService': 'Terms of Service',
-    'footer.companyDescription': 'Established in 2015, BIG TRADING specializes in exporting high-quality motor vehicles, spare parts, and construction machinery worldwide. Based in Kuwana, Mie Ken, Japan, we deliver excellence and reliability to our global clients.',
+    'footer.companyDescription': 'Established in 2015, BIG TRADING specializes in buying and selling used heavy machinery, attachments, and parts. Based in Kuwana, Mie Ken, Japan, we handle all processes from procurement to delivery in-house. We provide maintenance, transportation, and export services to markets worldwide.',
 
     // Vehicle Gallery
     'vehicles.previousExports': 'Recently Traded Vehicles',
@@ -235,7 +235,7 @@ const translations = {
     'business.constructionMachinery': 'Construction Machinery',
     'business.constructionMachineryDesc': 'We will purchase your carefully used machinery at a price as close to your desired price as possible. We can also purchase machinery that is difficult for other companies to purchase, as well as immobile machinery.',
     'business.purchase': 'PURCHASE (Only in Japan)',
-    'business.purchaseDesc': 'Always keeping an eye on market trends and prices, we actively purchase hot-selling machines and machines that are expected to be in demand in the future. We buy more than 1000 units each year.',
+    'business.purchaseDesc': 'Always keeping an eye on market trends and prices, we actively purchase hot-selling machines and machines that are expected to be in demand in the future.',
     'business.advantages': 'Nine Advantages of Our Buying System (Only in Japan)',
     'business.advantage1': 'Quick Response',
     'business.advantage1Desc': 'We are committed to providing a prompt response from assessment to payment and pickup. Our staff, with thorough market knowledge, works with teams in Japan and overseas.',
@@ -299,7 +299,7 @@ const translations = {
     'footer.contactUs': 'お問い合わせ',
     'footer.privacyPolicy': 'プライバシーポリシー',
     'footer.termsOfService': '利用規約',
-    'footer.companyDescription': '2015年に設立されたBIG TRADINGは、高品質の自動車、部品、建設機械を世界中に輸出することを専門としています。日本の三重県桑名市を拠点に、世界中のお客様に卓越した品質と信頼性をお届けしています。',
+    'footer.companyDescription': '2015年に設立されたBIG TRADINGは、中古重機、アタッチメント、部品の売買を専門としています。日本の三重県桑名市を拠点に、調達から納品までの全工程を自社で行います。メンテナンス、輸送、世界市場への輸出サービスを提供しています。',
 
     // Vehicle Gallery
     'vehicles.previousExports': '最近取引された車両',
@@ -484,7 +484,7 @@ const translations = {
     'business.constructionMachinery': '建設機械',
     'business.constructionMachineryDesc': '大切に使用された機械を、できる限りご希望の価格に近い金額で買取いたします。他社では買取が難しい機械や、動かない機械も買取可能です。全国対応の査定を行っており、契約から回収まで迅速に買取できるので安心です。',
     'business.purchase': '買取（日本国内のみ）',
-    'business.purchaseDesc': '常に市場動向や価格を注視し、売れ筋の機械や将来需要が見込まれる機械を積極的に買取しています。年間1000台以上の買取実績があります。',
+    'business.purchaseDesc': '常に市場動向や価格を注視し、売れ筋の機械や将来需要が見込まれる機械を積極的に買取しています。',
     'business.advantages': '当社の買取システムの9つの強み（日本国内のみ）',
     'business.advantage1': '迅速な対応',
     'business.advantage1Desc': '査定から支払い、引取りまで迅速な対応を心がけています。市場知識が豊富なスタッフが、国内外のチームと連携して査定、支払い、引取りを行うため、スピーディーな交渉が可能です。',
