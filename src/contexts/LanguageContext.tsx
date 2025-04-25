@@ -516,10 +516,26 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  // Initialize language from browser settings, storage, or default to 'en'
-  const [language, setLanguageState] = useState<Language>(() => {
-    return initializeLanguage() as Language;
-  });
+  // Initialize with default language, will be updated after async detection
+  const [language, setLanguageState] = useState<Language>('en');
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Initialize language from location, browser settings, storage, or default to 'en'
+  useEffect(() => {
+    const initLanguage = async () => {
+      try {
+        setIsLoading(true);
+        const detectedLanguage = await initializeLanguage();
+        setLanguageState(detectedLanguage as Language);
+      } catch (error) {
+        console.error('Error initializing language:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    initLanguage();
+  }, []);
 
   // Effect to sync language across tabs/windows
   useEffect(() => {
@@ -551,7 +567,14 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      {children}
+      {isLoading ? (
+        // Simple loading indicator while detecting language
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-500"></div>
+        </div>
+      ) : (
+        children
+      )}
     </LanguageContext.Provider>
   );
 };
