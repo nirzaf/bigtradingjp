@@ -94,6 +94,21 @@ export default {
       borderRadius: {
         '4xl': '2rem',
       },
+      animation: {
+        'float-slow': 'float 3s ease-in-out infinite',
+        'float-slower': 'float 4s ease-in-out infinite',
+        'pulse-subtle': 'pulse-subtle 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+        },
+        'pulse-subtle': {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0.9 },
+        },
+      },
     },
   },
   plugins: [],
