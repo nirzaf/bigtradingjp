@@ -258,7 +258,7 @@ const translations = {
     'business.advantage9Desc': 'We may be able to purchase even broken or immobile machines, either for parts or export.',
     'business.ctaTitle': 'Contact us for more information or to request an appraisal!',
     'business.ctaDescription': 'Our team of experts is ready to assist you with any questions about our buying process or to schedule a free appraisal for your machinery.',
-    'business.contactUs': 'Contact Us Now',
+    'business.contactUs': 'Contact',
     'business.contactForAppraisal': 'Request Free Appraisal',
   },
   ja: {
@@ -508,7 +508,7 @@ const translations = {
     'business.advantage9Desc': '故障している機械や動かない機械でも、部品用または輸出用として買取できる場合があります。',
     'business.ctaTitle': '詳細情報や査定のご依頼については、お気軽にお問い合わせください！',
     'business.ctaDescription': '当社の専門家チームが、買取プロセスに関するご質問や無料査定のスケジュール調整をお手伝いいたします。',
-    'business.contactUs': '今すぐお問い合わせ',
+    'business.contactUs': 'お問い合わせ',
     'business.contactForAppraisal': '無料査定を依頼する',
   }
 };
