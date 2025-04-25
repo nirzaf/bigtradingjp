@@ -114,9 +114,14 @@ const BusinessObjectivesSection: React.FC = () => {
               />
             </h2>
           </motion.div>
-          <p className="text-lg text-secondary-600 max-w-3xl mx-auto mt-6">
-            {t('business.description')}
-          </p>
+          <div className="flex flex-col items-center">
+            <p className="text-lg text-secondary-600 max-w-3xl mx-auto mt-4">
+              {t('business.description')}
+            </p>
+            <div className="mt-4 bg-primary-50 px-6 py-2 rounded-full text-primary-700 font-medium inline-block border border-primary-200">
+              {t('business.tagline')}
+            </div>
+          </div>
         </div>
 
         {/* Business Overview */}

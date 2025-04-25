@@ -88,7 +88,7 @@ const Navbar = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                {language === 'en' ? 'EXPORTER OF MOTOR VEHICLES, SPARE PARTS AND MACHINERIES' : '自動車、スペアパーツ、機械類の輸出業者'}
+                {t('business.navbarTagline')}
               </motion.span>
             </div>
           </Link>

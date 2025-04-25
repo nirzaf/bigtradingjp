@@ -222,8 +222,12 @@ const translations = {
     'contact.messagePlaceholder': 'Your Message',
 
     // Business Objectives Section
-    'business.title': 'Core Business Objectives',
+    'business.title': 'Powering Global Trade',
     'business.description': 'We specialize in buying and selling used heavy machinery, providing comprehensive services from procurement to delivery.',
+    'business.tagline': 'Your Trusted Machinery Partner',
+    'business.heroTagline': 'Heavy Machinery Trading Reimagined',
+    'business.heroSubtitle': 'Premium Machinery, Exceptional Service',
+    'business.navbarTagline': 'HEAVY MACHINERY TRADING REIMAGINED',
     'business.ourBusiness': 'Our Business',
     'business.ourBusinessDesc': 'We buy and sell used heavy machinery, various attachments and parts, and provide maintenance, transportation, export to overseas markets, solar power generation, and more. We handle all processes from procurement to delivery in-house.',
     'business.constructionMachinery': 'Construction Machinery',
@@ -465,8 +469,12 @@ const translations = {
     'contact.messagePlaceholder': 'メッセージ内容',
 
     // Business Objectives Section
-    'business.title': '事業の中核目標',
+    'business.title': 'グローバル貿易の推進',
     'business.description': '当社は中古重機の売買を専門とし、調達から納品までの包括的なサービスを提供しています。',
+    'business.tagline': '信頼できる機械パートナー',
+    'business.heroTagline': '重機取引の革新',
+    'business.heroSubtitle': '高品質な機械、卓越したサービス',
+    'business.navbarTagline': '重機取引の革新',
     'business.ourBusiness': '私たちの事業',
     'business.ourBusinessDesc': '当社は中古重機、各種アタッチメントや部品の売買、メンテナンス、輸送、海外市場への輸出、太陽光発電などを行っています。調達から納品までの全工程を自社で行っているため、お客様は安心して最初から最後まで当社にお任せいただけます。',
     'business.constructionMachinery': '建設機械',

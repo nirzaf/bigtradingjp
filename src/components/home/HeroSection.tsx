@@ -1,84 +1,42 @@
 import { motion } from 'framer-motion';
-import { Truck, Car, Settings, Wrench, Construction, Sparkles, Tractor } from 'lucide-react';
+import { Truck, Construction, Sparkles, Tractor, DollarSign } from 'lucide-react';
 import '../../components/ui/AnimatedIcons.css';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const HeroSection = () => {
-  const { language } = useLanguage();
+  const { t, language } = useLanguage();
 
-  // Bilingual content
-  const content = {
-    en: {
-      vehicleNames: {
-        lancerEvolution: "Lancer Evolution",
-        toyotaAllion: "Toyota Allion",
-        wheelLoader: "Wheel Loader",
-        excavator: "Excavator",
-        bulldozer: "Bulldozer"
-      },
-      tagline: "EXPORTER OF",
-      products: {
-        motorVehicles: "MOTOR VEHICLES",
-        spareParts: "SPARE PARTS",
-        machineries: "MACHINERIES"
-      },
-      slogan: {
-        since: "Global Exporters Since 2015",
-        premium: "Premium vehicles & machinery from Japan to the world.",
-        values: {
-          excellence: "Excellence",
-          quality: "Quality",
-          reliability: "Reliability"
-        }
-      },
-      cta: "Contact Us Now"
+  // Equipment icons with translations
+  const equipmentIcons = [
+    {
+      icon: <Construction className="w-10 h-10 md:w-12 md:h-12 text-[#E77D2E]" />,
+      name: language === 'en' ? 'Excavator' : '油圧ショベル',
+      delay: 0.2
     },
-    ja: {
-      vehicleNames: {
-        lancerEvolution: "ランサーエボリューション",
-        toyotaAllion: "トヨタ アリオン",
-        wheelLoader: "ホイールローダー",
-        excavator: "油圧ショベル",
-        bulldozer: "ブルドーザー"
-      },
-      tagline: "輸出業者",
-      products: {
-        motorVehicles: "自動車",
-        spareParts: "スペアパーツ",
-        machineries: "機械類"
-      },
-      slogan: {
-        since: "2015年から世界へ",
-        premium: "日本から世界へ高品質な車両と機械を提供",
-        values: {
-          excellence: "卓越性",
-          quality: "品質",
-          reliability: "信頼性"
-        }
-      },
-      cta: "お問い合わせ"
+    {
+      icon: <Tractor className="w-10 h-10 md:w-12 md:h-12 text-[#3E5AC1]" />,
+      name: language === 'en' ? 'Bulldozer' : 'ブルドーザー',
+      delay: 0.3
+    },
+    {
+      icon: <Truck className="w-10 h-10 md:w-12 md:h-12 text-[#F76C09]" />,
+      name: language === 'en' ? 'Heavy Machinery' : '重機',
+      delay: 0.4
     }
-  };
+  ];
 
-  // Function to create animated particles
+  // Create simplified particles
   const createParticles = () => {
     const particles = [];
-    const particleClasses = ['particle-1', 'particle-2', 'particle-3', 'particle-4', 'particle-5'];
-
-    for (let i = 0; i < 15; i++) {
-      const delay = Math.random() * 20;
-      const particleClass = particleClasses[Math.floor(Math.random() * particleClasses.length)];
-      const startLeft = Math.random() * 100;
-      const startTop = Math.random() * 20;
-
+    for (let i = 0; i < 8; i++) {
       particles.push(
         <div
           key={i}
-          className={`particle ${particleClass}`}
+          className={`particle particle-${i % 5 + 1}`}
           style={{
-            left: `${startLeft}%`,
-            top: `${startTop}%`,
-            animationDelay: `${delay}s`
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 20}%`,
+            animationDelay: `${Math.random() * 10}s`
           }}
         />
       );
@@ -87,16 +45,14 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-[80vh] min-h-[600px] flex items-center overflow-hidden">
+    <section className="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
           src="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
-          alt="Luxury car"
+          alt="Heavy machinery"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/90 to-primary-900/85" />
-        <div className="absolute inset-0 bg-black/30 mix-blend-overlay" />
-        <div className="animated-bg"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 to-primary-800/90" />
         <div className="particles-container">
           {createParticles()}
         </div>
@@ -106,201 +62,81 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-white backdrop-blur-sm bg-primary-900/10 p-8 rounded-lg border border-white/10 shadow-2xl"
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl mx-auto text-white backdrop-blur-sm bg-primary-900/20 p-6 rounded-lg border border-white/10 shadow-xl"
         >
-          <div className="flex flex-wrap items-center justify-center mb-8 gap-6 md:gap-10 bg-primary-800/20 py-4 px-2 rounded-lg border-t border-b border-white/5">
-            {/* Mitsubishi Lancer Evolution (Sedan, Petrol) */}
-            <motion.div
-              className="icon-container relative group"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, type: "spring", stiffness: 200 }}
-              title="Mitsubishi Lancer Evolution"
-              whileHover={{ scale: 1.1 }}
-            >
-              <div className="icon-3d-wrapper">
-                <Car className="icon-base sedan-icon w-10 h-10 md:w-14 md:h-14 text-[#1844C6]" />
-                <div className="icon-glow sedan"></div>
-                <div className="icon-shadow"></div>
-                <div className="sparkle-container">
-                  <div className="sparkle" style={{ top: "15%", left: "20%", animationDelay: "0.2s" }}></div>
-                  <div className="sparkle" style={{ top: "70%", left: "80%", animationDelay: "0.8s" }}></div>
-                </div>
-              </div>
-              <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
-                {content[language].vehicleNames.lancerEvolution}
-              </div>
-            </motion.div>
-
-            {/* Toyota Allion (Sedan, Petrol) */}
-            <motion.div
-              className="icon-container relative group"
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, type: "spring", stiffness: 200 }}
-              title="Toyota Allion"
-              whileHover={{ scale: 1.1 }}
-            >
-              <div className="icon-3d-wrapper">
-                <Car className="icon-base sedan-icon-alt w-10 h-10 md:w-14 md:h-14 text-[#F7F7EA]" />
-                <div className="icon-glow sedan-alt"></div>
-                <div className="icon-shadow"></div>
-                <div className="sparkle-container">
-                  <div className="sparkle" style={{ top: "25%", left: "75%", animationDelay: "0.4s" }}></div>
-                  <div className="sparkle" style={{ top: "65%", left: "25%", animationDelay: "1.2s" }}></div>
-                </div>
-              </div>
-              <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
-                {content[language].vehicleNames.toyotaAllion}
-              </div>
-            </motion.div>
-
-            {/* Komatsu WA70 Wheel Loader (Construction, Diesel) */}
-            <motion.div
-              className="icon-container relative group"
-              initial={{ scale: 0, rotate: 180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ duration: 0.7, delay: 0.4, type: "spring", stiffness: 200 }}
-              title="Komatsu WA70 Wheel Loader"
-              whileHover={{ scale: 1.1 }}
-            >
-              <div className="icon-3d-wrapper">
-                <Truck className="icon-base loader-icon w-10 h-10 md:w-14 md:h-14 text-[#F76C09]" />
-                <div className="icon-glow loader"></div>
-                <div className="icon-shadow"></div>
-                <div className="sparkle-container">
-                  <div className="sparkle" style={{ top: "30%", left: "30%", animationDelay: "0.6s" }}></div>
-                  <div className="sparkle" style={{ top: "60%", left: "70%", animationDelay: "1.4s" }}></div>
-                </div>
-              </div>
-              <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
-                {content[language].vehicleNames.wheelLoader}
-              </div>
-            </motion.div>
-
-            {/* Caterpillar 320GC Excavator (Excavator, Diesel) */}
-            <motion.div
-              className="icon-container relative group"
-              initial={{ scale: 0, rotate: 180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ duration: 0.7, delay: 0.5, type: "spring", stiffness: 200 }}
-              title="Caterpillar 320GC Excavator"
-              whileHover={{ scale: 1.1 }}
-            >
-              <div className="icon-3d-wrapper">
-                <Construction className="icon-base excavator-icon w-10 h-10 md:w-14 md:h-14 text-[#E77D2E]" />
-                <div className="icon-glow excavator"></div>
-                <div className="icon-shadow"></div>
-                <div className="sparkle-container">
-                  <div className="sparkle" style={{ top: "20%", left: "60%", animationDelay: "0.3s" }}></div>
-                  <div className="sparkle" style={{ top: "70%", left: "40%", animationDelay: "1.0s" }}></div>
-                </div>
-              </div>
-              <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
-                {content[language].vehicleNames.excavator}
-              </div>
-            </motion.div>
-
-            {/* Komatsu D51PX Bulldozer (Bulldozer, Diesel) */}
-            <motion.div
-              className="icon-container relative group"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.6, type: "spring", stiffness: 200 }}
-              title="Komatsu D51PX Bulldozer"
-              whileHover={{ scale: 1.1 }}
-            >
-              <div className="icon-3d-wrapper">
-                <Tractor className="icon-base bulldozer-icon w-10 h-10 md:w-14 md:h-14 text-[#3E5AC1]" />
-                <div className="icon-glow bulldozer"></div>
-                <div className="icon-shadow"></div>
-                <div className="sparkle-container">
-                  <div className="sparkle" style={{ top: "25%", left: "25%", animationDelay: "0.5s" }}></div>
-                  <div className="sparkle" style={{ top: "65%", left: "65%", animationDelay: "1.3s" }}></div>
-                </div>
-              </div>
-              <div className="opacity-0 group-hover:opacity-100 absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-[#3E5AC1]/90 text-[#F7F7EA] text-xs px-2 py-1 rounded-md whitespace-nowrap transition-opacity duration-200 backdrop-blur-sm border border-[#F7F7EA]/20">
-                {content[language].vehicleNames.bulldozer}
-              </div>
-            </motion.div>
-          </div>
-
+          {/* Company Name */}
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 uppercase tracking-wide text-center"
-            initial={{ opacity: 0, y: 20 }}
+            className="text-4xl md:text-5xl font-display font-bold mb-4 uppercase tracking-wide text-center"
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
           >
-            <div className="relative inline-block">
-              <span className="bg-gradient-to-r from-white to-gray-200 text-transparent bg-clip-text drop-shadow-sm">BIG </span>
-            </div>
-            <span className="text-accent-500 relative ml-2"> TRADING
+            <span className="bg-gradient-to-r from-white to-gray-200 text-transparent bg-clip-text drop-shadow-sm">BIG </span>
+            <span className="text-accent-500 relative ml-1">TRADING
               <motion.span
                 className="absolute -top-1 -right-1"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: 1.2 }}
+                transition={{ duration: 0.3, delay: 0.6 }}
               >
-                <Sparkles className="w-6 h-6 text-accent-400" />
+                <Sparkles className="w-5 h-5 text-accent-400" />
               </motion.span>
             </span>
           </motion.h1>
 
-          <motion.div
-            className="flex justify-center mb-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
-            <div className="flex flex-col items-center">
-              <p className="text-sm md:text-base text-gray-300 uppercase tracking-wider font-medium text-center px-5 py-2 bg-primary-800/30 rounded-md inline-block border-l-2 border-r-2 border-accent-500/30">
-                <span className="text-accent-400 font-semibold">{content[language].tagline}</span> <span className="tracking-widest">{content[language].products.motorVehicles}</span> <span className="inline-block mx-1 text-accent-400">•</span> <span className="tracking-widest">{content[language].products.spareParts}</span> <span className="inline-block mx-1 text-accent-400">•</span> <span className="tracking-widest">{content[language].products.machineries}</span>
-              </p>
-              <div className="w-24 h-1 mt-1 bg-gradient-to-r from-transparent via-accent-500/50 to-transparent rounded-full"></div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="flex justify-center mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <div className="relative bg-gradient-to-r from-primary-800/40 to-primary-900/40 p-4 rounded-lg border border-white/10 max-w-2xl">
-              <div className="absolute -left-3 top-1/2 transform -translate-y-1/2 bg-primary-800 p-2 rounded-full border border-white/10 shadow-lg z-10">
-                <div className="icon-3d-wrapper" style={{ margin: 0 }}>
-                  <Settings className="icon-base gear-icon w-5 h-5 text-accent-500" />
-                  <div className="icon-glow gear" style={{ opacity: 0.4 }}></div>
-                  <div className="sparkle-container">
-                    <div className="sparkle" style={{ top: "20%", left: "20%", animationDelay: "0.2s", width: "2px", height: "2px" }}></div>
-                    <div className="sparkle" style={{ top: "70%", left: "70%", animationDelay: "0.8s", width: "2px", height: "2px" }}></div>
-                  </div>
+          {/* Equipment Icons */}
+          <div className="flex justify-center gap-8 mb-5">
+            {equipmentIcons.map((item, index) => (
+              <motion.div
+                key={index}
+                className="flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: item.delay, duration: 0.4 }}
+              >
+                <div className="icon-3d-wrapper mb-2">
+                  {item.icon}
+                  <div className="icon-glow" style={{ opacity: 0.4 }}></div>
                 </div>
-              </div>
-              <p className="text-base text-gray-200 text-center px-4 leading-relaxed relative z-20">
-                <span className="font-semibold text-white">{content[language].slogan.since}</span>
-                <span className="block mt-1 mb-2 h-px w-16 mx-auto bg-gradient-to-r from-transparent via-accent-500 to-transparent"></span>
-                <span className="text-base md:text-lg font-medium text-white bg-gradient-to-r from-accent-500/20 to-accent-400/20 px-3 py-1 rounded-md shadow-inner border-l-2 border-r-2 border-accent-500/30 block my-2 relative z-20">{content[language].slogan.premium}</span>
-                <span className="block mt-2"><span className="text-accent-400">{content[language].slogan.values.excellence}</span> • <span className="text-white">{content[language].slogan.values.quality}</span> • <span className="text-accent-400">{content[language].slogan.values.reliability}</span></span>
-              </p>
-              <div className="absolute -right-3 top-1/2 transform -translate-y-1/2 bg-primary-800 p-2 rounded-full border border-white/10 shadow-lg z-10">
-                <Wrench className="w-5 h-5 text-accent-500 gear-icon-reverse" />
-              </div>
+                <span className="text-xs text-gray-300">{item.name}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Business Focus */}
+          <motion.div
+            className="mb-5 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.5 }}
+          >
+            <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-white to-accent-400 text-transparent bg-clip-text">
+              {t('business.heroTagline')}
+            </h2>
+            <p className="text-sm md:text-base text-gray-200 max-w-xl mx-auto">
+              {t('business.heroSubtitle')}
+            </p>
+            <div className="flex justify-center gap-2 mt-3 bg-primary-800/30 py-2 px-4 rounded-full inline-block mx-auto">
+              <span className="text-accent-400 text-sm font-medium">{t('about.value1Title')}</span>
+              <span className="text-white text-sm">•</span>
+              <span className="text-accent-400 text-sm font-medium">{t('about.value2Title')}</span>
+              <span className="text-white text-sm">•</span>
+              <span className="text-accent-400 text-sm font-medium">{t('about.value3Title')}</span>
             </div>
           </motion.div>
 
+          {/* CTA Button */}
           <motion.div
-            className="flex justify-center gap-4"
-            initial={{ opacity: 0, y: 20 }}
+            className="flex justify-center"
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1 }}
+            transition={{ duration: 0.4, delay: 0.7 }}
           >
-            <div className="flex flex-col items-center">
-              <a href="#contact" className="mt-6 animated-call-btn">
-                {content[language].cta}
-              </a>
-            </div>
+            <a href="/contact" className="btn btn-accent px-5 py-2 rounded-full flex items-center gap-2 text-sm font-medium">
+              <DollarSign className="w-4 h-4" />
+              {t('business.contactForAppraisal')}
+            </a>
           </motion.div>
         </motion.div>
       </div>
