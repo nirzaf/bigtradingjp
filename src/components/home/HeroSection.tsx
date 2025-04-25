@@ -1,27 +1,61 @@
 import { motion } from 'framer-motion';
-import { Truck, Construction, Sparkles, Tractor, DollarSign } from 'lucide-react';
-import '../../components/ui/AnimatedIcons.css';
+import { Sparkles, DollarSign } from 'lucide-react';
+import Lottie from 'react-lottie-player';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useState, useEffect } from 'react';
+
+// Import Lottie animations
+import carAnimation from '../../assets/animations/sports-car-animation.json';
+import excavatorAnimation from '../../assets/animations/excavator-animation.json';
+import bulldozerAnimation from '../../assets/animations/bulldozer-animation.json';
+import dumpTruckAnimation from '../../assets/animations/dump-truck-animation.json';
+import equipmentAnimation from '../../assets/animations/equipment-animation.json';
+import forkliftAnimation from '../../assets/animations/forklift-animation.json';
 
 const HeroSection = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Equipment icons with translations
-  const equipmentIcons = [
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add event listener
+    window.addEventListener('resize', checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Combined animations
+  const vehicleAnimations = [
     {
-      icon: <Construction className="w-10 h-10 md:w-12 md:h-12 text-[#E77D2E]" />,
-      name: language === 'en' ? 'Excavator' : '油圧ショベル',
+      animation: carAnimation,
       delay: 0.2
     },
     {
-      icon: <Tractor className="w-10 h-10 md:w-12 md:h-12 text-[#3E5AC1]" />,
-      name: language === 'en' ? 'Bulldozer' : 'ブルドーザー',
+      animation: excavatorAnimation,
       delay: 0.3
     },
     {
-      icon: <Truck className="w-10 h-10 md:w-12 md:h-12 text-[#F76C09]" />,
-      name: language === 'en' ? 'Heavy Machinery' : '重機',
+      animation: bulldozerAnimation,
       delay: 0.4
+    },
+    {
+      animation: dumpTruckAnimation,
+      delay: 0.5
+    },
+    {
+      animation: equipmentAnimation,
+      delay: 0.6
+    },
+    {
+      animation: forkliftAnimation,
+      delay: 0.7
     }
   ];
 
@@ -45,7 +79,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden">
+    <section className="relative h-[80vh] sm:h-[70vh] min-h-[600px] flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
           src="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
@@ -58,16 +92,16 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto text-white backdrop-blur-sm bg-primary-900/20 p-6 rounded-lg border border-white/10 shadow-xl"
+          className="max-w-3xl mx-auto text-white backdrop-blur-sm bg-primary-900/20 p-4 sm:p-6 rounded-lg border border-white/10 shadow-xl"
         >
           {/* Company Name */}
           <motion.h1
-            className="text-4xl md:text-5xl font-display font-bold mb-4 uppercase tracking-wide text-center"
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-3 sm:mb-4 uppercase tracking-wide text-center"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
@@ -75,54 +109,70 @@ const HeroSection = () => {
             <span className="bg-gradient-to-r from-white to-gray-200 text-transparent bg-clip-text drop-shadow-sm">BIG </span>
             <span className="text-accent-500 relative ml-1">TRADING
               <motion.span
-                className="absolute -top-1 -right-1"
+                className="absolute -top-1 -right-1 hidden sm:block"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: 0.6 }}
               >
-                <Sparkles className="w-5 h-5 text-accent-400" />
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-accent-400" />
               </motion.span>
             </span>
           </motion.h1>
 
-          {/* Equipment Icons */}
-          <div className="flex justify-center gap-8 mb-5">
-            {equipmentIcons.map((item, index) => (
-              <motion.div
-                key={index}
-                className="flex flex-col items-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: item.delay, duration: 0.4 }}
-              >
-                <div className="icon-3d-wrapper mb-2">
-                  {item.icon}
-                  <div className="icon-glow" style={{ opacity: 0.4 }}></div>
-                </div>
-                <span className="text-xs text-gray-300">{item.name}</span>
-              </motion.div>
-            ))}
+          {/* Vehicle Animations - All in one row */}
+          <div className="mb-6 sm:mb-8">
+            {/* All Animations in a single row */}
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 px-1 sm:px-2">
+              {vehicleAnimations.map((vehicle, index) => (
+                <motion.div
+                  key={`vehicle-${index}`}
+                  className="relative group"
+                  initial={{ opacity: 0, scale: 0, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{
+                    delay: vehicle.delay,
+                    duration: 0.5,
+                    type: "spring",
+                    stiffness: 200
+                  }}
+                  whileHover={{ scale: 1.1, y: -5 }}
+                >
+                  <div className="bg-primary-800/20 p-2 sm:p-3 rounded-lg border border-white/10 hover:border-accent-500/30 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <Lottie
+                      loop
+                      animationData={vehicle.animation}
+                      play
+                      style={{
+                        width: isMobile ? 70 : 100,
+                        height: isMobile ? 70 : 100
+                      }}
+                      className="mx-auto"
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           {/* Business Focus */}
           <motion.div
-            className="mb-5 text-center"
+            className="mb-4 sm:mb-5 text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.5 }}
           >
-            <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-white to-accent-400 text-transparent bg-clip-text">
+            <h2 className="text-xl sm:text-2xl font-bold mb-2 bg-gradient-to-r from-white to-accent-400 text-transparent bg-clip-text">
               {t('business.heroTagline')}
             </h2>
-            <p className="text-sm md:text-base text-gray-200 max-w-xl mx-auto">
+            <p className="text-xs sm:text-sm md:text-base text-gray-200 max-w-xl mx-auto px-1">
               {t('business.heroSubtitle')}
             </p>
-            <div className="flex justify-center gap-2 mt-3 bg-primary-800/30 py-2 px-4 rounded-full inline-block mx-auto">
-              <span className="text-accent-400 text-sm font-medium">{t('about.value1Title')}</span>
-              <span className="text-white text-sm">•</span>
-              <span className="text-accent-400 text-sm font-medium">{t('about.value2Title')}</span>
-              <span className="text-white text-sm">•</span>
-              <span className="text-accent-400 text-sm font-medium">{t('about.value3Title')}</span>
+            <div className="flex flex-wrap justify-center gap-1 sm:gap-2 mt-2 sm:mt-3 bg-primary-800/30 py-1 sm:py-2 px-2 sm:px-4 rounded-full inline-block mx-auto">
+              <span className="text-accent-400 text-xs sm:text-sm font-medium">{t('about.value1Title')}</span>
+              <span className="text-white text-xs sm:text-sm">•</span>
+              <span className="text-accent-400 text-xs sm:text-sm font-medium">{t('about.value2Title')}</span>
+              <span className="text-white text-xs sm:text-sm">•</span>
+              <span className="text-accent-400 text-xs sm:text-sm font-medium">{t('about.value3Title')}</span>
             </div>
           </motion.div>
 
@@ -133,8 +183,8 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.7 }}
           >
-            <a href="/contact" className="btn btn-accent px-5 py-2 rounded-full flex items-center gap-2 text-sm font-medium">
-              <DollarSign className="w-4 h-4" />
+            <a href="/contact" className="btn btn-accent px-3 sm:px-5 py-1.5 sm:py-2 rounded-full flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium">
+              <DollarSign className="w-3 h-3 sm:w-4 sm:h-4" />
               {t('business.contactForAppraisal')}
             </a>
           </motion.div>
