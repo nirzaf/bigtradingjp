@@ -53,8 +53,8 @@ const translations = {
     'footer.companyDescription': 'Established in 2015, BIG TRADING specializes in exporting high-quality motor vehicles, spare parts, and construction machinery worldwide. Based in Kuwana, Mie Ken, Japan, we deliver excellence and reliability to our global clients.',
 
     // Vehicle Gallery
-    'vehicles.previousExports': 'Previous Exports',
-    'vehicles.previousExportsDesc': 'Explore our past exports of premium vehicles and construction equipment. These examples showcase our quality standards and expertise in global trading.',
+    'vehicles.previousExports': 'Recently Traded Vehicles',
+    'vehicles.previousExportsDesc': 'Explore our recently traded premium vehicles and construction equipment. These examples showcase our quality standards and expertise in global trading.',
     'vehicles.allVehicles': 'All Vehicles',
     'vehicles.sedans': 'Sedans',
     'vehicles.construction': 'Construction',
@@ -302,8 +302,8 @@ const translations = {
     'footer.companyDescription': '2015年に設立されたBIG TRADINGは、高品質の自動車、部品、建設機械を世界中に輸出することを専門としています。日本の三重県桑名市を拠点に、世界中のお客様に卓越した品質と信頼性をお届けしています。',
 
     // Vehicle Gallery
-    'vehicles.previousExports': '過去の輸出実績',
-    'vehicles.previousExportsDesc': '当社の高級車両や建設機器の過去の輸出実績をご覧ください。これらの例は、当社の品質基準とグローバル取引における専門知識を示しています。',
+    'vehicles.previousExports': '最近取引された車両',
+    'vehicles.previousExportsDesc': '当社の最近取引された高級車両や建設機器をご覧ください。これらの例は、当社の品質基準とグローバル取引における専門知識を示しています。',
     'vehicles.allVehicles': '全ての車両',
     'vehicles.sedans': 'セダン',
     'vehicles.construction': '建設機械',

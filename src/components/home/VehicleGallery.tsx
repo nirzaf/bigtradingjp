@@ -7,28 +7,27 @@ import { useLanguage } from '../../contexts/LanguageContext';
 
 const VehicleGallery = () => {
   const { t } = useLanguage();
-  // Mark all vehicles as sold
-  const soldVehicles = vehicles.map(vehicle => ({ ...vehicle, sold: true }));
-  const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[]>(soldVehicles);
+  // Use vehicles without marking them as sold
+  const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[]>(vehicles);
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
   const filterVehicles = (filterType: string) => {
     setActiveFilter(filterType);
 
     if (filterType === 'all') {
-      setFilteredVehicles(soldVehicles);
+      setFilteredVehicles(vehicles);
       return;
     }
 
     // Filter by body type
     if (['Sedan', 'SUV', 'Coupe', 'Convertible', 'Construction', 'Excavator', 'Bulldozer'].includes(filterType)) {
-      setFilteredVehicles(soldVehicles.filter(v => v.bodyType === filterType));
+      setFilteredVehicles(vehicles.filter(v => v.bodyType === filterType));
       return;
     }
 
     // Filter by fuel type
     if (['Electric', 'Petrol', 'Diesel', 'Hybrid'].includes(filterType)) {
-      setFilteredVehicles(soldVehicles.filter(v => v.fuelType === filterType));
+      setFilteredVehicles(vehicles.filter(v => v.fuelType === filterType));
       return;
     }
   };
