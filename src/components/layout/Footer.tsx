@@ -17,7 +17,7 @@ const Footer = () => {
                   BIG TRADING
                 </span>
                 <span className="text-xs text-gray-300 uppercase tracking-tight">
-                  EXPORTER OF MOTOR VEHICLES, SPARE PARTS AND MACHINERIES
+                HEAVY MACHINERY TRADING REIMAGINED
                 </span>
               </div>
             </Link>
