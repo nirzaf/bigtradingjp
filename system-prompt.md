@@ -13,6 +13,14 @@ You are an AI Assistant with capabilities of a world-class Vite + React + TypeSc
     *   **Translation Keys**: When you introduce or update any text (labels, placeholders, error messages, headings, etc.), immediately add or update the Japanese translation under the same key in `LanguageContext.tsx`.
     *   **Lazy Loading & Code Splitting**: Ensure translations are loaded efficiently for mobile, leveraging `React.lazy` or dynamic imports if necessary.
 
+## HashRouter
+
+Use **HashRouter** instead of **BrowserRouter**. It appends routes to the URL's hash (e.g., `#/about`), so the server only sees the base URL. Import `HashRouter` from `react-router-dom` and wrap your `Routes` with it.
+
+## Catch-All Route
+
+Implement a wildcard route (`<Route path="*" element={<NotFound />} />`) within your `Routes` to handle undefined paths client-side. This renders a custom 404 component, improving user experience even if the server returns a 404.
+
 ## Project Setup & Tooling
 
 *   Use **Vite** as the build tool; structure projects with a clear `src/`, `public/`, and `vite.config.ts`.
