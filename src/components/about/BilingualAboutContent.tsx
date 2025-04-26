@@ -31,28 +31,28 @@ const BilingualAboutContent: React.FC = () => {
   const currentContent = language === 'en' ? content.en : content.ja;
 
   return (
-    <div className="bg-[#FEFEF5] p-6 rounded-lg shadow-sm">
-      <h2 className="text-3xl font-display font-bold mb-4 text-primary-700">{currentContent.title}</h2>
+    <div className="bg-[#FEFEF5] p-4 sm:p-6 rounded-lg shadow-sm">
+      <h2 className="text-2xl sm:text-3xl font-display font-bold mb-3 sm:mb-4 text-primary-700 leading-tight">{currentContent.title}</h2>
       
-      <p className="mb-4 text-secondary-700">
+      <p className="mb-3 sm:mb-4 text-sm sm:text-base text-secondary-700 leading-relaxed">
         {currentContent.paragraph1}
       </p>
       
-      <p className="mb-4 text-secondary-700">
+      <p className="mb-3 sm:mb-4 text-sm sm:text-base text-secondary-700 leading-relaxed">
         {currentContent.paragraph2}
       </p>
       
-      <p className="mb-4 text-secondary-700">
+      <p className="mb-3 sm:mb-4 text-sm sm:text-base text-secondary-700 leading-relaxed">
         {currentContent.paragraph3}
       </p>
       
-      <p className="text-secondary-700">
+      <p className="text-sm sm:text-base text-secondary-700 leading-relaxed">
         {currentContent.contact}{' '}
-        <a href="mailto:bigtradingjp@gmail.com" className="text-primary-700 hover:text-primary-900 transition-colors">
+        <a href="mailto:bigtradingjp@gmail.com" className="text-primary-700 hover:text-primary-900 transition-colors inline-block">
           {currentContent.email}
         </a>{' '}
         {currentContent.or}{' '}
-        <a href="tel:+81804213-9008" className="text-primary-700 hover:text-primary-900 transition-colors">
+        <a href="tel:+81804213-9008" className="text-primary-700 hover:text-primary-900 transition-colors inline-block">
           {currentContent.callUs}
         </a>
         {language === 'ja' ? (content.ja.callUsText || '') : '.'}
