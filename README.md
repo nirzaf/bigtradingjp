@@ -1,4 +1,4 @@
-# BIG TRADING - Vehicle & Machinery Export Platform
+# BIJ TRADING - HEAVY MACHINERY TRADING REIMAGINED
 
 [![React](https://img.shields.io/badge/React-18.3.1-61dafb)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-3178c6)](https://www.typescriptlang.org/)
@@ -6,30 +6,30 @@
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.1-38bdf8)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.0.3-0055ff)](https://www.framer.com/motion/)
 
-A modern, responsive web application for BIG TRADING, a leading exporter of high-quality Japanese vehicles, construction machinery, and spare parts with worldwide shipping services.
+A modern, responsive web application for BIJ TRADING, revolutionizing the heavy machinery trading industry with innovative solutions for exporting high-quality Japanese vehicles, construction machinery, and spare parts with worldwide shipping services.
 
-## 🌟 Features
+## 🌟 Revolutionary Features
 
 - **Multilingual Support**: Full English and Japanese language support throughout the application
 - **Responsive Design**: Mobile-first approach ensuring optimal experience across all devices
 - **Interactive UI**: Smooth animations and transitions powered by Framer Motion
-- **Vehicle Showcase**: Dynamic galleries showcasing the inventory with filtering options
-- **Business Objectives**: Clear presentation of core business services and advantages
-- **Social Media Integration**: Instagram feed integration for real-time updates
-- **SEO Optimized**: Structured data for better search engine visibility
-- **Performance Focused**: Optimized assets and code splitting for fast loading times
+- **Advanced Machinery Showcase**: Dynamic galleries with 3D visualization showcasing the inventory with comprehensive filtering options
+- **Innovative Business Solutions**: Clear presentation of how BIJ TRADING is reimagining the industry
+- **Real-time Updates**: Social media integration and live inventory status
+- **Global Reach Optimization**: Advanced SEO and structured data for worldwide visibility
+- **Next-gen Performance**: Cutting-edge optimization techniques for instantaneous loading times
 
-## 🚗 Core Business
+## 🚜 Reimagining Heavy Machinery Trading
 
-BIG TRADING specializes in:
+BIJ TRADING is transforming the industry by:
 
-- Buying and selling used heavy machinery and vehicles
-- Providing various attachments and parts
-- Maintenance services
-- Transportation and export to overseas markets
-- Solar power generation solutions
+- Revolutionizing the buying and selling experience for used heavy machinery and vehicles
+- Offering comprehensive solutions for attachments and parts with advanced inventory systems
+- Providing cutting-edge maintenance services with predictive technology
+- Streamlining transportation and export to overseas markets with real-time tracking
+- Pioneering sustainable solutions with solar power generation integration
 
-The company handles all processes from procurement to delivery in-house, ensuring a seamless experience for customers.
+The company handles all processes from procurement to delivery in-house through an innovative end-to-end platform, ensuring a seamless and transparent experience that reimagines how customers interact with heavy machinery trading.
 
 ## 🛠️ Technology Stack
 
@@ -52,7 +52,7 @@ The company handles all processes from procurement to delivery in-house, ensurin
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/bijtrading.git
+git clone https://github.com/nirzaf/bijtrading.git
 cd bijtrading
 
 # Install dependencies
@@ -98,14 +98,14 @@ The application supports both English and Japanese languages. All user-facing st
 
 ## 🎨 Design System
 
-The application uses a consistent color scheme defined in `color-codes.md`:
+The application uses a consistent color scheme that reflects our innovative approach to heavy machinery trading:
 
-- Byzantine Blue (#3E5AC1): Trust and professionalism
-- Ivory (#F7F7EA): Elegant and subtle backgrounds
-- White (#FEFEFE): Clean and neutral elements
-- Pumpkin (#F76C09): Eye-catching and bold accents
-- Violet Blue (#1844C6): Strong and confident elements
-- Safety Orange (#E77D2E): Visibility and attention
+- Byzantine Blue (#3E5AC1): A rich, medium-deep blue with a slightly muted tone. Used for trust and professionalism.
+- Ivory (#F7F7EA): A soft off-white shade with a warm undertone. Elegant and subtle backgrounds.
+- White (#FEFEFE): Pure, bright white. Clean and neutral elements.
+- Pumpkin (#F76C09): A vivid orange with strong energy. Eye-catching and bold accents.
+- Violet Blue (#1844C6): A deep, electric blue with a hint of purple. Strong and confident elements.
+- Safety Orange (#E77D2E): A strong, warm orange tone, associated with visibility and attention.
 
 ## 📱 Mobile-First Approach
 
