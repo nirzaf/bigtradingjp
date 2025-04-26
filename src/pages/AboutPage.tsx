@@ -56,14 +56,14 @@ const AboutPage = () => {
               viewport={{ once: true }}
               className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-full mb-8 lg:mb-0 order-1 lg:order-2"
             >
-              <div className="bg-primary-900 absolute top-4 sm:top-6 -left-4 sm:-left-6 w-48 sm:w-64 lg:w-72 h-48 sm:h-64 lg:h-72 rounded-lg"></div>
+              <div className="bg-primary-900 absolute top-6 -left-6 w-72 h-72 rounded-lg hidden sm:block"></div>
               <img
                 src="/images/logo.png"
                 alt="Big Trading Company Logo"
                 className="w-full h-auto rounded-lg shadow-xl relative z-10 bg-white p-3 sm:p-4"
                 loading="lazy"
               />
-              <div className="bg-accent-400 absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 w-48 sm:w-64 lg:w-72 h-48 sm:h-64 lg:h-72 rounded-lg"></div>
+              <div className="bg-accent-400 absolute -bottom-6 -right-6 w-72 h-72 rounded-lg hidden sm:block"></div>
             </motion.div>
           </div>
         </div>
