@@ -6,7 +6,16 @@
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.1-38bdf8)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.0.3-0055ff)](https://www.framer.com/motion/)
 
-A modern, responsive web application for BIJ TRADING, revolutionizing the heavy machinery trading industry with innovative solutions for exporting high-quality Japanese vehicles, construction machinery, and spare parts with worldwide shipping services.
+A modern, responsive web application for BIG TRADING, revolutionizing the heavy machinery trading industry with innovative solutions for exporting high-quality Japanese vehicles, construction machinery, and spare parts with worldwide shipping services.
+# BIG TRADING - HEAVY MACHINERY TRADING REIMAGINED
+
+[![React](https://img.shields.io/badge/React-18.3.1-61dafb)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-3178c6)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.3.6-646cff)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.1-38bdf8)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.0.3-0055ff)](https://www.framer.com/motion/)
+
+A modern, responsive web application for BIG TRADING, showcasing heavy machinery and vehicle exports from Japan with multilingual support, SEO optimisations and smooth animations.
 
 ## 🌟 Revolutionary Features
 
@@ -45,8 +54,40 @@ The company handles all processes from procurement to delivery in-house through 
 
 ### Prerequisites
 
+
+## 🚀 Getting Started
+
+### Prerequisites
+
 - Node.js (v18 or higher)
-- npm or yarn
+- npm (recommended) or yarn
+
+### Installation and development
+
+```powershell
+# Clone the repository
+git clone https://github.com/nirzaf/bijtrading.git ; cd bijtrading
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+### Available scripts
+
+- `npm run dev` — start Vite dev server
+- `npm run build` — build production assets
+- `npm run preview` — locally preview the production build
+- `npm run lint` — run ESLint across the project
+
+### Build and preview
+
+```powershell
+npm run build
+npm run preview
+```
 
 ### Installation
 
@@ -111,7 +152,17 @@ The application uses a consistent color scheme that reflects our innovative appr
 
 The application is built with a mobile-first mindset, ensuring optimal user experience across all devices:
 
+
+The application is built with a mobile-first mindset, ensuring optimal user experience across all devices:
+
 - Responsive layouts using Flexbox and CSS Grid
 - Fluid typography with rem units
 - Optimized assets for various screen sizes
 - Touch-friendly interactive elements
+
+---
+
+Notes
+
+- Dependency versions and scripts in this README are synchronized with the project's `package.json`.
+- The package name in `package.json` is `vite-react-typescript-starter`; the repository and product name are BIJ TRADING.
