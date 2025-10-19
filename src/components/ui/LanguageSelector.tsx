@@ -52,7 +52,7 @@ const LanguageSelector: React.FC = () => {
             }`}
           >
             <span className="flex items-center">
-              <span className="mr-2">🇺🇸</span>
+              <span className="mr-2">🇬🇧</span>
               English
             </span>
           </button>
