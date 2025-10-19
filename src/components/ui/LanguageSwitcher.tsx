@@ -34,7 +34,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
 
   // Get flag emoji
   const getFlag = () => {
-    return language === 'en' ? '🇺🇸' : '🇯🇵';
+    return language === 'en' ? '🇬🇧' : '🇯🇵';
   };
 
   return (

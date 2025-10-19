@@ -35,6 +35,14 @@ Entry points PRESENT
 Dependencies DECLARED
 Imports THAT EXIST
 Execution flows VISIBLE
+
+LOCALIZATION & UI CONSISTENCY CHECKS
+When analyzing React applications with internationalization, ALWAYS verify:
+✅ Flag emoji consistency (🇬🇧 for English, not 🇺🇸)
+✅ Language switcher components use consistent flag representations
+✅ Translation keys maintain proper structure across all language files
+✅ UI components that display language options use the same flag standards
+
 Issue Priority:
 P0: Critical (Breaking bugs, security vulnerabilities) [VERIFIED]
 P1: High (Performance bottlenecks, major functional errors) [MEASURED/REPRODUCIBLE]
