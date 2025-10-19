@@ -16,7 +16,7 @@
   /* Default Glow Color (can be overridden per icon) */
   --glow-color: rgba(255, 255, 255, 0.8);
 
-  /* Specific Icon Glow Colors - Using BIJ Trading color palette */
+  /* Specific Icon Glow Colors - Using BIG TRADING color palette */
   --sedan-glow-color: rgba(24, 68, 198, 0.8); /* Violet Blue */
   --sedan-alt-glow-color: rgba(247, 247, 234, 0.9); /* Ivory */
   --loader-glow-color: rgba(247, 108, 9, 0.8); /* Pumpkin */

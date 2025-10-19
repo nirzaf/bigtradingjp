@@ -1,4 +1,4 @@
-# BIJ TRADING - HEAVY MACHINERY TRADING REIMAGINED
+# BIG TRADING - HEAVY MACHINERY TRADING REIMAGINED
 
 [![React](https://img.shields.io/badge/React-18.3.1-61dafb)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-3178c6)](https://www.typescriptlang.org/)
@@ -23,14 +23,14 @@ A modern, responsive web application for BIG TRADING, showcasing heavy machinery
 - **Responsive Design**: Mobile-first approach ensuring optimal experience across all devices
 - **Interactive UI**: Smooth animations and transitions powered by Framer Motion
 - **Advanced Machinery Showcase**: Dynamic galleries with 3D visualization showcasing the inventory with comprehensive filtering options
-- **Innovative Business Solutions**: Clear presentation of how BIJ TRADING is reimagining the industry
+- **Innovative Business Solutions**: Clear presentation of how BIG TRADING is reimagining the industry
 - **Real-time Updates**: Social media integration and live inventory status
 - **Global Reach Optimization**: Advanced SEO and structured data for worldwide visibility
 - **Next-gen Performance**: Cutting-edge optimization techniques for instantaneous loading times
 
 ## 🚜 Reimagining Heavy Machinery Trading
 
-BIJ TRADING is transforming the industry by:
+BIG TRADING is transforming the industry by:
 
 - Revolutionizing the buying and selling experience for used heavy machinery and vehicles
 - Offering comprehensive solutions for attachments and parts with advanced inventory systems
@@ -165,4 +165,4 @@ The application is built with a mobile-first mindset, ensuring optimal user expe
 Notes
 
 - Dependency versions and scripts in this README are synchronized with the project's `package.json`.
-- The package name in `package.json` is `vite-react-typescript-starter`; the repository and product name are BIJ TRADING.
+- The package name in `package.json` is `vite-react-typescript-starter`; the repository and product name are BIG TRADING.
