@@ -17,7 +17,7 @@ const Footer = () => {
                   BIG TRADING
                 </span>
                 <span className="text-xs text-gray-300 uppercase tracking-tight">
-                HEAVY MACHINERY TRADING REIMAGINED
+                {t('business.navbarTagline')}
                 </span>
               </div>
             </Link>
