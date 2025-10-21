@@ -110,7 +110,7 @@ const Navbar = () => {
                     to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
                     className={navLinkClass}
                   >
-                    {item}
+                    {t(`nav.${item.toLowerCase()}`)}
                     {hoveredItem === item && (
                       <motion.div
                         className="absolute bottom-0 left-0 h-0.5 w-full bg-[#F76C09] rounded-full"
@@ -135,7 +135,7 @@ const Navbar = () => {
               transition={{ delay: 0.5 }}
             >
               <Phone size={16} />
-              <span className="text-sm font-medium">Call Us</span>
+              <span className="text-sm font-medium">{t('cta.callUs')}</span>
             </motion.a>
             <div className="ml-4">
               <LanguageSwitcher className="bg-gray-100 hover:bg-gray-200 text-[#3E5AC1]" />
@@ -207,7 +207,7 @@ const Navbar = () => {
                     {item === 'Home' && <Car size={18} />}
                     {item === 'About' && <Globe size={18} />}
                     {item === 'Contact' && <Phone size={18} />}
-                    <span>{item}</span>
+                    <span>{t(`nav.${item.toLowerCase()}`)}</span>
                   </NavLink>
                 </motion.div>
               ))}
