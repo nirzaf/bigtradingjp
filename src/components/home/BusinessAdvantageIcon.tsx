@@ -114,7 +114,7 @@ const BusinessAdvantageIcon: React.FC<BusinessAdvantageIconProps> = ({ id, delay
       <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md">
         {/* Main Icon */}
         <div style={{ color: primaryColor }}>
-          {React.cloneElement(icon as React.ReactElement, { className: "w-6 h-6" })}
+          {React.cloneElement(icon as React.ReactElement<{ className?: string }>, { className: "w-6 h-6" })}
         </div>
         
         {/* Inner Glow */}

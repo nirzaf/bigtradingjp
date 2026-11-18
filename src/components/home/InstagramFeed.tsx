@@ -1,6 +1,7 @@
+import Instagram from '../ui/InstagramIcon';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Instagram } from 'lucide-react';
+
 
 // Declare the Instagram embed type
 declare global {

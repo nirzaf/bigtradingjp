@@ -1,5 +1,6 @@
+import Instagram from '../ui/InstagramIcon';
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone, Instagram, Code } from 'lucide-react';
+import { Mail, MapPin, Phone, Code } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const Footer = () => {

@@ -1,3 +1,4 @@
+import { decorativeValue } from '../../utils/decorativeValue';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Sparkles, ClipboardCheck } from 'lucide-react';
@@ -69,9 +70,9 @@ const HeroSection = () => {
           key={i}
           className={`particle particle-${i % 5 + 1}`}
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 20}%`,
-            animationDelay: `${Math.random() * 10}s`
+            left: `${decorativeValue(i, 0) * 100}%`,
+            top: `${decorativeValue(i, 1) * 20}%`,
+            animationDelay: `${decorativeValue(i, 2) * 10}s`
           }}
         />
       );

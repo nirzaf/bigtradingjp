@@ -14,8 +14,8 @@ const COLORS = {
 };
 
 interface FeatureItem {
-  icon: JSX.Element;
-  backIcon: JSX.Element;
+  icon: React.JSX.Element;
+  backIcon: React.JSX.Element;
   title: string;
   description: string;
 }

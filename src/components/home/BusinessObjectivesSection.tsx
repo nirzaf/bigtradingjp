@@ -1,3 +1,4 @@
+import { decorativeValue } from '../../utils/decorativeValue';
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -21,7 +22,7 @@ const COLORS = {
 
 interface AdvantageItem {
   id: number;
-  icon: JSX.Element;
+  icon: React.JSX.Element;
   title: string;
   description: string;
 }
@@ -285,23 +286,23 @@ const BusinessObjectivesSection: React.FC = () => {
                 key={`particle-${i}`}
                 className="absolute rounded-full"
                 style={{
-                  width: Math.random() * 6 + 2,
-                  height: Math.random() * 6 + 2,
+                  width: decorativeValue(i, 0) * 6 + 2,
+                  height: decorativeValue(i, 1) * 6 + 2,
                   background: i % 2 === 0 ? COLORS.ivory : COLORS.safetyOrange,
-                  opacity: Math.random() * 0.3 + 0.1,
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
+                  opacity: decorativeValue(i, 2) * 0.3 + 0.1,
+                  left: `${decorativeValue(i, 3) * 100}%`,
+                  top: `${decorativeValue(i, 4) * 100}%`,
                 }}
                 animate={{
-                  y: [0, Math.random() * -30 - 10, 0],
-                  x: [0, Math.random() * 20 - 10, 0],
+                  y: [0, decorativeValue(i, 5) * -30 - 10, 0],
+                  x: [0, decorativeValue(i, 6) * 20 - 10, 0],
                   opacity: [0.1, 0.3, 0.1],
                 }}
                 transition={{
-                  duration: Math.random() * 5 + 5,
+                  duration: decorativeValue(i, 7) * 5 + 5,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: Math.random() * 2,
+                  delay: decorativeValue(i, 8) * 2,
                 }}
               />
             ))}

@@ -6,16 +6,15 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [openRoute, setOpenRoute] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const location = useLocation();
   const { t } = useLanguage();
 
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
+  // Route-keyed state closes the menu on navigation without an effect render.
+  const isOpen = openRoute === location.key;
+  const setIsOpen = (open: boolean) => setOpenRoute(open ? location.key : null);
 
   useEffect(() => {
     const handleScroll = () => {
