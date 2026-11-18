@@ -25,3 +25,13 @@ test('sitemap routes exist and no fictional language subpaths',()=>{
  for(const match of read('public/sitemap.xml').matchAll(/bigtradingjp.com([^<]*)</g))assert.ok(read('src/App.tsx').includes(`path="${match[1]}"`));
  assert.doesNotMatch(read('index.html'),/\/ja\//);
 });
+test('hero motion is bounded, user-controlled and reduced-motion aware',()=>{
+ const hero=read('src/components/home/HeroSection.tsx');
+ assert.match(hero,/useReducedMotion/);
+ assert.match(hero,/visibilitychange/);
+ assert.match(hero,/useInView/);
+ assert.match(hero,/setPlaying\(false\), 4000/);
+ assert.match(hero,/Pause animation/);
+ assert.equal((hero.match(/<Lottie\s/g)||[]).length,1);
+ assert.doesNotMatch(hero,/Math.random|animate-float|animate-pulse|sports-car-animation/);
+});

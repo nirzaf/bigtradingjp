@@ -32,3 +32,9 @@ To run browser checks: start `npm run dev`, install Chromium with `npx playwrigh
 The Vite build includes Apache `.htaccess` and Netlify `_redirects`; Vercel fallback is in `vercel.json`. Use only the configuration applicable to the actual host. Existing static files must be served before SPA fallback. Test direct URL refresh and legacy links on the deployed host. No hosting deployment or live-server configuration was performed by this change.
 
 Needed for full content sign-off: verified bank names if publishing them, verified actual-stock photography, corrected original logo artwork, and review of bilingual legal wording. No business licences, bank details, legal approvals or inventory availability are asserted without evidence.
+
+## Hero refinement (18 November 2026)
+
+Replaced six simultaneous decorative players, random particles and pulsing/floating cards with a responsive two-column hero, one clearly labelled machinery illustration and staggered text entrances. Illustration playback stops after four seconds, has pause/replay controls, stops offscreen or in a hidden tab, and respects reduced motion. Mobile layout stacks naturally without fixed viewport-height clipping; links have visible keyboard focus and generous touch targets. Existing enquiry and category routes are preserved. No new imagery or stock claims were introduced.
+
+Verification: production build, TypeScript, lint (same one existing warning), six source regression checks and whitespace checks passed. Browser/visual validation remains blocked by the cloud Chromium socket limitation described above; performance improvement is structural (six players to one), not a claimed measured benchmark.
