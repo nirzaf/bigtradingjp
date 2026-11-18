@@ -10,7 +10,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const location = useLocation();
-  const { t, language, setLanguage } = useLanguage();
+  const { t } = useLanguage();
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -71,6 +71,7 @@ const Navbar = () => {
                 src="/images/logo.png"
                 alt="Bigtrading Logo"
                 className="h-12 w-auto drop-shadow-md transition-all duration-300 group-hover:drop-shadow-xl"
+                style={{ clipPath: 'inset(0 0 13% 0)' }}
               />
             </motion.div>
             <div className="flex flex-col">

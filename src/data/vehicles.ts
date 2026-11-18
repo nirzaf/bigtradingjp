@@ -26,8 +26,8 @@ export const vehicles: Vehicle[] = [
     specs: {
       engine: '2.0L Turbocharged Inline-4',
       power: '350 hp',
-      acceleration: '0-60 mph in 4.1 seconds',
-      topSpeed: '165 mph'
+      acceleration: '0-97 km/h in 4.1 seconds',
+      topSpeed: '266 km/h'
     },
     sold: false
   },
@@ -57,8 +57,8 @@ export const vehicles: Vehicle[] = [
     specs: {
       engine: '1.8L Inline-4',
       power: '140 hp',
-      acceleration: '0-60 mph in 9.8 seconds',
-      topSpeed: '118 mph'
+      acceleration: '0-97 km/h in 9.8 seconds',
+      topSpeed: '190 km/h'
     },
     sold: false
   },
@@ -88,7 +88,7 @@ export const vehicles: Vehicle[] = [
       engine: '4.4L Turbo Diesel',
       power: '95 hp',
       acceleration: 'N/A',
-      topSpeed: '22 mph'
+      topSpeed: '35 km/h'
     },
     sold: false
   },
@@ -118,7 +118,7 @@ export const vehicles: Vehicle[] = [
       engine: '6.7L CAT C7.1 Diesel',
       power: '174 hp',
       acceleration: 'N/A',
-      topSpeed: '3.4 mph'
+      topSpeed: '5 km/h'
     },
     sold: false
   },
@@ -148,7 +148,7 @@ export const vehicles: Vehicle[] = [
       engine: '5.1L Komatsu SAA6D107E-1 Diesel',
       power: '130 hp',
       acceleration: 'N/A',
-      topSpeed: '5.3 mph'
+      topSpeed: '9 km/h'
     },
     sold: false
   },
@@ -178,7 +178,7 @@ export const vehicles: Vehicle[] = [
       engine: '7.2L CAT C9.3 Diesel',
       power: '213 hp',
       acceleration: 'N/A',
-      topSpeed: '27 mph'
+      topSpeed: '43 km/h'
     },
     sold: false
   }

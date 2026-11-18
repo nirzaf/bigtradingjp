@@ -6,7 +6,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const CompanyInfoPage: React.FC = () => {
   const { t } = useLanguage();
-  
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,9 +17,9 @@ const CompanyInfoPage: React.FC = () => {
       <PageHeader
         title={t('about.title')}
         subtitle={`${t('nav.home')}/${t('nav.about')}`}
-        backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
+
       />
-      
+
       <section className="py-16">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">

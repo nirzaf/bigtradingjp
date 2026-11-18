@@ -1,105 +1,58 @@
 import { motion } from 'framer-motion';
 import PageHeader from '../components/ui/PageHeader';
+import { useLanguage } from '../contexts/LanguageContext';
+
+const policy = {
+  en: {
+    title: 'Privacy Policy', updated: 'Last updated: 18 November 2026',
+    intro: 'BIG TRADING CO., LTD. / 株式会社ビッグトレーディング operates this website to introduce our vehicle, spare-parts and machinery business and receive enquiries. This policy explains how information is handled when you browse the site or contact us. This website does not provide member accounts or a dealer marketplace.',
+    sections: [
+      ['Information you provide', 'When you contact us by email, telephone or WhatsApp, we receive the information you choose to send, such as your name, contact details, product requirements and correspondence. Please do not send passwords, payment-card details or identity documents through a general enquiry. Opening an email draft or WhatsApp message does not send it until you choose to send it.'],
+      ['Why we use information', 'We use enquiry information to respond to your questions, discuss products and quotations, arrange requested services and maintain relevant business correspondence. A transaction may require additional information, which will be explained when requested.'],
+      ['Language preferences and browsing information', 'The site stores your language preference in browser local storage and a preference cookie. The cookie is set for one year; local storage remains until cleared. If no preference is saved, the site requests an approximate country from ipapi.co using your internet connection to choose an initial language. You can change the language and clear stored preferences using your browser settings. Hosting and analytics services may process technical information about requests and page visits; this site includes Vercel Analytics.'],
+      ['External services', 'The site embeds Instagram content and links to WhatsApp and other external services. Loading embedded content or following these links may disclose your IP address, browser information and the content you send to the relevant provider. Their own privacy policies apply to their services. Information needed for a requested transaction may also be provided to relevant service providers, such as transport or export-service providers, or disclosed where required by applicable law.'],
+      ['Retention and protection', 'Please contact us for information about the records held in relation to your enquiry or transaction and any applicable retention requirements. We limit the use of enquiry information to the purposes described here. No internet transmission can be guaranteed completely secure; use the contact details below to discuss a suitable channel before sending sensitive documents.'],
+      ['Your questions and requests', 'You may contact us to ask about your personal information or request access, correction or deletion. We will consider your request under applicable law and may need to verify your identity. Some records may need to be retained for legal obligations or an ongoing transaction.'],
+      ['Changes to this policy', 'Updates will be published on this page with a revised date. This policy covers this website and our handling of enquiries, not the independent practices of linked services.'],
+    ], contact: 'Privacy contact', address: '〒498-0801, 553 Karoto, Kisosaki-cho, Kuwana-gun, Mie Prefecture, Japan',
+  },
+  ja: {
+    title: 'プライバシーポリシー', updated: '最終更新日：2026年11月18日',
+    intro: 'BIG TRADING CO., LTD. / 株式会社ビッグトレーディングは、自動車・部品・機械に関する事業のご案内とお問い合わせへの対応のために本ウェブサイトを運営しています。本ポリシーでは、サイトの閲覧時および当社へのお問い合わせ時の情報の取り扱いについて説明します。本サイトには会員登録機能や販売業者向けのマーケットプレイスはありません。',
+    sections: [
+      ['お客様からご提供いただく情報', 'メール、電話、WhatsAppでお問い合わせいただいた場合、氏名、連絡先、ご希望の商品、やり取りの内容など、お客様が提供された情報を受け取ります。一般のお問い合わせには、パスワード、クレジットカード情報、本人確認書類を含めないでください。メールの下書きやWhatsAppのメッセージ画面を開いただけでは送信されず、お客様ご自身で送信操作を行う必要があります。'],
+      ['情報の利用目的', 'お問い合わせへの回答、商品や見積もりのご案内、ご依頼いただいたサービスの手配、および関連する業務上の連絡記録の管理に利用します。お取引に追加情報が必要な場合は、その都度ご案内します。'],
+      ['言語設定と閲覧情報', '本サイトは、言語設定をブラウザーのローカルストレージと設定用Cookieに保存します。Cookieの有効期間は1年間で、ローカルストレージの情報は削除されるまで残ります。保存済みの設定がない場合、初期表示の言語を選ぶため、インターネット接続を通じてipapi.coにおおよその国情報を問い合わせます。表示言語は変更でき、保存された設定はブラウザーの設定から削除できます。ホスティングやアクセス解析のサービスでは、通信や閲覧に関する技術情報が処理される場合があります。本サイトにはVercel Analyticsが組み込まれています。'],
+      ['外部サービス', '本サイトにはInstagramの埋め込みコンテンツやWhatsAppなどの外部サービスへのリンクがあります。埋め込みコンテンツの読み込みやリンク先へのアクセスにより、IPアドレス、ブラウザー情報、送信内容などが各サービスの提供者に伝わる場合があります。各サービスには、それぞれのプライバシーポリシーが適用されます。ご依頼のお取引に必要な情報は、輸送・輸出関連の事業者などに提供する場合や、適用法令に基づき開示する場合もあります。'],
+      ['情報の保管と保護', 'お問い合わせやお取引に関して保有する記録、または適用される保管要件については、当社までお問い合わせください。お問い合わせ情報は、本ポリシーに記載した目的の範囲で利用します。インターネット通信の安全性を完全に保証することはできません。機密性の高い書類を送付する際は、事前に適切な連絡方法についてご相談ください。'],
+      ['情報に関するお問い合わせとご請求', 'ご自身の個人情報についてのご質問、開示・訂正・削除のご請求は、当社までご連絡ください。適用法令に従って対応し、必要に応じて本人確認をお願いする場合があります。法令上の義務や進行中のお取引のため、一部の記録を保持する必要がある場合があります。'],
+      ['本ポリシーの変更', '変更がある場合は、本ページの内容と更新日を改定します。本ポリシーは、本サイトおよび当社へのお問い合わせの取り扱いを対象とし、リンク先のサービス独自の取り扱いには適用されません。'],
+    ], contact: '個人情報に関するお問い合わせ窓口', address: '〒498-0801 三重県桑名郡木曽岬町加路戸553',
+  },
+};
 
 const PrivacyPolicyPage = () => {
+  const { language } = useLanguage();
+  const content = policy[language];
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
-    >
-      <PageHeader
-        title="Privacy Policy"
-        subtitle="Home/Privacy Policy"
-        backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
-      />
-
-      <section className="py-12 bg-white">
-        <div className="container-custom">
-          <div className="prose prose-lg max-w-none">
-            <div className="mb-8">
-              <p className="text-lg font-medium text-primary-700">Please read our Privacy Policy carefully! Last Update: 25th May, 2014</p>
-              <p>Big Trading Company Limited is well aware of the importance of personal information of our customers, that is collected through the course of business activities. Big Trading protects personal information from security threats with the following Privacy Policy and committed to handle the data sensibly. This privacy policy describes what information we collect from our platforms and third-parties and how this data is used and shared.</p>
-            </div>
-
-            <h2 className="text-2xl font-display font-bold mt-8 mb-4">1. What kind of information do we collect?</h2>
-            <p>Big Trading collects and stores information entered or provided by you at Big Trading website, third-party services on our website or any other method of transmission. Big Trading uses personal information according to the purposes defined in this policy.</p>
-            <p>There are cases in which you may not want to share certain information with Big Trading, and we respect your decision. However certain information are necessary to do business with Big Trading. If you decide to not share the required information, Big Trading will be unable to offer you our services.</p>
-            
-            <p className="font-medium mt-4">We collect data in the following ways:</p>
-            
-            <h3 className="text-xl font-display font-semibold mt-6 mb-3">1. Information submitted by you at Big Trading or third-party services</h3>
-            <p>Big Trading collects contact information such as your name, email address, country, telephone/mobile/fax number, etc for verification and to contact you for business purpose.</p>
-            <p>A valid email address along with your name and country of residence are required to create a Big Trading Member Account.</p>
-            <p>We also collect and store your inquiries and contacts in order to reply to your requests, this help us understand which products and services interest you, assist us with developing a more personalized and improved user experience, supervise how our services have been delivered to you, and find out how we can improve your overall experience with Big Trading. Communication channels used to provide these services include email, social media, phone calls, whatsapp, skype, line, viber etc.</p>
-            
-            <h3 className="text-xl font-display font-semibold mt-6 mb-3">2. Information submitted by you on social media platforms</h3>
-            <p>Big Trading uses social media platforms to establish more sincere relationships with our users. As social media are public communication platforms, we receive the reactions you place on the content we publish. You may perform actions such as subscription requests, general comments, or direct messages. There is a possibility that we may collect and process this information for the purposes of providing our services.</p>
-            <p>Although users have the freedom to express their opinion by placing public comments, we reserve the right to exclude any comments that we think may contain disrespectful or harmful content, be in violation of any laws, or be a security risk to us or our users.</p>
-            <p>The social media channels we use each have their own designated Privacy/Cookies Policy and Privacy/Cookies Settings that prompt you for your consent for them to access, process, and collect your data. This includes controls for you be in control of which information you choose to share.</p>
-            
-            <h3 className="text-xl font-display font-semibold mt-6 mb-3">3. Cookies (Browsing Information)</h3>
-            <p>A cookie is a small text file that a website saves on your computer or mobile device when you visit a site. It enables the website to remember your actions and preferences (such as login, language, font size and other display preferences) over a period of time, so you don't have to keep re-entering them whenever you come back to the site or browse from one page to another.</p>
-            <p>We use cookies for a variety of functions including keeping you logged in to your account page; memorizing entered information for your convenience; providing an analytical basis that allows us to improve items such as communication with you and user experience; seeing if our emails are received, read and/or deliver value to you; and providing relevant ads that might interest you.</p>
-            <p>If you do not consent to our usage of cookies, we advise you to adjust your browser settings, update your interest-based ads settings, or refrain from using our website. Most browsers have an option to utilize add-ons to prevent the usage of cookies, and many advertising groups offer opt-out tools to give you control of what you want to see. However, by deciding to block or reject cookies, some features on our website may be disabled. Keeping cookies enabled will ensure full functionality of our website.</p>
-            
-            <h3 className="text-xl font-display font-semibold mt-6 mb-3">4. Contact History</h3>
-            <p>A record of your contact history is maintained and used for the purpose of developing improvements to our services. They help us safeguard mutual interests and facilitate our customer service team by serving as a reference source when providing our services.</p>
-            
-            <h2 className="text-2xl font-display font-bold mt-8 mb-4">2. What information you have access to?</h2>
-            <p>At any point or time, you have the right to access, correct, and/or limit your personal data. You should decide to control the amount of data you share with us, including the complete removal of consent. You can also download a copy of your personal data. You hold the right to request the removal of your personal information at no cost. Requests for any of the above-mentioned cases can be made to bigtradingjp@gmail.com. Upon requesting to remove the personal records, please advise that it may take up to 30 days to complete processing.</p>
-            
-            <h2 className="text-2xl font-display font-bold mt-8 mb-4">3. Personal Data Lifetime</h2>
-            <p>Whenever personal information is given to us, we will indicate how long it will be stored for. In the case that nothing is mentioned, we follow these principles:</p>
-            <ul className="list-disc pl-6 mt-2 mb-4">
-              <li>Information is held onto for the time that is taken to complete the activities we have described.</li>
-              <li>We consider the type of the information collected and any other legal requirements that need to be taken into account.</li>
-              <li>We don't keep your information for longer than we have to. For inactive accounts in our system, we may send a confirmation email notifying of account closure if no further action is taken.</li>
-            </ul>
-            
-            <h3 className="text-xl font-display font-semibold mt-6 mb-3">Sharing of Personal Data to trusted Third-Parties</h3>
-            <p>There are cases when your personal data are shared with a third-party in order to provide our services.</p>
-            <ul className="list-disc pl-6 mt-2 mb-4">
-              <li>We share your information collected through inquiries and contacts submitted on our portal with the dealers and exporters registered with us, they in turn provide offers for your vehicle requirement. It is necessary to share the information in order to get you the vehicles of your interest from our platform.</li>
-              <li>The dealers may require your information for internal administrative purposes (e.g. payment matters, issuing of invoices, or delivery of commodities), which is necessary for the business and providing you the vehicle of your interest.</li>
-              <li>It becomes necessary to disclose your information to comply with court orders, subpoenas, or any other legal process or to exercise our legal rights.</li>
-              <li>It becomes necessary to share information in pursuance of investigation, prevention, or taking action against any illegal activities, fraud, or threatening situations to any person, violation of our Terms of Use, or alternatively required by law.</li>
-            </ul>
-            
-            <h2 className="text-2xl font-display font-bold mt-8 mb-4">4. Data transfers, storage and the global handling of your personal information</h2>
-            <p>The main office of Big Trading Company Limited is located in Kuwana, Mie Ken, Japan.</p>
-            <p>There may be situations in which we are required to transfer your personal data to countries or territories that may not have the same standard of data protection as your country. We make sure that business partners such as third-party our shipping companies are adherent to our standards for security, including but not limited to confidentiality of personal information.</p>
-            
-            <h2 className="text-2xl font-display font-bold mt-8 mb-4">5. Age Restrictions</h2>
-            <p>We do not sell vehicles or any products for purchase by minors below age of 18 years. Minors may use Big Trading website only with adult supervision. We do not knowingly gather personal information from children under the legal age of majority according to each specific country we deal with.</p>
-            
-            <h2 className="text-2xl font-display font-bold mt-8 mb-4">6. Security Measures</h2>
-            <p>We aim to ensure that your information is secure at every step of processing, and that is why we implement the following measures to protect it when it is being sent or handled.</p>
-            <ul className="list-disc pl-6 mt-2 mb-4">
-              <li>Secure browsing via our official website (SSL Certificate)</li>
-              <li>Educate employees - Social media protocol, internet usage policies</li>
-              <li>Planning and preparing for a security breach</li>
-              <li>Data backup</li>
-              <li>Firewall</li>
-            </ul>
-            
-            <h3 className="text-xl font-display font-semibold mt-6 mb-3">Contact Information</h3>
-            <p>If you have any questions concerning our handling of your personal information, would like to request a copy, amend, or delete your personal data, or provide feedback regarding our privacy policy, please email us at bigtradingjp@gmail.com or send physical mail to the following address.</p>
-            <p className="mt-4">
-              <strong>Big Trading Company Limited</strong><br />
-              Kisosaki-cho, Karoto 553<br />
-              Kuwana, Mie Ken<br />
-              Japan
-            </p>
-            
-            <h2 className="text-2xl font-display font-bold mt-8 mb-4">7. Changes to this Privacy Policy</h2>
-            <p>We reserve the right to modify our Privacy Policy from time to time without notifying users. We recommend that you consult this Privacy Policy on a regular basis. You are deemed to have understood and agreed that all Collected Information (whether or not collected prior to or after the new policy became effective) shall be governed by the newest Privacy Policy then in effect. If you do not agree to the new changes in our Privacy Policy, you should contact Big Trading in writing and specifically request that we remove all your collected Information in our possession.</p>
-          </div>
-        </div>
-      </section>
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }} lang={language}>
+      <PageHeader title={content.title} />
+      <article className="container-custom max-w-4xl py-12 px-4 leading-relaxed">
+        <p className="font-medium text-primary-700 mb-4">{content.updated}</p>
+        <p>{content.intro}</p>
+        {content.sections.map(([heading, body], index) => <section key={heading} className="mt-8">
+          <h2 className="text-2xl font-display font-bold mb-3">{index + 1}. {heading}</h2>
+          <p>{body}</p>
+        </section>)}
+        <section className="mt-8">
+          <h2 className="text-2xl font-display font-bold mb-3">{content.contact}</h2>
+          <address className="not-italic">BIG TRADING CO., LTD. / 株式会社ビッグトレーディング<br />{content.address}<br />
+            <a className="underline" href="mailto:bigtradingjp@gmail.com">bigtradingjp@gmail.com</a><br />
+            <a className="underline" href="tel:+818042139008">+81 80-4213-9008</a>
+          </address>
+        </section>
+      </article>
     </motion.div>
   );
 };
-
 export default PrivacyPolicyPage;

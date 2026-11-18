@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Globe } from 'lucide-react';
@@ -40,6 +40,7 @@ const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({
   return (
     <button
       onClick={toggleLanguage}
+      disabled={isChanging}
       className={`flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 ${className}`}
       aria-label={`Switch to ${language === 'en' ? 'Japanese' : 'English'}`}
     >

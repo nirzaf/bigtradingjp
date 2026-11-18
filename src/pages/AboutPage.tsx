@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Shield, Users, Star, Award, Clock, Sparkles, Car, CircleDollarSign, ShoppingBag, Briefcase } from 'lucide-react';
 
+import { Link } from 'react-router-dom';
+import BilingualAboutContent from '../components/about/BilingualAboutContent';
 import PageHeader from '../components/ui/PageHeader';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -17,7 +19,7 @@ const AboutPage = () => {
       <PageHeader
         title={t('about.title')}
         subtitle={`${t('nav.home')}/${t('nav.about')}`}
-        backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
+
       />
 
       {/* Our Story Section */}
@@ -69,6 +71,8 @@ const AboutPage = () => {
         </div>
       </section>
 
+
+      <section className="pb-12"><div className="container-custom px-4 sm:px-6"><BilingualAboutContent /></div></section>
 
       {/* Mission & Values */}
       <section className="py-10 sm:py-16 bg-gray-50">
@@ -293,9 +297,9 @@ const AboutPage = () => {
             <a href="tel:+81804213-9008" className="btn btn-primary px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base">
               {t('about.callUsBtn')}
             </a>
-            <a href="/contact" className="btn btn-accent px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base">
+            <Link to="/contact" className="btn btn-accent px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base">
               {t('about.contactUsBtn')}
-            </a>
+            </Link>
           </div>
         </div>
       </section>

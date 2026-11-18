@@ -1,36 +1,19 @@
-import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import VehicleCard from '../vehicles/VehicleCard';
 import { vehicles } from '../../data/vehicles';
-import { Vehicle } from '../../types/vehicle';
+
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const VehicleGallery = () => {
-  const { t } = useLanguage();
-  // Use vehicles without marking them as sold
-  const [filteredVehicles, setFilteredVehicles] = useState<Vehicle[]>(vehicles);
-  const [activeFilter, setActiveFilter] = useState<string>('all');
-
-  const filterVehicles = (filterType: string) => {
-    setActiveFilter(filterType);
-
-    if (filterType === 'all') {
-      setFilteredVehicles(vehicles);
-      return;
-    }
-
-    // Filter by body type
-    if (['Sedan', 'SUV', 'Coupe', 'Convertible', 'Construction', 'Excavator', 'Bulldozer'].includes(filterType)) {
-      setFilteredVehicles(vehicles.filter(v => v.bodyType === filterType));
-      return;
-    }
-
-    // Filter by fuel type
-    if (['Electric', 'Petrol', 'Diesel', 'Hybrid'].includes(filterType)) {
-      setFilteredVehicles(vehicles.filter(v => v.fuelType === filterType));
-      return;
-    }
-  };
+  const { t, language } = useLanguage();
+  const [params, setParams] = useSearchParams();
+  const activeFilter = params.get('category') || 'all';
+  const filteredVehicles = vehicles.filter(v => activeFilter === 'all' ||
+    (activeFilter === 'vehicles' && ['Sedan', 'SUV', 'Coupe', 'Convertible', 'Truck', 'Van'].includes(v.bodyType)) ||
+    (activeFilter === 'machinery' && ['Construction', 'Excavator', 'Bulldozer'].includes(v.bodyType)) ||
+    v.bodyType === activeFilter || v.fuelType === activeFilter);
+  const filterVehicles = (category: string) => setParams(category === 'all' ? {} : { category });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -78,6 +61,7 @@ const VehicleGallery = () => {
           ))}
         </div>
 
+        {filteredVehicles.length === 0 && <p role="status" className="text-center py-10">{language === 'ja' ? 'このカテゴリの掲載例はありません。在庫についてお問い合わせください。' : 'No examples are listed in this category. Please contact us for availability.'}</p>}
         {/* Vehicle Grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"

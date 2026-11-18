@@ -24,7 +24,7 @@ const ContactPage = () => {
   });
 
   const [formStatus, setFormStatus] = useState<{ success?: string; error?: string }>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -36,21 +36,11 @@ const ContactPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      setFormStatus({ success: "Thank you for your message. We'll be in touch shortly!" });
-      setIsSubmitting(false);
-      // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-      });
-    }, 1500);
+    const body = `${language === 'ja' ? 'お名前' : 'Name'}: ${formData.name}\nEmail: ${formData.email}\n${language === 'ja' ? '電話番号' : 'Phone'}: ${formData.phone}\n\n${formData.message}`;
+    window.location.href = `mailto:bigtradingjp@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(body)}`;
+    setFormStatus({ success: language === 'ja'
+      ? 'メールアプリで下書きを確認し、送信してください。このフォームからはまだ送信されていません。アプリが開かない場合は、bigtradingjp@gmail.com に直接メールしてください。'
+      : 'Review and send the draft in your email app. This form has not sent your message. If no app opens, email bigtradingjp@gmail.com directly.' });
   };
 
   return (
@@ -63,7 +53,7 @@ const ContactPage = () => {
       <PageHeader
         title={t('contact.title')}
         subtitle={t('contact.subtitle')}
-        backgroundImage="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
+
       />
 
       {/* Contact Information Section */}
@@ -87,9 +77,7 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-lg font-medium text-primary-900 mb-1">{t('contact.officeAddress')}</h3>
                     <p className="text-secondary-700">
-                      Kisosaki-cho, Karoto 553<br />
-                      Kuwana, Mie Ken<br />
-                      Japan
+                      {language === 'ja' ? '〒498-0801 三重県桑名郡木曽岬町加路戸553' : '〒498-0801, 553 Karoto, Kisosaki-cho, Kuwana-gun, Mie Prefecture, Japan'}
                     </p>
                   </div>
                 </div>
@@ -105,11 +93,6 @@ const ContactPage = () => {
                         +81 80-4213-9008
                       </a>
                     </p>
-                    <p className="text-secondary-700">
-                      <a href="tel:+81804213-9008" className="hover:text-primary-800 transition-colors">
-                        +81 80-4213-9008 (Sales)
-                      </a>
-                    </p>
                   </div>
                 </div>
 
@@ -122,11 +105,6 @@ const ContactPage = () => {
                     <p className="text-secondary-700">
                       <a href="mailto:bigtradingjp@gmail.com" className="hover:text-primary-800 transition-colors">
                         bigtradingjp@gmail.com
-                      </a>
-                    </p>
-                    <p className="text-secondary-700">
-                      <a href="mailto:bigtradingjp@gmail.com" className="hover:text-primary-800 transition-colors">
-                        bigtradingjp@gmail.com (Sales)
                       </a>
                     </p>
                   </div>
@@ -188,6 +166,7 @@ const ContactPage = () => {
                   </motion.div>
                 )}
 
+                <p className="text-sm text-secondary-700 mb-6">{language === 'ja' ? 'このフォームはメールアプリで下書きを作成します。内容を確認して送信してください。' : 'This form prepares a draft in your email app for you to review and send.'}</p>
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
@@ -236,7 +215,7 @@ const ContactPage = () => {
 
                     <div>
                       <label htmlFor="subject" className="block text-sm font-medium text-secondary-700 mb-1">
-                        Subject *
+                        {language === 'ja' ? '件名' : 'Subject'} *
                       </label>
                       <select
                         id="subject"
@@ -246,13 +225,12 @@ const ContactPage = () => {
                         required
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
                       >
-                        <option value="">Select a subject</option>
-                        <option value="General Inquiry">General Inquiry</option>
-                        <option value="Vehicle Information">Vehicle Information</option>
-                        <option value="Construction Equipment">Construction Equipment</option>
-                        <option value="Schedule Test Drive">Schedule Test Drive</option>
-                        <option value="Financing Options">Financing Options</option>
-                        <option value="Service Request">Service Request</option>
+                        <option value="">{language === 'ja' ? '件名を選択してください' : 'Select a subject'}</option>
+                        <option value="General Inquiry">{language === 'ja' ? '一般のお問い合わせ' : 'General Inquiry'}</option>
+                        <option value="Vehicle Information">{language === 'ja' ? '車両について' : 'Vehicle Information'}</option>
+                        <option value="Construction Equipment">{language === 'ja' ? '建設機械について' : 'Construction Equipment'}</option>
+                        <option value="Spare Parts">{language === 'ja' ? '部品について' : 'Spare Parts'}</option>
+                        <option value="Export Inquiry">{language === 'ja' ? '輸出について' : 'Export Inquiry'}</option>
                       </select>
                     </div>
                   </div>
@@ -275,24 +253,10 @@ const ContactPage = () => {
                   <div>
                     <button
                       type="submit"
-                      disabled={isSubmitting}
-                      className={`flex items-center justify-center w-full md:w-auto px-6 py-3 bg-primary-800 text-white rounded-md font-medium transition-colors ${isSubmitting ? 'bg-primary-600 cursor-not-allowed' : 'hover:bg-primary-700'
-                        }`}
+                      className="flex items-center justify-center w-full md:w-auto px-6 py-3 bg-primary-800 text-white rounded-md font-medium hover:bg-primary-700"
                     >
-                      {isSubmitting ? (
-                        <>
-                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-5 h-5 mr-2" />
-                          {t('contact.submit')}
-                        </>
-                      )}
+                      <Send className="w-5 h-5 mr-2" />
+                      {t('contact.submit')}
                     </button>
                   </div>
                 </form>

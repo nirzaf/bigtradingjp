@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Sparkles, DollarSign } from 'lucide-react';
+import { Sparkles, ClipboardCheck } from 'lucide-react';
 import Lottie from 'react-lottie-player';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useState, useEffect } from 'react';
@@ -81,11 +82,6 @@ const HeroSection = () => {
   return (
     <section className="relative h-[80vh] sm:h-[70vh] min-h-[600px] flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <img
-          src="/images/Tuned Blue Mitsubishi Lancer Evolution.jpeg"
-          alt="Heavy machinery"
-          className="w-full h-full object-cover"
-        />
         <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/95 to-primary-700/90" />
         {/* Additional overlay for better contrast */}
         <div className="absolute inset-0 bg-black/30" />
@@ -201,10 +197,10 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.7 }}
           >
-            <a href="/contact" className="btn btn-accent px-3 sm:px-5 py-1.5 sm:py-2 rounded-full flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium">
-              <DollarSign className="w-3 h-3 sm:w-4 sm:h-4" />
+            <Link to="/contact" className="btn btn-accent px-3 sm:px-5 py-1.5 sm:py-2 rounded-full flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium">
+              <ClipboardCheck className="w-3 h-3 sm:w-4 sm:h-4" />
               {t('business.contactForAppraisal')}
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

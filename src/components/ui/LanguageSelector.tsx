@@ -3,7 +3,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { ChevronDown, Globe } from 'lucide-react';
 
 const LanguageSelector: React.FC = () => {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 

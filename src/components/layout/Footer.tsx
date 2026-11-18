@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone, Facebook, Instagram, Twitter, Code } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Code } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 const Footer = () => {
@@ -11,10 +11,10 @@ const Footer = () => {
           {/* Logo and About */}
           <div className="md:col-span-4">
             <Link to="/" className="flex items-center space-x-2 mb-4">
-              <img src="/images/logo.png" alt="Bigtrading Logo" className="h-8 w-auto" />
+              <img src="/images/logo.png" alt="Bigtrading Logo" className="h-8 w-auto" style={{ clipPath: 'inset(0 0 13% 0)' }} />
               <div className="flex flex-col">
                 <span className="text-xl font-display font-bold text-white uppercase tracking-wider">
-                  BIG TRADING
+                  BIG TRADING CO., LTD.
                 </span>
                 <span className="text-xs text-gray-300 uppercase tracking-tight">
                 {t('business.navbarTagline')}
@@ -25,17 +25,9 @@ const Footer = () => {
               {t('footer.companyDescription')}
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-accent-500 transition-colors"> {/* Pumpkin */}
-                <Facebook className="w-5 h-5" />
-                <span className="sr-only">Facebook</span>
-              </a>
               <a href="https://www.instagram.com/bigjapan_jdm/?igsh=MXJqa2x1N3c1MTV0bw%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" className="text-gray-300 hover:text-accent-500 transition-colors"> {/* Pumpkin */}
                 <Instagram className="w-5 h-5" />
                 <span className="sr-only">Instagram</span>
-              </a>
-              <a href="#" className="text-gray-300 hover:text-accent-500 transition-colors"> {/* Pumpkin */}
-                <Twitter className="w-5 h-5" />
-                <span className="sr-only">Twitter</span>
               </a>
             </div>
           </div>
@@ -67,22 +59,22 @@ const Footer = () => {
             <h3 className="text-white font-display text-lg font-semibold mb-4">{t('footer.ourProducts')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
+                <Link to="/vehicles?category=vehicles" className="text-gray-300 hover:text-accent-500 transition-colors">
                   {t('footer.motorVehicles')}
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
+                <Link to="/contact" className="text-gray-300 hover:text-accent-500 transition-colors">
                   {t('footer.spareParts')}
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
+                <Link to="/vehicles?category=Construction" className="text-gray-300 hover:text-accent-500 transition-colors">
                   {t('footer.constructionMachinery')}
                 </Link>
               </li>
               <li>
-                <Link to="/" className="text-gray-300 hover:text-accent-500 transition-colors">
+                <Link to="/vehicles?category=machinery" className="text-gray-300 hover:text-accent-500 transition-colors">
                   {t('footer.heavyEquipment')}
                 </Link>
               </li>
@@ -96,7 +88,7 @@ const Footer = () => {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 text-accent-500 mr-2 mt-0.5" />
                 <span className="text-gray-300">
-                  Kisosaki-cho, Karoto 553, Kuwana, Mie Ken, Japan
+                  〒498-0801, 553 Karoto, Kisosaki-cho, Kuwana-gun, Mie Prefecture, Japan
                 </span>
               </li>
               <li className="flex items-center">
@@ -119,7 +111,7 @@ const Footer = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center text-center md:text-left">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} BIG TRADING . {t('footer.rights')}
+            &copy; {new Date().getFullYear()} BIG TRADING. {t('footer.rights')}
           </p>
 
           <div className="flex items-center justify-center">
