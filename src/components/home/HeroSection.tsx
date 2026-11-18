@@ -1,96 +1,211 @@
-import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Car, ClipboardCheck, Cog, Pause, Play, Truck } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Sparkles, ClipboardCheck } from 'lucide-react';
 import Lottie from 'react-lottie-player';
 import { useLanguage } from '../../contexts/LanguageContext';
-import excavatorAnimation from '../../assets/animations/excavator-animation.json';
+import { useState, useEffect } from 'react';
 
-/** One decorative player, finite motion and no viewport-resize render loop. */
+// Import Lottie animations
+import carAnimation from '../../assets/animations/sports-car-animation.json';
+import excavatorAnimation from '../../assets/animations/excavator-animation.json';
+import bulldozerAnimation from '../../assets/animations/bulldozer-animation.json';
+import dumpTruckAnimation from '../../assets/animations/dump-truck-animation.json';
+import equipmentAnimation from '../../assets/animations/equipment-animation.json';
+import forkliftAnimation from '../../assets/animations/forklift-animation.json';
+
 const HeroSection = () => {
-  const { t, language } = useLanguage();
-  const reduceMotion = useReducedMotion();
-  const heroRef = useRef<HTMLElement>(null);
-  const inView = useInView(heroRef, { amount: 0.15 });
-  const [playing, setPlaying] = useState(true);
-  const [pageVisible, setPageVisible] = useState(true);
-  const japanese = language === 'ja';
+  const { t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const updateVisibility = () => setPageVisible(!document.hidden);
-    updateVisibility();
-    document.addEventListener('visibilitychange', updateVisibility);
-    return () => document.removeEventListener('visibilitychange', updateVisibility);
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add event listener
+    window.addEventListener('resize', checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Decorative movement stops automatically; replay is an explicit user choice.
-  useEffect(() => {
-    if (!playing || !inView || !pageVisible || reduceMotion) return;
-    const timer = window.setTimeout(() => setPlaying(false), 4000);
-    return () => window.clearTimeout(timer);
-  }, [playing, inView, pageVisible, reduceMotion]);
-
-  const reveal = (delay = 0) => ({
-    initial: reduceMotion ? false as const : { opacity: 0, y: 16 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: reduceMotion ? 0 : 0.55, delay: reduceMotion ? 0 : delay },
-  });
-  const categories = [
-    { icon: Car, label: japanese ? '自動車' : 'Vehicles', to: '/vehicles?category=vehicles' },
-    { icon: Truck, label: japanese ? '建設機械' : 'Machinery', to: '/vehicles?category=machinery' },
-    { icon: Cog, label: japanese ? 'スペアパーツ' : 'Spare parts', to: '/contact' },
+  // Combined animations
+  const vehicleAnimations = [
+    {
+      animation: carAnimation,
+      delay: 0.2
+    },
+    {
+      animation: excavatorAnimation,
+      delay: 0.3
+    },
+    {
+      animation: bulldozerAnimation,
+      delay: 0.4
+    },
+    {
+      animation: dumpTruckAnimation,
+      delay: 0.5
+    },
+    {
+      animation: equipmentAnimation,
+      delay: 0.6
+    },
+    {
+      animation: forkliftAnimation,
+      delay: 0.7
+    }
   ];
 
-  return (
-    <section ref={heroRef} aria-labelledby="hero-title" className="relative isolate overflow-hidden bg-primary-900 text-white">
-      {/* Static light and grid keep the scene calm; only transform/opacity animate. */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-slate-950" />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '72px 72px' }} />
-      <div className="container-custom relative grid items-center gap-10 px-5 py-12 sm:px-8 sm:py-16 lg:min-h-[620px] lg:grid-cols-2 lg:gap-14 lg:py-20">
-        <div className="max-w-xl">
-          <motion.p {...reveal()} className="mb-5 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-blue-100">
-            <span aria-hidden="true" className="h-px w-9 bg-accent-400" />
-            {japanese ? '日本から世界へ' : 'From Japan, to your business'}
-          </motion.p>
-          <motion.h1 id="hero-title" {...reveal(0.08)} className="font-display text-4xl font-bold leading-[1.06] tracking-tight sm:text-6xl xl:text-7xl">
-            BIG <span className="text-accent-400">TRADING</span>
-          </motion.h1>
-          <motion.div {...reveal(0.16)}>
-            <h2 className="mt-6 text-xl font-semibold leading-snug sm:text-2xl">{t('business.heroTagline')}</h2>
-            <p className="mt-4 max-w-lg text-sm leading-relaxed text-blue-100 sm:text-base">{t('business.heroSubtitle')}</p>
-          </motion.div>
-          <motion.div {...reveal(0.24)} className="mt-8 flex flex-wrap items-center gap-4">
-            <Link to="/contact" className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-accent-500 px-5 py-3 font-semibold text-slate-950 transition-colors hover:bg-accent-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-              <ClipboardCheck aria-hidden="true" className="h-5 w-5" />{t('business.contactForAppraisal')}
-            </Link>
-            <Link to="/vehicles" className="inline-flex min-h-12 items-center gap-2 rounded-lg px-2 py-3 text-sm font-medium text-white underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-              {japanese ? '取扱商品を見る' : 'Explore our range'}<ArrowRight aria-hidden="true" className="h-4 w-4" />
-            </Link>
-          </motion.div>
-        </div>
+  // Create simplified particles
+  const createParticles = () => {
+    const particles = [];
+    for (let i = 0; i < 8; i++) {
+      particles.push(
+        <div
+          key={i}
+          className={`particle particle-${i % 5 + 1}`}
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 20}%`,
+            animationDelay: `${Math.random() * 10}s`
+          }}
+        />
+      );
+    }
+    return particles;
+  };
 
-        <motion.div {...reveal(0.16)} className="relative mx-auto w-full max-w-lg">
-          <div className="overflow-hidden rounded-2xl border border-white/20 bg-white/[0.06]">
-            <div className="flex items-center justify-between gap-3 border-b border-white/10 px-5 py-4">
-              <span className="text-xs font-medium tracking-wide text-blue-100">{japanese ? '建設機械・車両・部品' : 'MACHINERY · VEHICLES · PARTS'}</span>
-              {!reduceMotion && <button type="button" onClick={() => setPlaying(value => !value)} aria-label={playing ? (japanese ? 'アニメーションを一時停止' : 'Pause animation') : (japanese ? 'アニメーションを再生' : 'Replay animation')} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/25 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white">
-                {playing ? <Pause aria-hidden="true" className="h-4 w-4" /> : <Play aria-hidden="true" className="h-4 w-4" />}
-              </button>}
+  return (
+    <section className="relative h-[80vh] sm:h-[70vh] min-h-[600px] flex items-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/95 to-primary-700/90" />
+        {/* Additional overlay for better contrast */}
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="particles-container">
+          {createParticles()}
+        </div>
+      </div>
+
+      <div className="container-custom relative z-10 px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl mx-auto text-white backdrop-blur-md bg-primary-900/40 p-4 sm:p-6 rounded-xl border border-white/15 shadow-2xl"
+        >
+          {/* Company Name */}
+          <motion.h1
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-3 sm:mb-4 uppercase tracking-wide text-center"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
+            <span className="bg-gradient-to-r from-white to-gray-200 text-transparent bg-clip-text drop-shadow-sm">BIG </span>
+            <span className="text-accent-500 relative ml-1">TRADING
+              <motion.span
+                className="absolute -top-1 -right-1 hidden sm:block"
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: 0.6 }}
+              >
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-accent-400" />
+              </motion.span>
+            </span>
+          </motion.h1>
+
+          {/* Vehicle Animations - All in one row */}
+          <div className="mb-6 sm:mb-8">
+            {/* All Animations in a single row */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-5 px-1 sm:px-2 max-w-3xl mx-auto">
+              {vehicleAnimations.map((vehicle, index) => (
+                <motion.div
+                  key={`vehicle-${index}`}
+                  className="relative group"
+                  initial={{ opacity: 0, scale: 0, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{
+                    delay: vehicle.delay,
+                    duration: 0.5,
+                    type: "spring",
+                    stiffness: 200
+                  }}
+                  whileHover={{ scale: 1.12, y: -5, transition: { duration: 0.3 } }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <div
+                    className={`bg-white/50 dark:bg-white/40 p-2 sm:p-3 md:p-4 rounded-md border border-accent-500/30 hover:border-accent-500/70 transition-all duration-300 shadow-md hover:shadow-lg backdrop-blur-md animate-pulse-subtle ${index % 2 === 0 ? 'animate-float-slow' : 'animate-float-slower'} w-full flex justify-center`}
+                  >
+                    <div className="relative">
+                      {/* Subtle glow effect behind animation */}
+                      <div className="absolute inset-0 bg-gradient-to-b from-accent-500/15 to-transparent rounded-lg filter blur-md"></div>
+
+                      <Lottie
+                        loop
+                        animationData={vehicle.animation}
+                        play
+                        style={{
+                          width: isMobile ? 70 : 110,
+                          height: isMobile ? 70 : 110,
+                          position: 'relative',
+                          zIndex: 2
+                        }}
+                        className="mx-auto"
+                      />
+
+                      {/* Subtle reflection */}
+                      <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-white/30 to-transparent rounded-b-lg opacity-60 z-1"></div>
+
+                      {/* Shadow effect */}
+                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-black/15 rounded-full blur-md"></div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            <div aria-hidden="true" className="relative flex aspect-[4/3] items-center justify-center bg-gradient-to-b from-blue-50 to-slate-200 px-6 sm:aspect-[16/10]">
-              <div className="absolute bottom-[20%] left-[15%] right-[15%] h-3 rounded-[50%] bg-slate-900/10 blur-sm" />
-              <Lottie animationData={excavatorAnimation} loop play={Boolean(playing && inView && pageVisible && !reduceMotion)} goTo={reduceMotion ? 0 : undefined} className="relative w-full max-w-[320px]" rendererSettings={{ preserveAspectRatio: 'xMidYMid meet' }} />
+          </div>
+
+          {/* Business Focus */}
+          <motion.div
+            className="mb-4 sm:mb-5 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.5 }}
+          >
+            <h2 className="text-xl sm:text-2xl font-bold mb-2 bg-gradient-to-r from-white to-accent-400 text-transparent bg-clip-text">
+              {t('business.heroTagline')}
+            </h2>
+            <p className="text-xs sm:text-sm md:text-base text-gray-200 max-w-xl mx-auto px-1">
+              {t('business.heroSubtitle')}
+            </p>
+            <div className="flex flex-wrap justify-center gap-1 sm:gap-2 mt-2 sm:mt-3 bg-primary-800/30 py-1 sm:py-2 px-2 sm:px-4 rounded-full inline-block mx-auto">
+              <span className="text-accent-400 text-xs sm:text-sm font-medium">{t('about.value1Title')}</span>
+              <span className="text-white text-xs sm:text-sm">•</span>
+              <span className="text-accent-400 text-xs sm:text-sm font-medium">{t('about.value2Title')}</span>
+              <span className="text-white text-xs sm:text-sm">•</span>
+              <span className="text-accent-400 text-xs sm:text-sm font-medium">{t('about.value3Title')}</span>
             </div>
-            <p className="px-5 py-3 text-xs text-blue-100">{japanese ? 'イメージイラストです。在庫・仕様はお問い合わせください。' : 'Illustration only. Contact us for current availability and specifications.'}</p>
-          </div>
-          <div className="mt-3 grid grid-cols-3 gap-2 sm:gap-3">
-            {categories.map(({icon: Icon, label, to}) => <Link key={to} to={to} className="flex min-h-16 flex-col items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-2 py-3 text-center text-xs font-medium transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white sm:flex-row">
-              <Icon aria-hidden="true" className="h-4 w-4 shrink-0 text-accent-400" />{label}
-            </Link>)}
-          </div>
+          </motion.div>
+
+          {/* CTA Button */}
+          <motion.div
+            className="flex justify-center"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.7 }}
+          >
+            <Link to="/contact" className="btn btn-accent px-3 sm:px-5 py-1.5 sm:py-2 rounded-full flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-medium">
+              <ClipboardCheck className="w-3 h-3 sm:w-4 sm:h-4" />
+              {t('business.contactForAppraisal')}
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>
   );
 };
+
 export default HeroSection;
