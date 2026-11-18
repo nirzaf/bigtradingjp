@@ -53,7 +53,7 @@ Official npm registry `latest` and peer/engine metadata were checked before upgr
 - `npm run test:dom`: five jsdom integration tests passed: restored home heading, company profile, actual route navigation/scroll reset, category filtering, Japanese privacy. Only Lottie rendering is mocked because jsdom has no real canvas/SVG renderer; these are not visual animation tests.
 - `git diff --check`: passed.
 - Full browser/visual checks remain unverified. System Chromium cannot create its required socket in this environment. Installing the official Playwright headless shell also failed because the download was truncated/invalid. This is not a claim that every browser behavior is guaranteed unchanged.
-- Security audit: npm audit endpoint did not provide a usable result within the verification window. No zero-vulnerability claim is made.
+- Security audit: the delayed npm response reported 19 high-severity dependency-chain findings, all rooted in picomatch advisory [GHSA-fc5q-39xc-vjpf](https://github.com/advisories/GHSA-fc5q-39xc-vjpf). Every reported node is marked development-only in the lockfile; `npm ls picomatch --omit=dev` is empty. On 18 November 2026 the authoritative GitHub advisory page marks this advisory withdrawn, with no patched version listed, while npm still reports it. No forced downgrades or unsupported overrides were applied. This discrepancy needs rechecking as the advisory feeds synchronize; no zero-vulnerability claim is made. Do not expose development servers or accept untrusted glob patterns in build tooling.
 
 ## Follow-up
 
